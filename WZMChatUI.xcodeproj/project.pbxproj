@@ -1,0 +1,797 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		754A1F7D22E2BE53005A0585 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 754A1F7C22E2BE53005A0585 /* AppDelegate.m */; };
+		754A1F7F22E2BE54005A0585 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 754A1F7E22E2BE54005A0585 /* Assets.xcassets */; };
+		754A1F8522E2BE54005A0585 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 754A1F8422E2BE54005A0585 /* main.m */; };
+		754A1F9A22E2BEB6005A0585 /* LLUserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 754A1F8F22E2BEB6005A0585 /* LLUserViewController.m */; };
+		754A1F9B22E2BEB6005A0585 /* LLUserTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 754A1F9222E2BEB6005A0585 /* LLUserTableViewCell.m */; };
+		754A1F9C22E2BEB6005A0585 /* LLSessionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 754A1F9522E2BEB6005A0585 /* LLSessionViewController.m */; };
+		754A1F9D22E2BEB6005A0585 /* LLSessionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 754A1F9922E2BEB6005A0585 /* LLSessionTableViewCell.m */; };
+		754A1FFF22E2BF24005A0585 /* LLChatMessageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 754A1FA122E2BF23005A0585 /* LLChatMessageManager.m */; };
+		754A200022E2BF24005A0585 /* LLChatNotificationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 754A1FA322E2BF23005A0585 /* LLChatNotificationManager.m */; };
+		754A200122E2BF24005A0585 /* LLChatHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 754A1FA522E2BF23005A0585 /* LLChatHelper.m */; };
+		754A200222E2BF24005A0585 /* LLChatSqliteManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 754A1FA822E2BF23005A0585 /* LLChatSqliteManager.m */; };
+		754A200322E2BF24005A0585 /* LLChatDBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 754A1FAB22E2BF23005A0585 /* LLChatDBManager.m */; };
+		754A200422E2BF24005A0585 /* LLChatBaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 754A1FB022E2BF23005A0585 /* LLChatBaseCell.m */; };
+		754A200522E2BF24005A0585 /* LLChatBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = 754A1FB422E2BF23005A0585 /* LLChatBtn.m */; };
+		754A200622E2BF24005A0585 /* LLEmojisKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 754A1FB722E2BF23005A0585 /* LLEmojisKeyboard.m */; };
+		754A200722E2BF24005A0585 /* LLEmoticonManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 754A1FB922E2BF23005A0585 /* LLEmoticonManager.m */; };
+		754A200822E2BF24005A0585 /* LLHorizontalLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 754A1FBF22E2BF23005A0585 /* LLHorizontalLayout.m */; };
+		754A200922E2BF24005A0585 /* LLChatRecordAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 754A1FC222E2BF23005A0585 /* LLChatRecordAnimation.m */; };
+		754A200A22E2BF24005A0585 /* LLBlankCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 754A1FC722E2BF23005A0585 /* LLBlankCell.m */; };
+		754A200B22E2BF24005A0585 /* LLDeleteCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 754A1FC822E2BF23005A0585 /* LLDeleteCell.m */; };
+		754A200C22E2BF24005A0585 /* LLEmojisCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 754A1FC922E2BF23005A0585 /* LLEmojisCell.m */; };
+		754A200D22E2BF24005A0585 /* LLEmoticonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 754A1FCA22E2BF23005A0585 /* LLEmoticonCell.m */; };
+		754A200E22E2BF24005A0585 /* LLChatMoreKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 754A1FCD22E2BF24005A0585 /* LLChatMoreKeyboard.m */; };
+		754A200F22E2BF24005A0585 /* LLInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 754A1FCF22E2BF24005A0585 /* LLInputView.m */; };
+		754A201022E2BF24005A0585 /* LLChatSystemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 754A1FD122E2BF24005A0585 /* LLChatSystemCell.m */; };
+		754A201122E2BF24005A0585 /* LLChatTextMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 754A1FD222E2BF24005A0585 /* LLChatTextMessageCell.m */; };
+		754A201222E2BF24005A0585 /* LLChatImageMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 754A1FD422E2BF24005A0585 /* LLChatImageMessageCell.m */; };
+		754A201322E2BF24005A0585 /* LLChatVideoMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 754A1FD622E2BF24005A0585 /* LLChatVideoMessageCell.m */; };
+		754A201422E2BF24005A0585 /* LLChatMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 754A1FD922E2BF24005A0585 /* LLChatMessageCell.m */; };
+		754A201522E2BF24005A0585 /* LLChatVoiceMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 754A1FDC22E2BF24005A0585 /* LLChatVoiceMessageCell.m */; };
+		754A201622E2BF24005A0585 /* NSAttributedString+WZMChat.m in Sources */ = {isa = PBXBuildFile; fileRef = 754A1FDF22E2BF24005A0585 /* NSAttributedString+WZMChat.m */; };
+		754A201722E2BF24005A0585 /* NSDateFormatter+WZMChat.m in Sources */ = {isa = PBXBuildFile; fileRef = 754A1FE022E2BF24005A0585 /* NSDateFormatter+WZMChat.m */; };
+		754A201822E2BF24005A0585 /* WZMImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 754A1FE122E2BF24005A0585 /* WZMImageCache.m */; };
+		754A201922E2BF24005A0585 /* UIImage+WZMChat.m in Sources */ = {isa = PBXBuildFile; fileRef = 754A1FE222E2BF24005A0585 /* UIImage+WZMChat.m */; };
+		754A201A22E2BF24005A0585 /* NSString+WZMChat.m in Sources */ = {isa = PBXBuildFile; fileRef = 754A1FE322E2BF24005A0585 /* NSString+WZMChat.m */; };
+		754A201B22E2BF24005A0585 /* UIView+WZMChat.m in Sources */ = {isa = PBXBuildFile; fileRef = 754A1FE722E2BF24005A0585 /* UIView+WZMChat.m */; };
+		754A201C22E2BF24005A0585 /* WZMBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = 754A1FEB22E2BF24005A0585 /* WZMBase64.m */; };
+		754A201D22E2BF24005A0585 /* LLChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 754A1FEE22E2BF24005A0585 /* LLChatViewController.m */; };
+		754A201E22E2BF24005A0585 /* LLChatBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 754A1FF322E2BF24005A0585 /* LLChatBaseModel.m */; };
+		754A201F22E2BF24005A0585 /* LLChatSessionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 754A1FF622E2BF24005A0585 /* LLChatSessionModel.m */; };
+		754A202022E2BF24005A0585 /* LLChatUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 754A1FF922E2BF24005A0585 /* LLChatUserModel.m */; };
+		754A202122E2BF24005A0585 /* LLChatGroupModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 754A1FFA22E2BF24005A0585 /* LLChatGroupModel.m */; };
+		754A202222E2BF24005A0585 /* LLChatMessageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 754A1FFC22E2BF24005A0585 /* LLChatMessageModel.m */; };
+		754A202722E2C1AD005A0585 /* LLEmojis.plist in Resources */ = {isa = PBXBuildFile; fileRef = 754A202422E2C1AC005A0585 /* LLEmojis.plist */; };
+		754A202822E2C1AD005A0585 /* LLEmoticon1.plist in Resources */ = {isa = PBXBuildFile; fileRef = 754A202522E2C1AC005A0585 /* LLEmoticon1.plist */; };
+		754A202922E2C1AD005A0585 /* LLEmoticon2.plist in Resources */ = {isa = PBXBuildFile; fileRef = 754A202622E2C1AD005A0585 /* LLEmoticon2.plist */; };
+		754A202B22E2C276005A0585 /* emoticon.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 754A202A22E2C276005A0585 /* emoticon.bundle */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		754A1F7822E2BE53005A0585 /* WZMChatUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WZMChatUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		754A1F7B22E2BE53005A0585 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		754A1F7C22E2BE53005A0585 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		754A1F7E22E2BE54005A0585 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		754A1F8322E2BE54005A0585 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		754A1F8422E2BE54005A0585 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		754A1F8E22E2BEB6005A0585 /* LLUserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLUserViewController.h; sourceTree = "<group>"; };
+		754A1F8F22E2BEB6005A0585 /* LLUserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLUserViewController.m; sourceTree = "<group>"; };
+		754A1F9122E2BEB6005A0585 /* LLUserTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLUserTableViewCell.h; sourceTree = "<group>"; };
+		754A1F9222E2BEB6005A0585 /* LLUserTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLUserTableViewCell.m; sourceTree = "<group>"; };
+		754A1F9522E2BEB6005A0585 /* LLSessionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLSessionViewController.m; sourceTree = "<group>"; };
+		754A1F9622E2BEB6005A0585 /* LLSessionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLSessionViewController.h; sourceTree = "<group>"; };
+		754A1F9822E2BEB6005A0585 /* LLSessionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLSessionTableViewCell.h; sourceTree = "<group>"; };
+		754A1F9922E2BEB6005A0585 /* LLSessionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLSessionTableViewCell.m; sourceTree = "<group>"; };
+		754A1FA122E2BF23005A0585 /* LLChatMessageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLChatMessageManager.m; sourceTree = "<group>"; };
+		754A1FA222E2BF23005A0585 /* LLChatHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLChatHelper.h; sourceTree = "<group>"; };
+		754A1FA322E2BF23005A0585 /* LLChatNotificationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLChatNotificationManager.m; sourceTree = "<group>"; };
+		754A1FA422E2BF23005A0585 /* LLChatMessageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLChatMessageManager.h; sourceTree = "<group>"; };
+		754A1FA522E2BF23005A0585 /* LLChatHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLChatHelper.m; sourceTree = "<group>"; };
+		754A1FA622E2BF23005A0585 /* LLChatNotificationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLChatNotificationManager.h; sourceTree = "<group>"; };
+		754A1FA822E2BF23005A0585 /* LLChatSqliteManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLChatSqliteManager.m; sourceTree = "<group>"; };
+		754A1FA922E2BF23005A0585 /* LLChatSqliteManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLChatSqliteManager.h; sourceTree = "<group>"; };
+		754A1FAB22E2BF23005A0585 /* LLChatDBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLChatDBManager.m; sourceTree = "<group>"; };
+		754A1FAC22E2BF23005A0585 /* LLChatDBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLChatDBManager.h; sourceTree = "<group>"; };
+		754A1FAF22E2BF23005A0585 /* LLChatBaseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLChatBaseCell.h; sourceTree = "<group>"; };
+		754A1FB022E2BF23005A0585 /* LLChatBaseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLChatBaseCell.m; sourceTree = "<group>"; };
+		754A1FB322E2BF23005A0585 /* LLChatBtn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLChatBtn.h; sourceTree = "<group>"; };
+		754A1FB422E2BF23005A0585 /* LLChatBtn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLChatBtn.m; sourceTree = "<group>"; };
+		754A1FB522E2BF23005A0585 /* LLInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLInputView.h; sourceTree = "<group>"; };
+		754A1FB722E2BF23005A0585 /* LLEmojisKeyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLEmojisKeyboard.m; sourceTree = "<group>"; };
+		754A1FB922E2BF23005A0585 /* LLEmoticonManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLEmoticonManager.m; sourceTree = "<group>"; };
+		754A1FBA22E2BF23005A0585 /* LLEmoticonManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLEmoticonManager.h; sourceTree = "<group>"; };
+		754A1FBB22E2BF23005A0585 /* LLEmojisKeyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLEmojisKeyboard.h; sourceTree = "<group>"; };
+		754A1FBE22E2BF23005A0585 /* LLHorizontalLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLHorizontalLayout.h; sourceTree = "<group>"; };
+		754A1FBF22E2BF23005A0585 /* LLHorizontalLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLHorizontalLayout.m; sourceTree = "<group>"; };
+		754A1FC122E2BF23005A0585 /* LLChatRecordAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLChatRecordAnimation.h; sourceTree = "<group>"; };
+		754A1FC222E2BF23005A0585 /* LLChatRecordAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLChatRecordAnimation.m; sourceTree = "<group>"; };
+		754A1FC422E2BF23005A0585 /* LLEmoticonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLEmoticonCell.h; sourceTree = "<group>"; };
+		754A1FC522E2BF23005A0585 /* LLEmojisCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLEmojisCell.h; sourceTree = "<group>"; };
+		754A1FC622E2BF23005A0585 /* LLDeleteCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLDeleteCell.h; sourceTree = "<group>"; };
+		754A1FC722E2BF23005A0585 /* LLBlankCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLBlankCell.m; sourceTree = "<group>"; };
+		754A1FC822E2BF23005A0585 /* LLDeleteCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLDeleteCell.m; sourceTree = "<group>"; };
+		754A1FC922E2BF23005A0585 /* LLEmojisCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLEmojisCell.m; sourceTree = "<group>"; };
+		754A1FCA22E2BF23005A0585 /* LLEmoticonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLEmoticonCell.m; sourceTree = "<group>"; };
+		754A1FCB22E2BF24005A0585 /* LLBlankCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLBlankCell.h; sourceTree = "<group>"; };
+		754A1FCD22E2BF24005A0585 /* LLChatMoreKeyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLChatMoreKeyboard.m; sourceTree = "<group>"; };
+		754A1FCE22E2BF24005A0585 /* LLChatMoreKeyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLChatMoreKeyboard.h; sourceTree = "<group>"; };
+		754A1FCF22E2BF24005A0585 /* LLInputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLInputView.m; sourceTree = "<group>"; };
+		754A1FD122E2BF24005A0585 /* LLChatSystemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLChatSystemCell.m; sourceTree = "<group>"; };
+		754A1FD222E2BF24005A0585 /* LLChatTextMessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLChatTextMessageCell.m; sourceTree = "<group>"; };
+		754A1FD322E2BF24005A0585 /* LLChatMessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLChatMessageCell.h; sourceTree = "<group>"; };
+		754A1FD422E2BF24005A0585 /* LLChatImageMessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLChatImageMessageCell.m; sourceTree = "<group>"; };
+		754A1FD522E2BF24005A0585 /* LLChatVoiceMessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLChatVoiceMessageCell.h; sourceTree = "<group>"; };
+		754A1FD622E2BF24005A0585 /* LLChatVideoMessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLChatVideoMessageCell.m; sourceTree = "<group>"; };
+		754A1FD722E2BF24005A0585 /* LLChatSystemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLChatSystemCell.h; sourceTree = "<group>"; };
+		754A1FD822E2BF24005A0585 /* LLChatImageMessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLChatImageMessageCell.h; sourceTree = "<group>"; };
+		754A1FD922E2BF24005A0585 /* LLChatMessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLChatMessageCell.m; sourceTree = "<group>"; };
+		754A1FDA22E2BF24005A0585 /* LLChatTextMessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLChatTextMessageCell.h; sourceTree = "<group>"; };
+		754A1FDB22E2BF24005A0585 /* LLChatVideoMessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLChatVideoMessageCell.h; sourceTree = "<group>"; };
+		754A1FDC22E2BF24005A0585 /* LLChatVoiceMessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLChatVoiceMessageCell.m; sourceTree = "<group>"; };
+		754A1FDE22E2BF24005A0585 /* UIView+WZMChat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WZMChat.h"; sourceTree = "<group>"; };
+		754A1FDF22E2BF24005A0585 /* NSAttributedString+WZMChat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSAttributedString+WZMChat.m"; sourceTree = "<group>"; };
+		754A1FE022E2BF24005A0585 /* NSDateFormatter+WZMChat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDateFormatter+WZMChat.m"; sourceTree = "<group>"; };
+		754A1FE122E2BF24005A0585 /* WZMImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WZMImageCache.m; sourceTree = "<group>"; };
+		754A1FE222E2BF24005A0585 /* UIImage+WZMChat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+WZMChat.m"; sourceTree = "<group>"; };
+		754A1FE322E2BF24005A0585 /* NSString+WZMChat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+WZMChat.m"; sourceTree = "<group>"; };
+		754A1FE422E2BF24005A0585 /* WZMBase64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WZMBase64.h; sourceTree = "<group>"; };
+		754A1FE522E2BF24005A0585 /* NSDateFormatter+WZMChat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDateFormatter+WZMChat.h"; sourceTree = "<group>"; };
+		754A1FE622E2BF24005A0585 /* NSAttributedString+WZMChat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSAttributedString+WZMChat.h"; sourceTree = "<group>"; };
+		754A1FE722E2BF24005A0585 /* UIView+WZMChat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WZMChat.m"; sourceTree = "<group>"; };
+		754A1FE822E2BF24005A0585 /* NSString+WZMChat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+WZMChat.h"; sourceTree = "<group>"; };
+		754A1FE922E2BF24005A0585 /* UIImage+WZMChat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+WZMChat.h"; sourceTree = "<group>"; };
+		754A1FEA22E2BF24005A0585 /* WZMImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WZMImageCache.h; sourceTree = "<group>"; };
+		754A1FEB22E2BF24005A0585 /* WZMBase64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WZMBase64.m; sourceTree = "<group>"; };
+		754A1FEC22E2BF24005A0585 /* WZChatMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WZChatMacro.h; sourceTree = "<group>"; };
+		754A1FEE22E2BF24005A0585 /* LLChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLChatViewController.m; sourceTree = "<group>"; };
+		754A1FEF22E2BF24005A0585 /* LLChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLChatViewController.h; sourceTree = "<group>"; };
+		754A1FF222E2BF24005A0585 /* LLChatBaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLChatBaseModel.h; sourceTree = "<group>"; };
+		754A1FF322E2BF24005A0585 /* LLChatBaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLChatBaseModel.m; sourceTree = "<group>"; };
+		754A1FF522E2BF24005A0585 /* LLChatUserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLChatUserModel.h; sourceTree = "<group>"; };
+		754A1FF622E2BF24005A0585 /* LLChatSessionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLChatSessionModel.m; sourceTree = "<group>"; };
+		754A1FF722E2BF24005A0585 /* LLChatGroupModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLChatGroupModel.h; sourceTree = "<group>"; };
+		754A1FF822E2BF24005A0585 /* LLChatSessionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLChatSessionModel.h; sourceTree = "<group>"; };
+		754A1FF922E2BF24005A0585 /* LLChatUserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLChatUserModel.m; sourceTree = "<group>"; };
+		754A1FFA22E2BF24005A0585 /* LLChatGroupModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLChatGroupModel.m; sourceTree = "<group>"; };
+		754A1FFC22E2BF24005A0585 /* LLChatMessageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLChatMessageModel.m; sourceTree = "<group>"; };
+		754A1FFD22E2BF24005A0585 /* LLChatMessageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLChatMessageModel.h; sourceTree = "<group>"; };
+		754A1FFE22E2BF24005A0585 /* LLChat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLChat.h; sourceTree = "<group>"; };
+		754A202422E2C1AC005A0585 /* LLEmojis.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = LLEmojis.plist; sourceTree = "<group>"; };
+		754A202522E2C1AC005A0585 /* LLEmoticon1.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = LLEmoticon1.plist; sourceTree = "<group>"; };
+		754A202622E2C1AD005A0585 /* LLEmoticon2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = LLEmoticon2.plist; sourceTree = "<group>"; };
+		754A202A22E2C276005A0585 /* emoticon.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = emoticon.bundle; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		754A1F7522E2BE53005A0585 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		754A1F6F22E2BE53005A0585 = {
+			isa = PBXGroup;
+			children = (
+				754A1F7A22E2BE53005A0585 /* WZMChatUI */,
+				754A1F7922E2BE53005A0585 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		754A1F7922E2BE53005A0585 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				754A1F7822E2BE53005A0585 /* WZMChatUI.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		754A1F7A22E2BE53005A0585 /* WZMChatUI */ = {
+			isa = PBXGroup;
+			children = (
+				754A1F9E22E2BEF3005A0585 /* Chat */,
+				754A1F8C22E2BEB6005A0585 /* Friend */,
+				754A1F9322E2BEB6005A0585 /* Session */,
+				754A1F7B22E2BE53005A0585 /* AppDelegate.h */,
+				754A1F7C22E2BE53005A0585 /* AppDelegate.m */,
+				754A1F7E22E2BE54005A0585 /* Assets.xcassets */,
+				754A1F8322E2BE54005A0585 /* Info.plist */,
+				754A1F8422E2BE54005A0585 /* main.m */,
+			);
+			path = WZMChatUI;
+			sourceTree = "<group>";
+		};
+		754A1F8C22E2BEB6005A0585 /* Friend */ = {
+			isa = PBXGroup;
+			children = (
+				754A1F9022E2BEB6005A0585 /* View */,
+				754A1F8D22E2BEB6005A0585 /* Controller */,
+			);
+			path = Friend;
+			sourceTree = "<group>";
+		};
+		754A1F8D22E2BEB6005A0585 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				754A1F8E22E2BEB6005A0585 /* LLUserViewController.h */,
+				754A1F8F22E2BEB6005A0585 /* LLUserViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		754A1F9022E2BEB6005A0585 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				754A1F9122E2BEB6005A0585 /* LLUserTableViewCell.h */,
+				754A1F9222E2BEB6005A0585 /* LLUserTableViewCell.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		754A1F9322E2BEB6005A0585 /* Session */ = {
+			isa = PBXGroup;
+			children = (
+				754A1F9722E2BEB6005A0585 /* View */,
+				754A1F9422E2BEB6005A0585 /* Controller */,
+			);
+			path = Session;
+			sourceTree = "<group>";
+		};
+		754A1F9422E2BEB6005A0585 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				754A1F9622E2BEB6005A0585 /* LLSessionViewController.h */,
+				754A1F9522E2BEB6005A0585 /* LLSessionViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		754A1F9722E2BEB6005A0585 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				754A1F9822E2BEB6005A0585 /* LLSessionTableViewCell.h */,
+				754A1F9922E2BEB6005A0585 /* LLSessionTableViewCell.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		754A1F9E22E2BEF3005A0585 /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				754A1FFE22E2BF24005A0585 /* LLChat.h */,
+				754A1FAD22E2BF23005A0585 /* View */,
+				754A1FF022E2BF24005A0585 /* Model */,
+				754A1FED22E2BF24005A0585 /* Controller */,
+				754A1FDD22E2BF24005A0585 /* Category */,
+				754A1F9F22E2BF23005A0585 /* Common */,
+				754A202322E2C10F005A0585 /* Resource */,
+			);
+			path = Chat;
+			sourceTree = "<group>";
+		};
+		754A1F9F22E2BF23005A0585 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				754A1FEC22E2BF24005A0585 /* WZChatMacro.h */,
+				754A1FA222E2BF23005A0585 /* LLChatHelper.h */,
+				754A1FA522E2BF23005A0585 /* LLChatHelper.m */,
+				754A1FEA22E2BF24005A0585 /* WZMImageCache.h */,
+				754A1FE122E2BF24005A0585 /* WZMImageCache.m */,
+				754A1FA922E2BF23005A0585 /* LLChatSqliteManager.h */,
+				754A1FA822E2BF23005A0585 /* LLChatSqliteManager.m */,
+				754A1FA422E2BF23005A0585 /* LLChatMessageManager.h */,
+				754A1FA122E2BF23005A0585 /* LLChatMessageManager.m */,
+				754A1FA622E2BF23005A0585 /* LLChatNotificationManager.h */,
+				754A1FA322E2BF23005A0585 /* LLChatNotificationManager.m */,
+				754A1FAA22E2BF23005A0585 /* DBManager */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		754A1FAA22E2BF23005A0585 /* DBManager */ = {
+			isa = PBXGroup;
+			children = (
+				754A1FAC22E2BF23005A0585 /* LLChatDBManager.h */,
+				754A1FAB22E2BF23005A0585 /* LLChatDBManager.m */,
+			);
+			path = DBManager;
+			sourceTree = "<group>";
+		};
+		754A1FAD22E2BF23005A0585 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				754A1FD022E2BF24005A0585 /* MsgCell */,
+				754A1FB122E2BF23005A0585 /* Keyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		754A1FAE22E2BF23005A0585 /* BaseCell */ = {
+			isa = PBXGroup;
+			children = (
+				754A1FAF22E2BF23005A0585 /* LLChatBaseCell.h */,
+				754A1FB022E2BF23005A0585 /* LLChatBaseCell.m */,
+			);
+			path = BaseCell;
+			sourceTree = "<group>";
+		};
+		754A1FB122E2BF23005A0585 /* Keyboard */ = {
+			isa = PBXGroup;
+			children = (
+				754A1FB522E2BF23005A0585 /* LLInputView.h */,
+				754A1FCF22E2BF24005A0585 /* LLInputView.m */,
+				754A1FB222E2BF23005A0585 /* LLChatBtn */,
+				754A1FB622E2BF23005A0585 /* LLEmojisKeyboard */,
+				754A1FCC22E2BF24005A0585 /* LLMoreKeyboard */,
+			);
+			path = Keyboard;
+			sourceTree = "<group>";
+		};
+		754A1FB222E2BF23005A0585 /* LLChatBtn */ = {
+			isa = PBXGroup;
+			children = (
+				754A1FB322E2BF23005A0585 /* LLChatBtn.h */,
+				754A1FB422E2BF23005A0585 /* LLChatBtn.m */,
+			);
+			path = LLChatBtn;
+			sourceTree = "<group>";
+		};
+		754A1FB622E2BF23005A0585 /* LLEmojisKeyboard */ = {
+			isa = PBXGroup;
+			children = (
+				754A1FBB22E2BF23005A0585 /* LLEmojisKeyboard.h */,
+				754A1FB722E2BF23005A0585 /* LLEmojisKeyboard.m */,
+				754A1FBC22E2BF23005A0585 /* View */,
+				754A1FB822E2BF23005A0585 /* EmoticonManager */,
+			);
+			path = LLEmojisKeyboard;
+			sourceTree = "<group>";
+		};
+		754A1FB822E2BF23005A0585 /* EmoticonManager */ = {
+			isa = PBXGroup;
+			children = (
+				754A1FBA22E2BF23005A0585 /* LLEmoticonManager.h */,
+				754A1FB922E2BF23005A0585 /* LLEmoticonManager.m */,
+			);
+			path = EmoticonManager;
+			sourceTree = "<group>";
+		};
+		754A1FBC22E2BF23005A0585 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				754A1FC322E2BF23005A0585 /* cell */,
+				754A1FBD22E2BF23005A0585 /* layout */,
+				754A1FC022E2BF23005A0585 /* recordAnimation */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		754A1FBD22E2BF23005A0585 /* layout */ = {
+			isa = PBXGroup;
+			children = (
+				754A1FBE22E2BF23005A0585 /* LLHorizontalLayout.h */,
+				754A1FBF22E2BF23005A0585 /* LLHorizontalLayout.m */,
+			);
+			path = layout;
+			sourceTree = "<group>";
+		};
+		754A1FC022E2BF23005A0585 /* recordAnimation */ = {
+			isa = PBXGroup;
+			children = (
+				754A1FC122E2BF23005A0585 /* LLChatRecordAnimation.h */,
+				754A1FC222E2BF23005A0585 /* LLChatRecordAnimation.m */,
+			);
+			path = recordAnimation;
+			sourceTree = "<group>";
+		};
+		754A1FC322E2BF23005A0585 /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				754A1FCB22E2BF24005A0585 /* LLBlankCell.h */,
+				754A1FC722E2BF23005A0585 /* LLBlankCell.m */,
+				754A1FC622E2BF23005A0585 /* LLDeleteCell.h */,
+				754A1FC822E2BF23005A0585 /* LLDeleteCell.m */,
+				754A1FC522E2BF23005A0585 /* LLEmojisCell.h */,
+				754A1FC922E2BF23005A0585 /* LLEmojisCell.m */,
+				754A1FC422E2BF23005A0585 /* LLEmoticonCell.h */,
+				754A1FCA22E2BF23005A0585 /* LLEmoticonCell.m */,
+			);
+			path = cell;
+			sourceTree = "<group>";
+		};
+		754A1FCC22E2BF24005A0585 /* LLMoreKeyboard */ = {
+			isa = PBXGroup;
+			children = (
+				754A1FCE22E2BF24005A0585 /* LLChatMoreKeyboard.h */,
+				754A1FCD22E2BF24005A0585 /* LLChatMoreKeyboard.m */,
+			);
+			path = LLMoreKeyboard;
+			sourceTree = "<group>";
+		};
+		754A1FD022E2BF24005A0585 /* MsgCell */ = {
+			isa = PBXGroup;
+			children = (
+				754A1FAE22E2BF23005A0585 /* BaseCell */,
+				754A1FD322E2BF24005A0585 /* LLChatMessageCell.h */,
+				754A1FD922E2BF24005A0585 /* LLChatMessageCell.m */,
+				754A1FD722E2BF24005A0585 /* LLChatSystemCell.h */,
+				754A1FD122E2BF24005A0585 /* LLChatSystemCell.m */,
+				754A1FDA22E2BF24005A0585 /* LLChatTextMessageCell.h */,
+				754A1FD222E2BF24005A0585 /* LLChatTextMessageCell.m */,
+				754A1FD822E2BF24005A0585 /* LLChatImageMessageCell.h */,
+				754A1FD422E2BF24005A0585 /* LLChatImageMessageCell.m */,
+				754A1FD522E2BF24005A0585 /* LLChatVoiceMessageCell.h */,
+				754A1FDC22E2BF24005A0585 /* LLChatVoiceMessageCell.m */,
+				754A1FDB22E2BF24005A0585 /* LLChatVideoMessageCell.h */,
+				754A1FD622E2BF24005A0585 /* LLChatVideoMessageCell.m */,
+			);
+			path = MsgCell;
+			sourceTree = "<group>";
+		};
+		754A1FDD22E2BF24005A0585 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				754A1FE422E2BF24005A0585 /* WZMBase64.h */,
+				754A1FEB22E2BF24005A0585 /* WZMBase64.m */,
+				754A1FDE22E2BF24005A0585 /* UIView+WZMChat.h */,
+				754A1FE722E2BF24005A0585 /* UIView+WZMChat.m */,
+				754A1FE222E2BF24005A0585 /* UIImage+WZMChat.m */,
+				754A1FE922E2BF24005A0585 /* UIImage+WZMChat.h */,
+				754A1FE822E2BF24005A0585 /* NSString+WZMChat.h */,
+				754A1FE322E2BF24005A0585 /* NSString+WZMChat.m */,
+				754A1FE522E2BF24005A0585 /* NSDateFormatter+WZMChat.h */,
+				754A1FE022E2BF24005A0585 /* NSDateFormatter+WZMChat.m */,
+				754A1FE622E2BF24005A0585 /* NSAttributedString+WZMChat.h */,
+				754A1FDF22E2BF24005A0585 /* NSAttributedString+WZMChat.m */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		754A1FED22E2BF24005A0585 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				754A1FEF22E2BF24005A0585 /* LLChatViewController.h */,
+				754A1FEE22E2BF24005A0585 /* LLChatViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		754A1FF022E2BF24005A0585 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				754A1FF122E2BF24005A0585 /* LLChatBaseModel */,
+				754A1FF422E2BF24005A0585 /* LLChatUserModel */,
+				754A1FFB22E2BF24005A0585 /* LLChatMessageModel */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		754A1FF122E2BF24005A0585 /* LLChatBaseModel */ = {
+			isa = PBXGroup;
+			children = (
+				754A1FF222E2BF24005A0585 /* LLChatBaseModel.h */,
+				754A1FF322E2BF24005A0585 /* LLChatBaseModel.m */,
+			);
+			path = LLChatBaseModel;
+			sourceTree = "<group>";
+		};
+		754A1FF422E2BF24005A0585 /* LLChatUserModel */ = {
+			isa = PBXGroup;
+			children = (
+				754A1FF522E2BF24005A0585 /* LLChatUserModel.h */,
+				754A1FF922E2BF24005A0585 /* LLChatUserModel.m */,
+				754A1FF722E2BF24005A0585 /* LLChatGroupModel.h */,
+				754A1FFA22E2BF24005A0585 /* LLChatGroupModel.m */,
+				754A1FF822E2BF24005A0585 /* LLChatSessionModel.h */,
+				754A1FF622E2BF24005A0585 /* LLChatSessionModel.m */,
+			);
+			path = LLChatUserModel;
+			sourceTree = "<group>";
+		};
+		754A1FFB22E2BF24005A0585 /* LLChatMessageModel */ = {
+			isa = PBXGroup;
+			children = (
+				754A1FFD22E2BF24005A0585 /* LLChatMessageModel.h */,
+				754A1FFC22E2BF24005A0585 /* LLChatMessageModel.m */,
+			);
+			path = LLChatMessageModel;
+			sourceTree = "<group>";
+		};
+		754A202322E2C10F005A0585 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				754A202A22E2C276005A0585 /* emoticon.bundle */,
+				754A202422E2C1AC005A0585 /* LLEmojis.plist */,
+				754A202522E2C1AC005A0585 /* LLEmoticon1.plist */,
+				754A202622E2C1AD005A0585 /* LLEmoticon2.plist */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		754A1F7722E2BE53005A0585 /* WZMChatUI */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 754A1F8822E2BE54005A0585 /* Build configuration list for PBXNativeTarget "WZMChatUI" */;
+			buildPhases = (
+				754A1F7422E2BE53005A0585 /* Sources */,
+				754A1F7522E2BE53005A0585 /* Frameworks */,
+				754A1F7622E2BE53005A0585 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WZMChatUI;
+			productName = WZMChatUI;
+			productReference = 754A1F7822E2BE53005A0585 /* WZMChatUI.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		754A1F7022E2BE53005A0585 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1020;
+				ORGANIZATIONNAME = WangZhaomeng;
+				TargetAttributes = {
+					754A1F7722E2BE53005A0585 = {
+						CreatedOnToolsVersion = 10.2.1;
+					};
+				};
+			};
+			buildConfigurationList = 754A1F7322E2BE53005A0585 /* Build configuration list for PBXProject "WZMChatUI" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 754A1F6F22E2BE53005A0585;
+			productRefGroup = 754A1F7922E2BE53005A0585 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				754A1F7722E2BE53005A0585 /* WZMChatUI */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		754A1F7622E2BE53005A0585 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				754A1F7F22E2BE54005A0585 /* Assets.xcassets in Resources */,
+				754A202B22E2C276005A0585 /* emoticon.bundle in Resources */,
+				754A202922E2C1AD005A0585 /* LLEmoticon2.plist in Resources */,
+				754A202722E2C1AD005A0585 /* LLEmojis.plist in Resources */,
+				754A202822E2C1AD005A0585 /* LLEmoticon1.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		754A1F7422E2BE53005A0585 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				754A200D22E2BF24005A0585 /* LLEmoticonCell.m in Sources */,
+				754A200A22E2BF24005A0585 /* LLBlankCell.m in Sources */,
+				754A201022E2BF24005A0585 /* LLChatSystemCell.m in Sources */,
+				754A202222E2BF24005A0585 /* LLChatMessageModel.m in Sources */,
+				754A200022E2BF24005A0585 /* LLChatNotificationManager.m in Sources */,
+				754A202022E2BF24005A0585 /* LLChatUserModel.m in Sources */,
+				754A201722E2BF24005A0585 /* NSDateFormatter+WZMChat.m in Sources */,
+				754A1F9D22E2BEB6005A0585 /* LLSessionTableViewCell.m in Sources */,
+				754A201E22E2BF24005A0585 /* LLChatBaseModel.m in Sources */,
+				754A201222E2BF24005A0585 /* LLChatImageMessageCell.m in Sources */,
+				754A201622E2BF24005A0585 /* NSAttributedString+WZMChat.m in Sources */,
+				754A200322E2BF24005A0585 /* LLChatDBManager.m in Sources */,
+				754A201422E2BF24005A0585 /* LLChatMessageCell.m in Sources */,
+				754A1F9A22E2BEB6005A0585 /* LLUserViewController.m in Sources */,
+				754A1F9C22E2BEB6005A0585 /* LLSessionViewController.m in Sources */,
+				754A1F8522E2BE54005A0585 /* main.m in Sources */,
+				754A201F22E2BF24005A0585 /* LLChatSessionModel.m in Sources */,
+				754A200422E2BF24005A0585 /* LLChatBaseCell.m in Sources */,
+				754A200522E2BF24005A0585 /* LLChatBtn.m in Sources */,
+				754A1F9B22E2BEB6005A0585 /* LLUserTableViewCell.m in Sources */,
+				754A201A22E2BF24005A0585 /* NSString+WZMChat.m in Sources */,
+				754A200B22E2BF24005A0585 /* LLDeleteCell.m in Sources */,
+				754A1F7D22E2BE53005A0585 /* AppDelegate.m in Sources */,
+				754A200C22E2BF24005A0585 /* LLEmojisCell.m in Sources */,
+				754A200722E2BF24005A0585 /* LLEmoticonManager.m in Sources */,
+				754A201C22E2BF24005A0585 /* WZMBase64.m in Sources */,
+				754A200E22E2BF24005A0585 /* LLChatMoreKeyboard.m in Sources */,
+				754A201B22E2BF24005A0585 /* UIView+WZMChat.m in Sources */,
+				754A1FFF22E2BF24005A0585 /* LLChatMessageManager.m in Sources */,
+				754A200622E2BF24005A0585 /* LLEmojisKeyboard.m in Sources */,
+				754A200122E2BF24005A0585 /* LLChatHelper.m in Sources */,
+				754A201122E2BF24005A0585 /* LLChatTextMessageCell.m in Sources */,
+				754A200922E2BF24005A0585 /* LLChatRecordAnimation.m in Sources */,
+				754A200222E2BF24005A0585 /* LLChatSqliteManager.m in Sources */,
+				754A201322E2BF24005A0585 /* LLChatVideoMessageCell.m in Sources */,
+				754A201922E2BF24005A0585 /* UIImage+WZMChat.m in Sources */,
+				754A200822E2BF24005A0585 /* LLHorizontalLayout.m in Sources */,
+				754A200F22E2BF24005A0585 /* LLInputView.m in Sources */,
+				754A201522E2BF24005A0585 /* LLChatVoiceMessageCell.m in Sources */,
+				754A201D22E2BF24005A0585 /* LLChatViewController.m in Sources */,
+				754A202122E2BF24005A0585 /* LLChatGroupModel.m in Sources */,
+				754A201822E2BF24005A0585 /* WZMImageCache.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		754A1F8622E2BE54005A0585 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		754A1F8722E2BE54005A0585 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		754A1F8922E2BE54005A0585 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = F66A99Y6V4;
+				INFOPLIST_FILE = WZMChatUI/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = WangZhaomeng.WZMChatUI;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		754A1F8A22E2BE54005A0585 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = F66A99Y6V4;
+				INFOPLIST_FILE = WZMChatUI/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = WangZhaomeng.WZMChatUI;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		754A1F7322E2BE53005A0585 /* Build configuration list for PBXProject "WZMChatUI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				754A1F8622E2BE54005A0585 /* Debug */,
+				754A1F8722E2BE54005A0585 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		754A1F8822E2BE54005A0585 /* Build configuration list for PBXNativeTarget "WZMChatUI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				754A1F8922E2BE54005A0585 /* Debug */,
+				754A1F8A22E2BE54005A0585 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 754A1F7022E2BE53005A0585 /* Project object */;
+}
