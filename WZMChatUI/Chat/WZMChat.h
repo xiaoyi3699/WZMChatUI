@@ -9,29 +9,33 @@
 #ifndef WZMChat_h
 #define WZMChat_h
 
-#import "WZMBase64.h"
+//公共类、宏定义
 #import "WZChatMacro.h"
 #import "WZMChatHelper.h"
-#import "WZMImageCache.h"
-#import "WZMChatSqliteManager.h"
 
+//扩展类
+#import "WZMBase64.h"
 #import "UIView+WZMChat.h"
-#import "UIImage+WZMChat.h"
-#import "NSString+WZMChat.h"
 #import "NSDateFormatter+WZMChat.h"
 #import "NSAttributedString+WZMChat.h"
 
-#import "WZMChatBaseModel.h"
+//model类
 #import "WZMChatUserModel.h"
 #import "WZMChatGroupModel.h"
 #import "WZMChatSessionModel.h"
 #import "WZMChatMessageModel.h"
 
+//图片缓存
+#import "WZMImageCache.h"
+//数据库管理
 #import "WZMChatDBManager.h"
+//表情管理
 #import "WZMEmoticonManager.h"
+//消息管理
 #import "WZMChatMessageManager.h"
+//通知管理
 #import "WZMChatNotificationManager.h"
-
+//私聊界面
 #import "WZMChatViewController.h"
 
 #endif /* WZMChat_h */

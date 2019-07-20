@@ -1,5 +1,5 @@
 //
-//  AppDelegate.h
+//  WZMAppDelegate.h
 //  WZMChatUI
 //
 //  Created by WangZhaomeng on 2019/7/20.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+@interface WZMAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 

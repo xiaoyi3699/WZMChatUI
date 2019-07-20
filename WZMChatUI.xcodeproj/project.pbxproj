@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		754A1F7D22E2BE53005A0585 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 754A1F7C22E2BE53005A0585 /* AppDelegate.m */; };
+		754A1F7D22E2BE53005A0585 /* WZMAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 754A1F7C22E2BE53005A0585 /* WZMAppDelegate.m */; };
 		754A1F7F22E2BE54005A0585 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 754A1F7E22E2BE54005A0585 /* Assets.xcassets */; };
 		754A1F8522E2BE54005A0585 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 754A1F8422E2BE54005A0585 /* main.m */; };
 		754A1F9A22E2BEB6005A0585 /* WZMUserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 754A1F8F22E2BEB6005A0585 /* WZMUserViewController.m */; };
@@ -40,8 +40,6 @@
 		754A201622E2BF24005A0585 /* NSAttributedString+WZMChat.m in Sources */ = {isa = PBXBuildFile; fileRef = 754A1FDF22E2BF24005A0585 /* NSAttributedString+WZMChat.m */; };
 		754A201722E2BF24005A0585 /* NSDateFormatter+WZMChat.m in Sources */ = {isa = PBXBuildFile; fileRef = 754A1FE022E2BF24005A0585 /* NSDateFormatter+WZMChat.m */; };
 		754A201822E2BF24005A0585 /* WZMImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 754A1FE122E2BF24005A0585 /* WZMImageCache.m */; };
-		754A201922E2BF24005A0585 /* UIImage+WZMChat.m in Sources */ = {isa = PBXBuildFile; fileRef = 754A1FE222E2BF24005A0585 /* UIImage+WZMChat.m */; };
-		754A201A22E2BF24005A0585 /* NSString+WZMChat.m in Sources */ = {isa = PBXBuildFile; fileRef = 754A1FE322E2BF24005A0585 /* NSString+WZMChat.m */; };
 		754A201B22E2BF24005A0585 /* UIView+WZMChat.m in Sources */ = {isa = PBXBuildFile; fileRef = 754A1FE722E2BF24005A0585 /* UIView+WZMChat.m */; };
 		754A201C22E2BF24005A0585 /* WZMBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = 754A1FEB22E2BF24005A0585 /* WZMBase64.m */; };
 		754A201D22E2BF24005A0585 /* WZMChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 754A1FEE22E2BF24005A0585 /* WZMChatViewController.m */; };
@@ -58,8 +56,8 @@
 
 /* Begin PBXFileReference section */
 		754A1F7822E2BE53005A0585 /* WZMChatUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WZMChatUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		754A1F7B22E2BE53005A0585 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		754A1F7C22E2BE53005A0585 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		754A1F7B22E2BE53005A0585 /* WZMAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WZMAppDelegate.h; sourceTree = "<group>"; };
+		754A1F7C22E2BE53005A0585 /* WZMAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WZMAppDelegate.m; sourceTree = "<group>"; };
 		754A1F7E22E2BE54005A0585 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		754A1F8322E2BE54005A0585 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		754A1F8422E2BE54005A0585 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -121,14 +119,10 @@
 		754A1FDF22E2BF24005A0585 /* NSAttributedString+WZMChat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSAttributedString+WZMChat.m"; sourceTree = "<group>"; };
 		754A1FE022E2BF24005A0585 /* NSDateFormatter+WZMChat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDateFormatter+WZMChat.m"; sourceTree = "<group>"; };
 		754A1FE122E2BF24005A0585 /* WZMImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WZMImageCache.m; sourceTree = "<group>"; };
-		754A1FE222E2BF24005A0585 /* UIImage+WZMChat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+WZMChat.m"; sourceTree = "<group>"; };
-		754A1FE322E2BF24005A0585 /* NSString+WZMChat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+WZMChat.m"; sourceTree = "<group>"; };
 		754A1FE422E2BF24005A0585 /* WZMBase64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WZMBase64.h; sourceTree = "<group>"; };
 		754A1FE522E2BF24005A0585 /* NSDateFormatter+WZMChat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDateFormatter+WZMChat.h"; sourceTree = "<group>"; };
 		754A1FE622E2BF24005A0585 /* NSAttributedString+WZMChat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSAttributedString+WZMChat.h"; sourceTree = "<group>"; };
 		754A1FE722E2BF24005A0585 /* UIView+WZMChat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WZMChat.m"; sourceTree = "<group>"; };
-		754A1FE822E2BF24005A0585 /* NSString+WZMChat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+WZMChat.h"; sourceTree = "<group>"; };
-		754A1FE922E2BF24005A0585 /* UIImage+WZMChat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+WZMChat.h"; sourceTree = "<group>"; };
 		754A1FEA22E2BF24005A0585 /* WZMImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WZMImageCache.h; sourceTree = "<group>"; };
 		754A1FEB22E2BF24005A0585 /* WZMBase64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WZMBase64.m; sourceTree = "<group>"; };
 		754A1FEC22E2BF24005A0585 /* WZChatMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WZChatMacro.h; sourceTree = "<group>"; };
@@ -162,6 +156,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		753D70CE22E368C600A55E83 /* WZMAppDelegete */ = {
+			isa = PBXGroup;
+			children = (
+				754A1F7B22E2BE53005A0585 /* WZMAppDelegate.h */,
+				754A1F7C22E2BE53005A0585 /* WZMAppDelegate.m */,
+				754A1F7E22E2BE54005A0585 /* Assets.xcassets */,
+				754A1F8322E2BE54005A0585 /* Info.plist */,
+				754A1F8422E2BE54005A0585 /* main.m */,
+			);
+			path = WZMAppDelegete;
+			sourceTree = "<group>";
+		};
 		754A1F6F22E2BE53005A0585 = {
 			isa = PBXGroup;
 			children = (
@@ -181,14 +187,10 @@
 		754A1F7A22E2BE53005A0585 /* WZMChatUI */ = {
 			isa = PBXGroup;
 			children = (
+				753D70CE22E368C600A55E83 /* WZMAppDelegete */,
 				754A1F9E22E2BEF3005A0585 /* Chat */,
 				754A1F8C22E2BEB6005A0585 /* Friend */,
 				754A1F9322E2BEB6005A0585 /* Session */,
-				754A1F7B22E2BE53005A0585 /* AppDelegate.h */,
-				754A1F7C22E2BE53005A0585 /* AppDelegate.m */,
-				754A1F7E22E2BE54005A0585 /* Assets.xcassets */,
-				754A1F8322E2BE54005A0585 /* Info.plist */,
-				754A1F8422E2BE54005A0585 /* main.m */,
 			);
 			path = WZMChatUI;
 			sourceTree = "<group>";
@@ -427,10 +429,6 @@
 				754A1FEB22E2BF24005A0585 /* WZMBase64.m */,
 				754A1FDE22E2BF24005A0585 /* UIView+WZMChat.h */,
 				754A1FE722E2BF24005A0585 /* UIView+WZMChat.m */,
-				754A1FE222E2BF24005A0585 /* UIImage+WZMChat.m */,
-				754A1FE922E2BF24005A0585 /* UIImage+WZMChat.h */,
-				754A1FE822E2BF24005A0585 /* NSString+WZMChat.h */,
-				754A1FE322E2BF24005A0585 /* NSString+WZMChat.m */,
 				754A1FE522E2BF24005A0585 /* NSDateFormatter+WZMChat.h */,
 				754A1FE022E2BF24005A0585 /* NSDateFormatter+WZMChat.m */,
 				754A1FE622E2BF24005A0585 /* NSAttributedString+WZMChat.h */,
@@ -592,9 +590,8 @@
 				754A200422E2BF24005A0585 /* WZMChatBaseCell.m in Sources */,
 				754A200522E2BF24005A0585 /* WZMChatBtn.m in Sources */,
 				754A1F9B22E2BEB6005A0585 /* WZMUserTableViewCell.m in Sources */,
-				754A201A22E2BF24005A0585 /* NSString+WZMChat.m in Sources */,
 				754A200B22E2BF24005A0585 /* WZMDeleteCell.m in Sources */,
-				754A1F7D22E2BE53005A0585 /* AppDelegate.m in Sources */,
+				754A1F7D22E2BE53005A0585 /* WZMAppDelegate.m in Sources */,
 				754A200C22E2BF24005A0585 /* WZMEmojisCell.m in Sources */,
 				754A200722E2BF24005A0585 /* WZMEmoticonManager.m in Sources */,
 				754A201C22E2BF24005A0585 /* WZMBase64.m in Sources */,
@@ -607,7 +604,6 @@
 				754A200922E2BF24005A0585 /* WZMChatRecordAnimation.m in Sources */,
 				754A200222E2BF24005A0585 /* WZMChatSqliteManager.m in Sources */,
 				754A201322E2BF24005A0585 /* WZMChatVideoMessageCell.m in Sources */,
-				754A201922E2BF24005A0585 /* UIImage+WZMChat.m in Sources */,
 				754A200822E2BF24005A0585 /* WZMHorizontalLayout.m in Sources */,
 				754A200F22E2BF24005A0585 /* WZMInputView.m in Sources */,
 				754A201522E2BF24005A0585 /* WZMChatVoiceMessageCell.m in Sources */,
@@ -739,7 +735,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = F66A99Y6V4;
-				INFOPLIST_FILE = WZMChatUI/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/WZMChatUI/WZMAppDelegete/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -758,7 +754,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = F66A99Y6V4;
-				INFOPLIST_FILE = WZMChatUI/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/WZMChatUI/WZMAppDelegete/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

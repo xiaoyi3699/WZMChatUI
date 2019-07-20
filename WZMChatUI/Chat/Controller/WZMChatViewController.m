@@ -649,7 +649,7 @@
 }
 
 - (void)dealloc {
-    NSLog(@"释放了==%@",NSStringFromClass([self class]));
+    NSLog(@"%@释放了",NSStringFromClass(self.class));
 }
 
 @end

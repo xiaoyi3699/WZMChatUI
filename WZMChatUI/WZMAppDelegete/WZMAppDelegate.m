@@ -1,20 +1,20 @@
 //
-//  AppDelegate.m
+//  WZMAppDelegate.m
 //  WZMChatUI
 //
 //  Created by WangZhaomeng on 2019/7/20.
 //  Copyright © 2019 WangZhaomeng. All rights reserved.
 //
 
-#import "AppDelegate.h"
+#import "WZMAppDelegate.h"
 #import "WZMUserViewController.h"
 #import "WZMSessionViewController.h"
 
-@interface AppDelegate ()
+@interface WZMAppDelegate ()
 
 @end
 
-@implementation AppDelegate
+@implementation WZMAppDelegate
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions

@@ -8,14 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
-NS_ASSUME_NONNULL_BEGIN
-
 @interface NSDateFormatter (WZMChat)
 
-+ (NSDateFormatter *)ll_defaultDateFormatter;
-+ (NSDateFormatter *)ll_detailDateFormatter;
-+ (NSDateFormatter *)ll_dateFormatter:(NSString *)f;
++ (NSDateFormatter *)wzm_defaultDateFormatter;
++ (NSDateFormatter *)wzm_detailDateFormatter;
++ (NSDateFormatter *)wzm_dateFormatter:(NSString *)f;
 
 @end
-
-NS_ASSUME_NONNULL_END
