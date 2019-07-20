@@ -12,7 +12,7 @@
 @implementation WZMChatBaseModel
 
 #pragma mark - 使用runtime进行解档与归档
-+ (instancetype)ll_unarchiveObjectWithData:(NSData *)data {
++ (instancetype)wzm_unarchiveObjectWithData:(NSData *)data {
     if ([self conformsToProtocol:@protocol(NSCoding)] && data) {
         if (class_respondsToSelector(self, @selector(initWithCoder:))) {
             return [NSKeyedUnarchiver unarchiveObjectWithData:data];
@@ -161,7 +161,7 @@
 
 @implementation NSData (WZMChatBaseModel)
 
-+ (NSData *)ll_archivedDataWithModel:(WZMChatBaseModel *)model {
++ (NSData *)wzm_archivedDataWithModel:(WZMChatBaseModel *)model {
     if ([model conformsToProtocol:@protocol(NSCoding)] && model) {
         if ([model respondsToSelector:@selector(encodeWithCoder:)]) {
             return [NSKeyedArchiver archivedDataWithRootObject:model];

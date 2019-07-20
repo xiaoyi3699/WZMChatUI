@@ -31,7 +31,7 @@
         _keyboardW = [UIScreen mainScreen].bounds.size.width;
         CGFloat itemWidth = (_keyboardW-(_nums+1)*_spacing)/_nums;
         CGFloat itemHeight = itemWidth*0.9;
-        _LLItemSize = CGSizeMake(itemWidth, itemHeight);
+        _WZMItemSize = CGSizeMake(itemWidth, itemHeight);
     }
     return self;
 }
@@ -39,8 +39,8 @@
 - (void)prepareLayout{
     _contentSizeWidth = 0.0;
     _attributesArray = [[NSMutableArray alloc] initWithCapacity:0];
-    CGFloat itemWidth = _LLItemSize.width;
-    CGFloat itemHeight = _LLItemSize.height;
+    CGFloat itemWidth = _WZMItemSize.width;
+    CGFloat itemHeight = _WZMItemSize.height;
     
     NSInteger sections = self.collectionView.numberOfSections;
     for (NSInteger section = 0; section < sections; section ++){

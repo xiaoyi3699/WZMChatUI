@@ -10,7 +10,7 @@
 
 @interface WZMHorizontalLayout : UICollectionViewLayout
 
-@property (nonatomic, assign, readonly) CGSize LLItemSize;//获取当前设置下的itemSize
+@property (nonatomic, assign, readonly) CGSize WZMItemSize;//获取当前设置下的itemSize
 
 /**
  *  初始化

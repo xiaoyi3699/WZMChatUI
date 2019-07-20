@@ -10,9 +10,9 @@
 #import "WZMChatSqliteManager.h"
 #import "WZMChatMessageModel.h"
 
-NSString *const LL_USER    = @"ll_user";
-NSString *const LL_GROUP   = @"ll_group";
-NSString *const LL_SESSION = @"ll_session";
+NSString *const WZM_USER    = @"wzm_user";
+NSString *const WZM_GROUP   = @"wzm_group";
+NSString *const WZM_SESSION = @"wzm_session";
 
 @implementation WZMChatDBManager
 
@@ -31,9 +31,9 @@ NSString *const LL_SESSION = @"ll_session";
         //输入框草稿
         _draftDic = [[NSMutableDictionary alloc] init];
         //创建三张表 <user, group, session>
-        [[WZMChatSqliteManager defaultManager] createTableName:LL_USER modelClass:[WZMChatUserModel class]];
-        [[WZMChatSqliteManager defaultManager] createTableName:LL_GROUP modelClass:[WZMChatGroupModel class]];
-        [[WZMChatSqliteManager defaultManager] createTableName:LL_SESSION modelClass:[WZMChatSessionModel class]];
+        [[WZMChatSqliteManager defaultManager] createTableName:WZM_USER modelClass:[WZMChatUserModel class]];
+        [[WZMChatSqliteManager defaultManager] createTableName:WZM_GROUP modelClass:[WZMChatGroupModel class]];
+        [[WZMChatSqliteManager defaultManager] createTableName:WZM_SESSION modelClass:[WZMChatSessionModel class]];
     }
     return self;
 }
@@ -66,7 +66,7 @@ NSString *const LL_SESSION = @"ll_session";
 #pragma mark - user表操纵
 //所有用户
 - (NSMutableArray *)users {
-    NSString *sql = [NSString stringWithFormat:@"SELECT * FROM %@",LL_USER];
+    NSString *sql = [NSString stringWithFormat:@"SELECT * FROM %@",WZM_USER];
     NSArray *list = [[WZMChatSqliteManager defaultManager] selectWithSql:sql];
     NSMutableArray *arr = [NSMutableArray arrayWithCapacity:list.count];
     for (NSDictionary *dic in list) {
@@ -78,17 +78,17 @@ NSString *const LL_SESSION = @"ll_session";
 
 //添加用户
 - (void)insertUserModel:(WZMChatUserModel *)model {
-    [[WZMChatSqliteManager defaultManager] insertModel:model tableName:LL_USER];
+    [[WZMChatSqliteManager defaultManager] insertModel:model tableName:WZM_USER];
 }
 
 //更新用户
 - (void)updateUserModel:(WZMChatUserModel *)model {
-    [[WZMChatSqliteManager defaultManager] updateModel:model tableName:LL_USER primkey:@"uid"];
+    [[WZMChatSqliteManager defaultManager] updateModel:model tableName:WZM_USER primkey:@"uid"];
 }
 
 //查询用户
 - (WZMChatUserModel *)selectUserModel:(NSString *)uid {
-    NSString *sql = [NSString stringWithFormat:@"SELECT * FROM %@ WHERE uid = '%@'",LL_USER,uid];
+    NSString *sql = [NSString stringWithFormat:@"SELECT * FROM %@ WHERE uid = '%@'",WZM_USER,uid];
     NSArray *list = [[WZMChatSqliteManager defaultManager] selectWithSql:sql];
     if (list.count > 0) {
         WZMChatUserModel *model = [WZMChatUserModel modelWithDic:list.firstObject];
@@ -99,7 +99,7 @@ NSString *const LL_SESSION = @"ll_session";
 
 //删除用户
 - (void)deleteUserModel:(NSString *)uid {
-    NSString *sql = [NSString stringWithFormat:@"DELETE FROM %@ WHERE uid = '%@'",LL_USER,uid];
+    NSString *sql = [NSString stringWithFormat:@"DELETE FROM %@ WHERE uid = '%@'",WZM_USER,uid];
     [[WZMChatSqliteManager defaultManager] execute:sql];
     //同时删除对应的会话
     [self deleteSessionModel:uid];
@@ -108,7 +108,7 @@ NSString *const LL_SESSION = @"ll_session";
 #pragma mark - group表操纵
 //所有群
 - (NSMutableArray *)groups {
-    NSString *sql = [NSString stringWithFormat:@"SELECT * FROM %@",LL_GROUP];
+    NSString *sql = [NSString stringWithFormat:@"SELECT * FROM %@",WZM_GROUP];
     NSArray *list = [[WZMChatSqliteManager defaultManager] selectWithSql:sql];
     NSMutableArray *arr = [NSMutableArray arrayWithCapacity:list.count];
     for (NSDictionary *dic in list) {
@@ -120,17 +120,17 @@ NSString *const LL_SESSION = @"ll_session";
 
 //添加群
 - (void)insertGroupModel:(WZMChatGroupModel *)model {
-    [[WZMChatSqliteManager defaultManager] insertModel:model tableName:LL_GROUP];
+    [[WZMChatSqliteManager defaultManager] insertModel:model tableName:WZM_GROUP];
 }
 
 //更新群
 - (void)updateGroupModel:(WZMChatGroupModel *)model {
-    [[WZMChatSqliteManager defaultManager] updateModel:model tableName:LL_GROUP primkey:@"gid"];
+    [[WZMChatSqliteManager defaultManager] updateModel:model tableName:WZM_GROUP primkey:@"gid"];
 }
 
 //查询群
 - (WZMChatGroupModel *)selectGroupModel:(NSString *)gid {
-    NSString *sql = [NSString stringWithFormat:@"SELECT * FROM %@ WHERE gid = '%@'",LL_GROUP,gid];
+    NSString *sql = [NSString stringWithFormat:@"SELECT * FROM %@ WHERE gid = '%@'",WZM_GROUP,gid];
     NSArray *list = [[WZMChatSqliteManager defaultManager] selectWithSql:sql];
     if (list.count > 0) {
         WZMChatGroupModel *model = [WZMChatGroupModel modelWithDic:list.firstObject];
@@ -141,7 +141,7 @@ NSString *const LL_SESSION = @"ll_session";
 
 //删除群
 - (void)deleteGroupModel:(NSString *)gid {
-    NSString *sql = [NSString stringWithFormat:@"DELETE FROM %@ WHERE gid = '%@'",LL_GROUP,gid];
+    NSString *sql = [NSString stringWithFormat:@"DELETE FROM %@ WHERE gid = '%@'",WZM_GROUP,gid];
     [[WZMChatSqliteManager defaultManager] execute:sql];
     //同时删除对应的会话
     [self deleteSessionModel:gid];
@@ -150,7 +150,7 @@ NSString *const LL_SESSION = @"ll_session";
 #pragma mark - session表操纵
 //所有会话
 - (NSMutableArray *)sessions {
-    NSString *sql = [NSString stringWithFormat:@"SELECT * FROM %@",LL_SESSION];
+    NSString *sql = [NSString stringWithFormat:@"SELECT * FROM %@",WZM_SESSION];
     NSArray *list = [[WZMChatSqliteManager defaultManager] selectWithSql:sql];
     NSMutableArray *arr = [NSMutableArray arrayWithCapacity:list.count];
     for (NSDictionary *dic in list) {
@@ -163,12 +163,12 @@ NSString *const LL_SESSION = @"ll_session";
 
 //添加会话
 - (void)insertSessionModel:(WZMChatSessionModel *)model {
-    [[WZMChatSqliteManager defaultManager] insertModel:model tableName:LL_SESSION];
+    [[WZMChatSqliteManager defaultManager] insertModel:model tableName:WZM_SESSION];
 }
 
 //更新会话
 - (void)updateSessionModel:(WZMChatSessionModel *)model {
-    [[WZMChatSqliteManager defaultManager] updateModel:model tableName:LL_SESSION primkey:@"sid"];
+    [[WZMChatSqliteManager defaultManager] updateModel:model tableName:WZM_SESSION primkey:@"sid"];
 }
 
 //查询私聊会话
@@ -198,7 +198,7 @@ NSString *const LL_SESSION = @"ll_session";
         avatar = group.avatar;
         isGroup = YES;
     }
-    NSString *sql = [NSString stringWithFormat:@"SELECT * FROM %@ WHERE sid = '%@'",LL_SESSION,sid];
+    NSString *sql = [NSString stringWithFormat:@"SELECT * FROM %@ WHERE sid = '%@'",WZM_SESSION,sid];
     NSArray *list = [[WZMChatSqliteManager defaultManager] selectWithSql:sql];
     WZMChatSessionModel *session;
     if (list.count > 0) {
@@ -218,7 +218,7 @@ NSString *const LL_SESSION = @"ll_session";
 
 //删除会话
 - (void)deleteSessionModel:(NSString *)sid {
-    NSString *sql = [NSString stringWithFormat:@"DELETE FROM %@ WHERE sid = '%@'",LL_SESSION,sid];
+    NSString *sql = [NSString stringWithFormat:@"DELETE FROM %@ WHERE sid = '%@'",WZM_SESSION,sid];
     [[WZMChatSqliteManager defaultManager] execute:sql];
 }
 
