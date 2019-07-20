@@ -8,83 +8,64 @@
 
 #import <UIKit/UIKit.h>
 
-NS_ASSUME_NONNULL_BEGIN
-
 @interface UIView (WZMChat)
 
 /**
  获取view所在的ViewController
  */
-- (UIViewController *)viewController;
-
-/**
- 判断view是不是指定视图的子视图
- */
-- (BOOL)ll_isDescendantOfView:(UIView *)otherView;
+- (UIViewController *)chat_viewController;
 
 //设置位置(宽和高保持不变)
-- (CGFloat)minX;
-- (void)setMinX:(CGFloat)minX;
+- (CGFloat)chat_minX;
+- (void)setChat_minX:(CGFloat)chat_minX;
 
-- (CGFloat)maxX;
-- (void)setMaxX:(CGFloat)maxX;
+- (CGFloat)chat_maxX;
+- (void)setChat_maxX:(CGFloat)chat_maxX;
 
-- (CGFloat)minY;
-- (void)setMinY:(CGFloat)minY;
+- (CGFloat)chat_minY;
+- (void)setChat_minY:(CGFloat)chat_minY;
 
-- (CGFloat)maxY;
-- (void)setMaxY:(CGFloat)maxY;
+- (CGFloat)chat_maxY;
+- (void)setChat_maxY:(CGFloat)chat_maxY;
 
-- (CGFloat)LLCenterX;
-- (void)setLLCenterX:(CGFloat)LLCenterX;
+- (CGFloat)chat_centerX;
+- (void)setChat_centerX:(CGFloat)chat_centerX;
 
-- (CGFloat)LLCenterY;
-- (void)setLLCenterY:(CGFloat)LLCenterY;
+- (CGFloat)chat_centerY;
+- (void)setChat_centerY:(CGFloat)chat_centerY;
 
-- (CGPoint)LLPostion;
-- (void)setLLPostion:(CGPoint)LLPostion;
+- (CGPoint)chat_postion;
+- (void)setChat_postion:(CGPoint)chat_postion;
 
-//设置位置(其他顶点保持不变)
-- (CGFloat)mutableMinX;
-- (void)setMutableMinX:(CGFloat)mutableMinX;
+//设置宽和高(顶点位置不变)
+- (CGFloat)chat_width;
+- (void)setChat_width:(CGFloat)chat_width;
 
-- (CGFloat)mutableMaxX;
-- (void)setMutableMaxX:(CGFloat)mutableMaxX;
+- (CGFloat)chat_height;
+- (void)setChat_height:(CGFloat)chat_height;
 
-- (CGFloat)mutableMinY;
-- (void)setMutableMinY:(CGFloat)mutableMinY;
-
-- (CGFloat)mutableMaxY;
-- (void)setMutableMaxY:(CGFloat)mutableMaxY;
-
-//设置宽和高((位置不变))
-- (CGFloat)LLWidth;
-- (void)setLLWidth:(CGFloat)LLWidth;
-
-- (CGFloat)LLHeight;
-- (void)setLLHeight:(CGFloat)LLHeight;
-
-- (CGSize)LLSize;
-- (void)setLLSize:(CGSize)LLSize;
+- (CGSize)chat_size;
+- (void)setChat_size:(CGSize)chat_size;
 
 //设置宽和高(中心点不变)
-- (CGFloat)center_width;
-- (void)setCenter_width:(CGFloat)center_width;
+- (CGFloat)chat_center_width;
+- (void)setChat_center_width:(CGFloat)chat_center_width;
 
-- (CGFloat)center_height;
-- (void)setCenter_height:(CGFloat)center_height;
+- (CGFloat)chat_center_height;
+- (void)setChat_center_height:(CGFloat)chat_center_height;
 
-- (CGSize)center_size;
-- (void)setCenter_size:(CGSize)center_size;
-
-//设置宽高比例
-- (CGFloat)LLScale;
-- (void)setScale:(CGFloat)scale x:(CGFloat)x y:(CGFloat)y maxWidth:(CGFloat)maxWidth maxHeight:(CGFloat)maxHeight;
+- (CGSize)chat_center_size;
+- (void)setChat_center_size:(CGSize)chat_center_size;
 
 //设置圆角
-- (void)setLLCornerRadius:(CGFloat)LLCornerRadius;
-- (CGFloat)LLCornerRadius;
+- (CGFloat)chat_cornerRadius;
+- (void)setChat_cornerRadius:(CGFloat)chat_cornerRadius;
+
+- (CGFloat)chat_borderWidth;
+- (void)setChat_borderWidth:(CGFloat)chat_borderWidth;
+
+- (UIColor *)chat_borderColor;
+- (void)setChat_borderColor:(UIColor *)chat_borderColor;
+
 
 @end
-
-NS_ASSUME_NONNULL_END

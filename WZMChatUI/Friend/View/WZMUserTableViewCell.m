@@ -20,10 +20,10 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         _avatarImageView = [[UIImageView alloc] initWithFrame:CGRectMake(15, 10, 40, 40)];
-        [_avatarImageView setLLCornerRadius:5];
+        _avatarImageView.chat_cornerRadius = 5;
         [self addSubview:_avatarImageView];
         
-        CGFloat nickX = _avatarImageView.maxX+15;
+        CGFloat nickX = _avatarImageView.chat_maxX+15;
         CGFloat nickW = WZMChat_SCREEN_WIDTH-nickX-20;
         
         _nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(nickX, 0, nickW, 60)];

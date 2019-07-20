@@ -330,7 +330,7 @@
     
     CGFloat TContentH = self.tableView.contentSize.height;
     CGFloat tableViewH = self.tableView.bounds.size.height;
-    CGFloat keyboardH = WZMChat_SCREEN_HEIGHT-self.inputView.minY-WZMChat_INPUT_H;
+    CGFloat keyboardH = WZMChat_SCREEN_HEIGHT-self.inputView.chat_minY-WZMChat_INPUT_H;
     
     CGFloat offsetY = 0;
     if (TContentH < tableViewH) {
@@ -413,7 +413,7 @@
             CGFloat TContentH = self.tableView.contentSize.height;
             CGFloat tableViewH = self.tableView.bounds.size.height;
             
-            CGFloat keyboardH = WZMChat_SCREEN_HEIGHT-self.inputView.minY-WZMChat_INPUT_H;
+            CGFloat keyboardH = WZMChat_SCREEN_HEIGHT-self.inputView.chat_minY-WZMChat_INPUT_H;
             
             CGFloat offsetY = 0;
             if (TContentH < tableViewH) {

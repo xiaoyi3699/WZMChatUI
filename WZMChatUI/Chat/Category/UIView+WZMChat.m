@@ -10,7 +10,7 @@
 
 @implementation UIView (WZMChat)
 
-- (UIViewController *)viewController{
+- (UIViewController *)chat_viewController{
     UIResponder *next = [self nextResponder];
     do{
         if ([next isKindOfClass:[UIViewController class]]) {
@@ -21,219 +21,169 @@
     return nil;
 }
 
-- (BOOL)ll_isDescendantOfView:(UIView *)otherView {
-    return [self isDescendantOfView:otherView];
-}
-
-#pragma - mark 自定义适配
 //设置位置(宽和高保持不变)
-- (CGFloat)minX{
+- (CGFloat)chat_minX {
     return CGRectGetMinX(self.frame);
 }
 
-- (void)setMinX:(CGFloat)minX{
+- (void)setChat_minX:(CGFloat)chat_minX {
     CGRect rect = self.frame;
-    rect.origin.x = minX;
+    rect.origin.x = chat_minX;
     self.frame = rect;
 }
 
-- (CGFloat)maxX{
+- (CGFloat)chat_maxX {
     return CGRectGetMaxX(self.frame);
 }
 
-- (void)setMaxX:(CGFloat)maxX{
+- (void)setChat_maxX:(CGFloat)chat_maxX {
     CGRect rect = self.frame;
-    rect.origin.x = maxX-CGRectGetWidth(rect);
+    rect.origin.x = chat_maxX-CGRectGetWidth(rect);
     self.frame = rect;
 }
 
-- (CGFloat)minY{
+- (CGFloat)chat_minY {
     return CGRectGetMinY(self.frame);
 }
 
-- (void)setMinY:(CGFloat)minY{
+- (void)setChat_minY:(CGFloat)chat_minY {
     CGRect rect = self.frame;
-    rect.origin.y = minY;
+    rect.origin.y = chat_minY;
     self.frame = rect;
 }
 
-- (CGFloat)maxY{
+- (CGFloat)chat_maxY {
     return CGRectGetMaxY(self.frame);
 }
 
-- (void)setMaxY:(CGFloat)maxY{
+- (void)setChat_maxY:(CGFloat)chat_maxY {
     CGRect rect = self.frame;
-    rect.origin.y = maxY-CGRectGetHeight(rect);
+    rect.origin.y = chat_maxY-CGRectGetHeight(rect);
     self.frame = rect;
 }
 
-- (CGFloat)LLCenterX{
+- (CGFloat)chat_centerX {
     return CGRectGetMidX(self.frame);
 }
 
-- (void)setLLCenterX:(CGFloat)LLCenterX{
-    self.center = CGPointMake(LLCenterX, CGRectGetMidY(self.frame));
+- (void)setChat_centerX:(CGFloat)chat_centerX {
+    self.center = CGPointMake(chat_centerX, CGRectGetMidY(self.frame));
 }
 
-- (CGFloat)LLCenterY{
+- (CGFloat)chat_centerY {
     return CGRectGetMidY(self.frame);
 }
 
-- (void)setLLCenterY:(CGFloat)LLCenterY{
-    self.center = CGPointMake(CGRectGetMidX(self.frame), LLCenterY);
+- (void)setChat_centerY:(CGFloat)chat_centerY {
+    self.center = CGPointMake(CGRectGetMidX(self.frame), chat_centerY);
 }
 
-- (CGPoint)LLPostion{
-    return CGPointMake(self.minX, self.minY);
+- (CGPoint)chat_postion {
+    return CGPointMake(self.chat_minX, self.chat_minY);
 }
 
-- (void)setLLPostion:(CGPoint)LLPostion{
+- (void)setChat_postion:(CGPoint)chat_postion {
     CGRect rect = self.frame;
-    rect.origin.x = LLPostion.x;
-    rect.origin.y = LLPostion.y;
-    self.frame = rect;
-}
-
-//设置位置(其他顶点保持不变)
-- (CGFloat)mutableMinX{
-    return self.minX;
-}
-
-- (void)setMutableMinX:(CGFloat)mutableMinX{
-    CGRect rect = self.frame;
-    rect.origin.x = mutableMinX;
-    rect.size.width = self.maxX-mutableMinX;
-    self.frame = rect;
-}
-
-- (CGFloat)mutableMaxX{
-    return self.maxX;
-}
-
-- (void)setMutableMaxX:(CGFloat)mutableMaxX{
-    CGRect rect = self.frame;
-    rect.size.width = mutableMaxX-self.minX;
-    self.frame = rect;
-}
-
-- (CGFloat)mutableMinY{
-    return self.minY;
-}
-
-- (void)setMutableMinY:(CGFloat)mutableMinY{
-    CGRect rect = self.frame;
-    rect.origin.y = mutableMinY;
-    rect.size.height = self.maxY-mutableMinY;
-    self.frame = rect;
-}
-
-- (CGFloat)mutableMaxY{
-    return self.maxY;
-}
-
-- (void)setMutableMaxY:(CGFloat)mutableMaxY{
-    CGRect rect = self.frame;
-    rect.size.height = mutableMaxY-self.minY;
+    rect.origin.x = chat_postion.x;
+    rect.origin.y = chat_postion.y;
     self.frame = rect;
 }
 
 //设置宽和高(位置不变)
-- (CGFloat)LLWidth{
+- (CGFloat)chat_width {
     return CGRectGetWidth(self.frame);
 }
 
-- (void)setLLWidth:(CGFloat)LLWidth{
+- (void)setChat_width:(CGFloat)chat_width {
     CGRect rect = self.frame;
-    rect.size.width = LLWidth;
+    rect.size.width = chat_width;
     self.frame = rect;
 }
 
-- (CGFloat)LLHeight{
+- (CGFloat)chat_height {
     return CGRectGetHeight(self.frame);
 }
 
-- (void)setLLHeight:(CGFloat)LLHeight{
+- (void)setChat_height:(CGFloat)chat_height {
     CGRect rect = self.frame;
-    rect.size.height = LLHeight;
+    rect.size.height = chat_height;
     self.frame = rect;
 }
 
-- (CGSize)LLSize{
-    return CGSizeMake(self.LLWidth, self.LLHeight);
+- (CGSize)chat_size {
+    return CGSizeMake(self.chat_width, self.chat_height);
 }
 
-- (void)setLLSize:(CGSize)LLSize{
+- (void)setChat_size:(CGSize)chat_size {
     CGRect rect = self.frame;
-    rect.size.width = LLSize.width;
-    rect.size.height = LLSize.height;
+    rect.size.width = chat_size.width;
+    rect.size.height = chat_size.height;
     self.frame = rect;
 }
 
 //设置宽和高(中心点不变)
-- (CGFloat)center_width{
+- (CGFloat)chat_center_width {
     return CGRectGetWidth(self.frame);
 }
 
-- (void)setCenter_width:(CGFloat)center_width{
+- (void)setChat_center_width:(CGFloat)chat_center_width {
     CGRect rect = self.frame;
-    CGFloat dx = (center_width-CGRectGetWidth(rect))/2.0;
+    CGFloat dx = (chat_center_width-CGRectGetWidth(rect))/2.0;
     rect.origin.x -= dx;
-    rect.size.width = center_width;
+    rect.size.width = chat_center_width;
     self.frame = rect;
 }
 
-- (CGFloat)center_height{
+- (CGFloat)chat_center_height {
     return CGRectGetHeight(self.frame);
 }
 
-- (void)setCenter_height:(CGFloat)center_height{
+- (void)setChat_center_height:(CGFloat)chat_center_height {
     CGRect rect = self.frame;
-    CGFloat dy = (center_height-CGRectGetHeight(rect))/2.0;
+    CGFloat dy = (chat_center_height-CGRectGetHeight(rect))/2.0;
     rect.origin.y -= dy;
-    rect.size.height = center_height;
+    rect.size.height = chat_center_height;
     self.frame = rect;
 }
 
-- (CGSize)center_size{
-    return CGSizeMake(self.LLWidth, self.LLHeight);
+- (CGSize)chat_center_size {
+    return CGSizeMake(self.chat_width, self.chat_height);
 }
 
-- (void)setCenter_size:(CGSize)center_size{
+- (void)setChat_center_size:(CGSize)chat_center_size {
     CGRect rect = self.frame;
-    CGFloat dx = (center_size.width-CGRectGetWidth(rect))/2.0;
-    CGFloat dy = (center_size.height-CGRectGetHeight(rect))/2.0;
+    CGFloat dx = (chat_center_size.width-CGRectGetWidth(rect))/2.0;
+    CGFloat dy = (chat_center_size.height-CGRectGetHeight(rect))/2.0;
     rect.origin.x -= dx;
     rect.origin.y -= dy;
-    rect.size.width = center_size.width;
-    rect.size.height = center_size.height;
+    rect.size.width = chat_center_size.width;
+    rect.size.height = chat_center_size.height;
     self.frame = rect;
 }
 
-//设置宽高比例
-- (CGFloat)LLScale{
-    if (self.LLHeight != 0) {
-        return self.LLWidth/self.LLHeight;
-    }
-    return -404;
-}
-
-- (void)setScale:(CGFloat)scale x:(CGFloat)x y:(CGFloat)y maxWidth:(CGFloat)maxWidth maxHeight:(CGFloat)maxHeight{
-    CGFloat width = maxWidth;
-    CGFloat height = width/scale;
-    if (height > maxHeight) {
-        height = maxHeight;
-        width = height*scale;
-    }
-    self.frame = CGRectMake(x, y, width, height);
-}
-
-- (void)setLLCornerRadius:(CGFloat)LLCornerRadius{
-    self.layer.masksToBounds = YES;
-    self.layer.cornerRadius = LLCornerRadius;
-}
-
-- (CGFloat)LLCornerRadius{
+- (CGFloat)chat_cornerRadius {
     return self.layer.cornerRadius;
+}
+
+- (void)setChat_cornerRadius:(CGFloat)chat_cornerRadius {
+    self.layer.masksToBounds = YES;
+    self.layer.cornerRadius = chat_cornerRadius;
+}
+
+- (CGFloat)chat_borderWidth {
+    return self.layer.borderWidth;
+}
+
+- (void)setChat_borderWidth:(CGFloat)chat_borderWidth {
+    self.layer.borderWidth = chat_borderWidth;
+}
+
+- (UIColor *)chat_borderColor {
+    return [UIColor colorWithCGColor:self.layer.borderColor];
+}
+
+- (void)setChat_borderColor:(UIColor *)chat_borderColor {
+    self.layer.borderColor = [chat_borderColor CGColor];
 }
 
 @end

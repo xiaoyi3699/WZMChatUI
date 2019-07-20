@@ -40,7 +40,7 @@ typedef enum : NSInteger {
     if (self) {
         self.type = WZMInputViewTypeNone;
         
-        CGFloat w = self.LLWidth;
+        CGFloat w = self.chat_width;
         self.backgroundColor = [UIColor whiteColor];
         
         UIView *lineView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, w, 0.5)];

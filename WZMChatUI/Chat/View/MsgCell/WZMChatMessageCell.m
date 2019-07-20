@@ -57,19 +57,19 @@
         }];
         
         //昵称
-        _nickLabel.frame = CGRectMake(_avatarImageView.minX-110, 5, 100, 20);
+        _nickLabel.frame = CGRectMake(_avatarImageView.chat_minX-110, 5, 100, 20);
         _nickLabel.text = model.name;
         _nickLabel.textAlignment = NSTextAlignmentRight;
         
         if (isShowName) {
             _nickLabel.hidden = NO;
             //聊天气泡
-            _bubbleImageView.frame = CGRectMake(_avatarImageView.minX-model.modelW-22, _nickLabel.maxY, model.modelW+17, model.modelH+10);
+            _bubbleImageView.frame = CGRectMake(_avatarImageView.chat_minX-model.modelW-22, _nickLabel.chat_maxY, model.modelW+17, model.modelH+10);
         }
         else {
             _nickLabel.hidden = YES;
             //聊天气泡
-            _bubbleImageView.frame = CGRectMake(_avatarImageView.minX-model.modelW-22, _avatarImageView.minY, model.modelW+17, model.modelH+10);
+            _bubbleImageView.frame = CGRectMake(_avatarImageView.chat_minX-model.modelW-22, _avatarImageView.chat_minY, model.modelW+17, model.modelH+10);
         }
         _bubbleImageView.image = [[WZMChatHelper shareInstance] senderBubbleImage];
         
@@ -82,7 +82,7 @@
         _contentRect = rect;
         
         //正在发送菊花动画
-        _activityView.frame = CGRectMake(_bubbleImageView.minX-40, _bubbleImageView.minY+(_bubbleImageView.LLHeight-40)/2, 40, 40);
+        _activityView.frame = CGRectMake(_bubbleImageView.chat_minX-40, _bubbleImageView.chat_minY+(_bubbleImageView.chat_height-40)/2, 40, 40);
         
         if (model.sendType == WZMMessageSendTypeWaiting) {
             _activityView.hidden = NO;
@@ -104,7 +104,7 @@
         }
         
         //发送失败感叹号
-        _retryBtn.frame = CGRectMake(_activityView.minX, _bubbleImageView.maxY-30, 40, 40);
+        _retryBtn.frame = CGRectMake(_activityView.chat_minX, _bubbleImageView.chat_maxY-30, 40, 40);
     }
     else {
         _avatarImageView.frame = CGRectMake(10, 10, 40, 40);
@@ -113,19 +113,19 @@
             _avatarImageView.image = image;
         }];
         
-        _nickLabel.frame = CGRectMake(_avatarImageView.maxX+10, 5, 100, 20);
+        _nickLabel.frame = CGRectMake(_avatarImageView.chat_maxX+10, 5, 100, 20);
         _nickLabel.text = model.name;
         _nickLabel.textAlignment = NSTextAlignmentLeft;
         
         if (isShowName){
             _nickLabel.hidden = NO;
             //聊天气泡
-            _bubbleImageView.frame = CGRectMake(_avatarImageView.maxX+5, _nickLabel.maxY, model.modelW+17, model.modelH+10);
+            _bubbleImageView.frame = CGRectMake(_avatarImageView.chat_maxX+5, _nickLabel.chat_maxY, model.modelW+17, model.modelH+10);
         }
         else {
             _nickLabel.hidden = YES;
             //聊天气泡
-            _bubbleImageView.frame = CGRectMake(_avatarImageView.maxX+5, _avatarImageView.minY, model.modelW+17, model.modelH+10);
+            _bubbleImageView.frame = CGRectMake(_avatarImageView.chat_maxX+5, _avatarImageView.chat_minY, model.modelW+17, model.modelH+10);
         }
         _bubbleImageView.image = [[WZMChatHelper shareInstance] receiverBubbleImage];
         
@@ -138,10 +138,10 @@
         
         _activityView.hidden = YES;
         [_activityView stopAnimating];
-        _activityView.frame = CGRectMake(_bubbleImageView.maxX, _bubbleImageView.minY+(_bubbleImageView.LLHeight-40)/2, 40, 40);
+        _activityView.frame = CGRectMake(_bubbleImageView.chat_maxX, _bubbleImageView.chat_minY+(_bubbleImageView.chat_height-40)/2, 40, 40);
         
         _retryBtn.hidden = YES;
-        _retryBtn.frame = CGRectMake(_activityView.minX, _bubbleImageView.maxY-30, 40, 40);
+        _retryBtn.frame = CGRectMake(_activityView.chat_minX, _bubbleImageView.chat_maxY-30, 40, 40);
     }
 }
 

@@ -60,7 +60,7 @@
         [self addSubview:_collectionView];
         
         UIColor *themeColor = [UIColor colorWithRed:34/255. green:207/255. blue:172/255. alpha:1];
-        UIView *toolView = [[UIView alloc] initWithFrame:CGRectMake(0, _collectionView.maxY, frame.size.width, 40+WZMChat_BOTTOM_H)];
+        UIView *toolView = [[UIView alloc] initWithFrame:CGRectMake(0, _collectionView.chat_maxY, frame.size.width, 40+WZMChat_BOTTOM_H)];
         toolView.backgroundColor = [UIColor colorWithRed:220/255. green:220/255. blue:220/255. alpha:1];
         [self addSubview:toolView];
         
