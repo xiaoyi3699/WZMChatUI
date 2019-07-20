@@ -1,6 +1,6 @@
 //
 //  WZMSessionViewController.m
-//  LLChat
+//  WZMChat
 //
 //  Created by WangZhaomeng on 2018/8/31.
 //  Copyright © 2018年 WangZhaomeng. All rights reserved.
@@ -148,8 +148,8 @@
 - (UITableView *)tableView {
     if (_tableView == nil) {
         CGRect rect = self.view.bounds;
-        rect.origin.y = LLCHAT_NAV_TOP_H;
-        rect.size.height -= (LLCHAT_NAV_TOP_H+LLCHAT_BAR_BOT_H);
+        rect.origin.y = WZMChat_NAV_TOP_H;
+        rect.size.height -= (WZMChat_NAV_TOP_H+WZMChat_BAR_BOT_H);
         
         _tableView = [[UITableView alloc] initWithFrame:rect];
         _tableView.delegate = self;

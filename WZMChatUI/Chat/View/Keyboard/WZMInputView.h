@@ -1,6 +1,6 @@
 //
 //  WZMInputView.h
-//  LLChat
+//  WZMChat
 //
 //  Created by WangZhaomeng on 2018/9/5.
 //  Copyright © 2018年 WangZhaomeng. All rights reserved.
@@ -13,12 +13,12 @@
 @protocol WZMInputViewDelegate;
 
 typedef enum : NSInteger {
-    LLChatRecordTypeTouchDown = 0,
-    LLChatRecordTypeTouchCancel,
-    LLChatRecordTypeTouchFinish,
-    LLChatRecordTypeTouchDragInside,
-    LLChatRecordTypeTouchDragOutside,
-}LLChatRecordType;
+    WZMChatRecordTypeTouchDown = 0,
+    WZMChatRecordTypeTouchCancel,
+    WZMChatRecordTypeTouchFinish,
+    WZMChatRecordTypeTouchDragInside,
+    WZMChatRecordTypeTouchDragOutside,
+}WZMChatRecordType;
 
 @interface WZMInputView : UIView
 
@@ -40,7 +40,7 @@ typedef enum : NSInteger {
 ///自定义键盘点击事件
 - (void)inputView:(WZMInputView *)inputView selectedType:(WZMChatMoreType)type;
 ///录音状态变化
-- (void)inputView:(WZMInputView *)inputView didChangeRecordType:(LLChatRecordType)type;
+- (void)inputView:(WZMInputView *)inputView didChangeRecordType:(WZMChatRecordType)type;
 ///输入框frame改变
 - (void)inputView:(WZMInputView *)inputView willChangeFrameWithDuration:(CGFloat)duration isEditing:(BOOL)isEditing;
 

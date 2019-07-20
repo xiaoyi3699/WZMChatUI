@@ -1,6 +1,6 @@
 //
 //  WZMChatMessageModel.m
-//  LLChat
+//  WZMChat
 //
 //  Created by WangZhaomeng on 2018/9/3.
 //  Copyright © 2018年 WangZhaomeng. All rights reserved.
@@ -31,10 +31,10 @@
     if (self.modelH == -1 || self.modelW == -1) {
         if (self.msgType == WZMMessageTypeSystem) {
             self.modelH = 20;
-            self.modelW = LLCHAT_SCREEN_WIDTH;
+            self.modelW = WZMChat_SCREEN_WIDTH;
         }
         else if (self.msgType == WZMMessageTypeText) {
-            CGSize size = [[self attributedString] boundingRectWithSize:CGSizeMake((LLCHAT_SCREEN_WIDTH-127), CGFLOAT_MAX)
+            CGSize size = [[self attributedString] boundingRectWithSize:CGSizeMake((WZMChat_SCREEN_WIDTH-127), CGFLOAT_MAX)
                                                                 options:NSStringDrawingUsesLineFragmentOrigin
                                                                 context:nil].size;
             self.modelH = MAX(ceil(size.height), 30);
@@ -48,7 +48,7 @@
         else if (self.msgType == WZMMessageTypeVoice) {
             CGFloat minW = 60;
             CGFloat dw = 5.2;
-            if (LLCHAT_SCREEN_WIDTH > 375) {
+            if (WZMChat_SCREEN_WIDTH > 375) {
                 minW = 70;
                 dw = 5.6;
             }
@@ -92,8 +92,8 @@
 
 //缓存图片尺寸
 - (void)handleImageSize {
-    CGFloat maxW = ceil(LLCHAT_SCREEN_WIDTH*0.32)*1.0;
-    CGFloat maxH = ceil(LLCHAT_SCREEN_WIDTH*0.32)*1.0;
+    CGFloat maxW = ceil(WZMChat_SCREEN_WIDTH*0.32)*1.0;
+    CGFloat maxH = ceil(WZMChat_SCREEN_WIDTH*0.32)*1.0;
     CGFloat imgScale = self.imgW*1.0/self.imgH;
     CGFloat viewScale = maxW*1.0/maxH;
     

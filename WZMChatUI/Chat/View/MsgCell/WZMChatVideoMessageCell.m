@@ -1,6 +1,6 @@
 //
 //  WZMChatVideoMessageCell.m
-//  LLChat
+//  WZMChat
 //
 //  Created by WangZhaomeng on 2019/5/22.
 //  Copyright © 2019 WangZhaomeng. All rights reserved.
@@ -36,7 +36,7 @@
     _contentImageView.frame = _contentRect;
     _markImageView.center = _contentImageView.center;
     
-    [[WZMImageCache imageCache] getImageWithUrl:model.coverUrl isUseCatch:YES placeholder:LLCHAT_BAD_IMAGE completion:^(UIImage *image) {
+    [[WZMImageCache imageCache] getImageWithUrl:model.coverUrl isUseCatch:YES placeholder:WZMChat_BAD_IMAGE completion:^(UIImage *image) {
         _contentImageView.image = image;
     }];
 }

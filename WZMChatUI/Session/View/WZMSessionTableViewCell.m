@@ -1,6 +1,6 @@
 //
 //  WZMSessionTableViewCell.m
-//  LLChat
+//  WZMChat
 //
 //  Created by WangZhaomeng on 2019/4/30.
 //  Copyright © 2019 WangZhaomeng. All rights reserved.
@@ -44,7 +44,7 @@
         
         CGFloat timeW = 100;
         CGFloat nickX = _avatarImageView.maxX+15;
-        CGFloat nimeW = LLCHAT_SCREEN_WIDTH-nickX-timeW-15;
+        CGFloat nimeW = WZMChat_SCREEN_WIDTH-nickX-timeW-15;
         
         _nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(nickX, 13, nimeW, 20)];
         _nameLabel.font = [UIFont systemFontOfSize:16];
@@ -64,7 +64,7 @@
         _timeLabel.textAlignment = NSTextAlignmentRight;
         [self addSubview:_timeLabel];
         
-        _notiImageView = [[UIImageView alloc] initWithFrame:CGRectMake(LLCHAT_SCREEN_WIDTH-32, _avatarImageView.maxY-20, 17, 17)];
+        _notiImageView = [[UIImageView alloc] initWithFrame:CGRectMake(WZMChat_SCREEN_WIDTH-32, _avatarImageView.maxY-20, 17, 17)];
         _notiImageView.hidden = YES;
         [self addSubview:_notiImageView];
     }
@@ -118,7 +118,7 @@
         }
     }
     
-    [[WZMImageCache imageCache] getImageWithUrl:model.avatar isUseCatch:YES placeholder:LLCHAT_BAD_IMAGE completion:^(UIImage *image) {
+    [[WZMImageCache imageCache] getImageWithUrl:model.avatar isUseCatch:YES placeholder:WZMChat_BAD_IMAGE completion:^(UIImage *image) {
         _avatarImageView.image = image;
     }];
     _notiImageView.image = [WZMChatHelper otherImageNamed:@"wzm_chat_bell_not"];

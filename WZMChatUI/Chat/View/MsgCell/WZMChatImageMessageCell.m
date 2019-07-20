@@ -1,6 +1,6 @@
 //
 //  WZMChatImageMessageCell.m
-//  LLChat
+//  WZMChat
 //
 //  Created by WangZhaomeng on 2018/9/4.
 //  Copyright © 2018年 WangZhaomeng. All rights reserved.
@@ -30,7 +30,7 @@
     
     _contentImageView.frame = _contentRect;
     
-    [[WZMImageCache imageCache] getImageWithUrl:model.thumbnail isUseCatch:YES placeholder:LLCHAT_BAD_IMAGE completion:^(UIImage *image) {
+    [[WZMImageCache imageCache] getImageWithUrl:model.thumbnail isUseCatch:YES placeholder:WZMChat_BAD_IMAGE completion:^(UIImage *image) {
         _contentImageView.image = image;
     }];
 }

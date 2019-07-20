@@ -1,6 +1,6 @@
 //
 //  WZMChatRecordAnimation.m
-//  LLChat
+//  WZMChat
 //
 //  Created by WangZhaomeng on 2019/5/23.
 //  Copyright © 2019 WangZhaomeng. All rights reserved.
@@ -15,7 +15,7 @@
 }
 
 - (instancetype)init {
-    if (self = [super initWithFrame:CGRectMake((LLCHAT_SCREEN_WIDTH-120)/2, LLCHAT_SCREEN_HEIGHT/2-120, 120, 120)]) {
+    if (self = [super initWithFrame:CGRectMake((WZMChat_SCREEN_WIDTH-120)/2, WZMChat_SCREEN_HEIGHT/2-120, 120, 120)]) {
         self.animationDuration    = 0.2;
         self.animationRepeatCount = 0;
         _images = @[[WZMChatHelper otherImageNamed:@"wzm_voice_1"],

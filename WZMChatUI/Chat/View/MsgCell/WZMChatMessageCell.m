@@ -1,6 +1,6 @@
 //
 //  WZMChatMessageCell.m
-//  LLChat
+//  WZMChat
 //
 //  Created by WangZhaomeng on 2018/9/4.
 //  Copyright © 2018年 WangZhaomeng. All rights reserved.
@@ -50,9 +50,9 @@
     
     if (model.isSender) {
         //头像
-        _avatarImageView.frame = CGRectMake(LLCHAT_SCREEN_WIDTH-50, 10, 40, 40);
+        _avatarImageView.frame = CGRectMake(WZMChat_SCREEN_WIDTH-50, 10, 40, 40);
         //可改成网络图片
-        [[WZMImageCache imageCache] getImageWithUrl:model.avatar isUseCatch:YES placeholder:LLCHAT_BAD_IMAGE completion:^(UIImage *image) {
+        [[WZMImageCache imageCache] getImageWithUrl:model.avatar isUseCatch:YES placeholder:WZMChat_BAD_IMAGE completion:^(UIImage *image) {
             _avatarImageView.image = image;
         }];
         
@@ -109,7 +109,7 @@
     else {
         _avatarImageView.frame = CGRectMake(10, 10, 40, 40);
         //可改成网络图片
-        [[WZMImageCache imageCache] getImageWithUrl:model.avatar isUseCatch:YES placeholder:LLCHAT_BAD_IMAGE completion:^(UIImage *image) {
+        [[WZMImageCache imageCache] getImageWithUrl:model.avatar isUseCatch:YES placeholder:WZMChat_BAD_IMAGE completion:^(UIImage *image) {
             _avatarImageView.image = image;
         }];
         

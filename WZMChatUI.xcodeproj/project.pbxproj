@@ -144,7 +144,7 @@
 		754A1FFA22E2BF24005A0585 /* WZMChatGroupModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WZMChatGroupModel.m; sourceTree = "<group>"; };
 		754A1FFC22E2BF24005A0585 /* WZMChatMessageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WZMChatMessageModel.m; sourceTree = "<group>"; };
 		754A1FFD22E2BF24005A0585 /* WZMChatMessageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WZMChatMessageModel.h; sourceTree = "<group>"; };
-		754A1FFE22E2BF24005A0585 /* LLChat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLChat.h; sourceTree = "<group>"; };
+		754A1FFE22E2BF24005A0585 /* WZMChat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WZMChat.h; sourceTree = "<group>"; };
 		754A202422E2C1AC005A0585 /* WZMEmojis.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = WZMEmojis.plist; sourceTree = "<group>"; };
 		754A202522E2C1AC005A0585 /* WZMEmoticon1.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = WZMEmoticon1.plist; sourceTree = "<group>"; };
 		754A202622E2C1AD005A0585 /* WZMEmoticon2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = WZMEmoticon2.plist; sourceTree = "<group>"; };
@@ -250,7 +250,7 @@
 		754A1F9E22E2BEF3005A0585 /* Chat */ = {
 			isa = PBXGroup;
 			children = (
-				754A1FFE22E2BF24005A0585 /* LLChat.h */,
+				754A1FFE22E2BF24005A0585 /* WZMChat.h */,
 				754A1FAD22E2BF23005A0585 /* View */,
 				754A1FF022E2BF24005A0585 /* Model */,
 				754A1FED22E2BF24005A0585 /* Controller */,

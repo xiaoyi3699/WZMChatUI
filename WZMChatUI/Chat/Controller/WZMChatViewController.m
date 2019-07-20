@@ -1,6 +1,6 @@
 //
 //  WZMChatViewController.m
-//  LLChat
+//  WZMChat
 //
 //  Created by WangZhaomeng on 2018/9/4.
 //  Copyright © 2018年 WangZhaomeng. All rights reserved.
@@ -144,8 +144,8 @@
     else if (msgType == WZMMessageTypeImage) {
         //收到图片
         //原图和缩略图链接
-        NSString *original = @"http://www.vasueyun.cn/llgit/llchat/2.jpg";
-        NSString *thumbnail = @"http://www.vasueyun.cn/llgit/llchat/2_t.jpg";
+        NSString *original = @"http://www.vasueyun.cn/llgit/WZMChat/2.jpg";
+        NSString *thumbnail = @"http://www.vasueyun.cn/llgit/WZMChat/2_t.jpg";
         
         //图片下载的代码就不多写, 这里默认下载完成
         //原图
@@ -179,7 +179,7 @@
         //收到视频
         NSString *videoUrl = @"";
         //封面图链接
-        NSString *coverUrl = @"http://www.vasueyun.cn/llgit/llchat/1_t.jpg";
+        NSString *coverUrl = @"http://www.vasueyun.cn/llgit/WZMChat/1_t.jpg";
         //下载封面图
         UIImage *coverImage = [UIImage imageNamed:@"1_t.jpg"];
         //创建视频model
@@ -220,8 +220,8 @@
         //将图片上传到服务器, 图片消息只是把图片的链接发送过去, 接收端根据链接展示图片
         //上传图片的代码就不多写, 具体上传方式根据自身服务器api决定, 这里假定图片已经上传到服务器上了, 并且返回了两个链接, 原图和缩略图
         //原图和缩略图链接
-        NSString *original = @"http://www.vasueyun.cn/llgit/llchat/1.jpg";
-        NSString *thumbnail = @"http://www.vasueyun.cn/llgit/llchat/1_t.jpg";
+        NSString *original = @"http://www.vasueyun.cn/llgit/WZMChat/1.jpg";
+        NSString *thumbnail = @"http://www.vasueyun.cn/llgit/WZMChat/1_t.jpg";
         
         //创建图片model
         WZMChatMessageModel *model = [WZMChatMessageManager createImageMessage:self.userModel
@@ -242,7 +242,7 @@
         UIImage *coverImage = [UIImage imageNamed:@"2_t.jpg"];
         
         //将封面图上传到服务器, 获取封面图链接
-        NSString *coverUrl = @"http://www.vasueyun.cn/llgit/llchat/2_t.jpg";
+        NSString *coverUrl = @"http://www.vasueyun.cn/llgit/WZMChat/2_t.jpg";
         
         //创建视频model
         WZMChatMessageModel *model = [WZMChatMessageManager createVideoMessage:self.userModel
@@ -269,8 +269,8 @@
 }
 
 //录音状态变化
-- (void)inputView:(WZMInputView *)inputView didChangeRecordType:(LLChatRecordType)type {
-    if (type == LLChatRecordTypeTouchDown) {
+- (void)inputView:(WZMInputView *)inputView didChangeRecordType:(WZMChatRecordType)type {
+    if (type == WZMChatRecordTypeTouchDown) {
         //手指按下, 开始录音
         //此处录音计时采用的时间差
         //若是需要限制录音时长, 可采用计时器进行计时
@@ -278,19 +278,19 @@
         [self.view addSubview:self.recordAnimation];
         self.recordAnimation.volume = 1.0;
     }
-    else if (type == LLChatRecordTypeTouchDragOutside) {
+    else if (type == WZMChatRecordTypeTouchDragOutside) {
         //手指滑动到外面
         [self.recordAnimation showVoiceCancel];
     }
-    else if (type == LLChatRecordTypeTouchDragInside) {
+    else if (type == WZMChatRecordTypeTouchDragInside) {
         //手指滑动到里面
         [self.recordAnimation showVoiceAnimation];
     }
-    else if (type == LLChatRecordTypeTouchCancel) {
+    else if (type == WZMChatRecordTypeTouchCancel) {
         //取消录音
         [self.recordAnimation removeFromSuperview];
     }
-    else if (type == LLChatRecordTypeTouchFinish) {
+    else if (type == WZMChatRecordTypeTouchFinish) {
         //结束录音
         self.recordDuration = ([WZMChatHelper nowTimestamp]-self.recordDuration);
         if (self.recordDuration > 1000) {
@@ -330,7 +330,7 @@
     
     CGFloat TContentH = self.tableView.contentSize.height;
     CGFloat tableViewH = self.tableView.bounds.size.height;
-    CGFloat keyboardH = LLCHAT_SCREEN_HEIGHT-self.inputView.minY-LLCHAT_INPUT_H;
+    CGFloat keyboardH = WZMChat_SCREEN_HEIGHT-self.inputView.minY-WZMChat_INPUT_H;
     
     CGFloat offsetY = 0;
     if (TContentH < tableViewH) {
@@ -345,14 +345,14 @@
     
     CGRect TRect = self.tableView.frame;
     if (offsetY > 0) {
-        TRect.origin.y = LLCHAT_NAV_TOP_H-offsetY+LLCHAT_BOTTOM_H;
+        TRect.origin.y = WZMChat_NAV_TOP_H-offsetY+WZMChat_BOTTOM_H;
         [UIView animateWithDuration:duration animations:^{
             self.tableView.frame = TRect;
             [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:(self.messageModels.count-1) inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:YES];
         }];
     }
     else {
-        TRect.origin.y = LLCHAT_NAV_TOP_H;
+        TRect.origin.y = WZMChat_NAV_TOP_H;
         [UIView animateWithDuration:duration animations:^{
             self.tableView.frame = TRect;
         }];
@@ -413,7 +413,7 @@
             CGFloat TContentH = self.tableView.contentSize.height;
             CGFloat tableViewH = self.tableView.bounds.size.height;
             
-            CGFloat keyboardH = LLCHAT_SCREEN_HEIGHT-self.inputView.minY-LLCHAT_INPUT_H;
+            CGFloat keyboardH = WZMChat_SCREEN_HEIGHT-self.inputView.minY-WZMChat_INPUT_H;
             
             CGFloat offsetY = 0;
             if (TContentH < tableViewH) {
@@ -426,9 +426,9 @@
                 offsetY = keyboardH;
             }
             
-            if (offsetY > LLCHAT_BOTTOM_H) {
+            if (offsetY > WZMChat_BOTTOM_H) {
                 CGRect TRect = self.tableView.frame;
-                TRect.origin.y = LLCHAT_NAV_TOP_H-offsetY+LLCHAT_BOTTOM_H;
+                TRect.origin.y = WZMChat_NAV_TOP_H-offsetY+WZMChat_BOTTOM_H;
                 [UIView animateWithDuration:0.25 animations:^{
                     self.tableView.frame = TRect;
                     [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:(self.messageModels.count-1) inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:NO];
@@ -536,8 +536,8 @@
 - (UITableView *)tableView {
     if (_tableView == nil) {
         CGRect rect = self.view.bounds;
-        rect.origin.y = LLCHAT_NAV_TOP_H;
-        rect.size.height -= (LLCHAT_NAV_TOP_H+LLCHAT_INPUT_H+LLCHAT_BOTTOM_H);
+        rect.origin.y = WZMChat_NAV_TOP_H;
+        rect.size.height -= (WZMChat_NAV_TOP_H+WZMChat_INPUT_H+WZMChat_BOTTOM_H);
         
         _tableView = [[UITableView alloc] initWithFrame:rect];
         _tableView.delegate = self;
@@ -603,7 +603,7 @@
     if (self.navigationController.viewControllers.count <= 1) return NO;
     if ([gestureRecognizer isKindOfClass:[UIPanGestureRecognizer class]]) {
         CGPoint point = [touch locationInView:gestureRecognizer.view];
-        if (point.y > LLCHAT_SCREEN_HEIGHT-LLCHAT_INPUT_H-LLCHAT_BOTTOM_H) {
+        if (point.y > WZMChat_SCREEN_HEIGHT-WZMChat_INPUT_H-WZMChat_BOTTOM_H) {
             return NO;
         }
         if (point.x <= 100) {//设置手势触发区

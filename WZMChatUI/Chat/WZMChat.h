@@ -1,13 +1,13 @@
 //
-//  LLChat.h
-//  LLChat
+//  WZMChat.h
+//  WZMChat
 //
 //  Created by WangZhaomeng on 2019/4/26.
 //  Copyright © 2019 WangZhaomeng. All rights reserved.
 //
 
-#ifndef LLChat_h
-#define LLChat_h
+#ifndef WZMChat_h
+#define WZMChat_h
 
 #import "WZMBase64.h"
 #import "WZChatMacro.h"
@@ -34,4 +34,4 @@
 
 #import "WZMChatViewController.h"
 
-#endif /* LLChat_h */
+#endif /* WZMChat_h */

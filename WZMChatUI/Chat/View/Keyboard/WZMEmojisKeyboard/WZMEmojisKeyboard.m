@@ -1,6 +1,6 @@
 //
 //  WZMEmojisKeyboard.m
-//  LLChat
+//  WZMChat
 //
 //  Created by WangZhaomeng on 2018/9/5.
 //  Copyright © 2018年 WangZhaomeng. All rights reserved.
@@ -42,7 +42,7 @@
         WZMHorizontalLayout *horLayout = [[WZMHorizontalLayout alloc] initWithSpacing:spcing rows:key_rows nums:key_nums];
         
         CGRect rect = self.bounds;
-        rect.size.height -= (40+LLCHAT_BOTTOM_H);
+        rect.size.height -= (40+WZMChat_BOTTOM_H);
         _collectionView = [[UICollectionView alloc] initWithFrame:rect collectionViewLayout:horLayout];
         _collectionView.delegate = self;
         _collectionView.dataSource = self;
@@ -60,7 +60,7 @@
         [self addSubview:_collectionView];
         
         UIColor *themeColor = [UIColor colorWithRed:34/255. green:207/255. blue:172/255. alpha:1];
-        UIView *toolView = [[UIView alloc] initWithFrame:CGRectMake(0, _collectionView.maxY, frame.size.width, 40+LLCHAT_BOTTOM_H)];
+        UIView *toolView = [[UIView alloc] initWithFrame:CGRectMake(0, _collectionView.maxY, frame.size.width, 40+WZMChat_BOTTOM_H)];
         toolView.backgroundColor = [UIColor colorWithRed:220/255. green:220/255. blue:220/255. alpha:1];
         [self addSubview:toolView];
         
@@ -175,7 +175,7 @@
 }
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
-    NSInteger index = scrollView.contentOffset.x/LLCHAT_SCREEN_WIDTH;
+    NSInteger index = scrollView.contentOffset.x/WZMChat_SCREEN_WIDTH;
     NSInteger section = [self currectSection:index];
     NSInteger page = [self currectPage:index];
     UIButton *btn = [_btns objectAtIndex:section];
@@ -187,7 +187,7 @@
     if (btn.isSelected) return;
     [self selectedBtn:btn];
     NSInteger index = [self totalPageBeforeSection:btn.tag];
-    [_collectionView setContentOffset:CGPointMake(LLCHAT_SCREEN_WIDTH*index, 0) animated:NO];
+    [_collectionView setContentOffset:CGPointMake(WZMChat_SCREEN_WIDTH*index, 0) animated:NO];
 }
 
 - (void)selectedBtn:(UIButton *)btn {

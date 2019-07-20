@@ -1,6 +1,6 @@
 //
 //  WZMUserTableViewCell.m
-//  LLChat
+//  WZMChat
 //
 //  Created by WangZhaomeng on 2019/4/30.
 //  Copyright © 2019 WangZhaomeng. All rights reserved.
@@ -24,7 +24,7 @@
         [self addSubview:_avatarImageView];
         
         CGFloat nickX = _avatarImageView.maxX+15;
-        CGFloat nickW = LLCHAT_SCREEN_WIDTH-nickX-20;
+        CGFloat nickW = WZMChat_SCREEN_WIDTH-nickX-20;
         
         _nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(nickX, 0, nickW, 60)];
         _nameLabel.font = [UIFont systemFontOfSize:16];
@@ -36,7 +36,7 @@
 }
 
 - (void)setConfig:(WZMChatUserModel *)model {
-    [[WZMImageCache imageCache] getImageWithUrl:model.avatar isUseCatch:YES placeholder:LLCHAT_BAD_IMAGE completion:^(UIImage *image) {
+    [[WZMImageCache imageCache] getImageWithUrl:model.avatar isUseCatch:YES placeholder:WZMChat_BAD_IMAGE completion:^(UIImage *image) {
         _avatarImageView.image = image;
     }];
     _nameLabel.text = model.name;

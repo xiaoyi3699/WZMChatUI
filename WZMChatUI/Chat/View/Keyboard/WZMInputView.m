@@ -1,6 +1,6 @@
 //
 //  WZMInputView.m
-//  LLChat
+//  WZMChat
 //
 //  Created by WangZhaomeng on 2018/9/5.
 //  Copyright © 2018年 WangZhaomeng. All rights reserved.
@@ -36,7 +36,7 @@ typedef enum : NSInteger {
 }
 
 - (instancetype)init {
-    self = [super initWithFrame:CGRectMake(0, LLCHAT_SCREEN_HEIGHT-LLCHAT_INPUT_H-LLCHAT_BOTTOM_H, LLCHAT_SCREEN_WIDTH, [[WZMChatHelper shareInstance] inputKeyboardH]+150)];
+    self = [super initWithFrame:CGRectMake(0, WZMChat_SCREEN_HEIGHT-WZMChat_INPUT_H-WZMChat_BOTTOM_H, WZMChat_SCREEN_WIDTH, [[WZMChatHelper shareInstance] inputKeyboardH]+150)];
     if (self) {
         self.type = WZMInputViewTypeNone;
         
@@ -123,17 +123,17 @@ typedef enum : NSInteger {
     CGFloat duration = [dic[@"UIKeyboardAnimationDurationUserInfoKey"] floatValue];
     CGRect endFrame = [dic[@"UIKeyboardFrameEndUserInfoKey"] CGRectValue];
     
-    if (endFrame.origin.y == LLCHAT_SCREEN_HEIGHT) {
+    if (endFrame.origin.y == WZMChat_SCREEN_HEIGHT) {
         //键盘收回
         if (_isEditing) {
             //弹出自定义键盘
-            CGFloat minY = LLCHAT_SCREEN_HEIGHT-[[WZMChatHelper shareInstance] inputKeyboardH];
+            CGFloat minY = WZMChat_SCREEN_HEIGHT-[[WZMChatHelper shareInstance] inputKeyboardH];
             [self minYWillChange:minY duration:duration isFinishEditing:NO];
         }
     }
     else {
         //键盘谈起
-        CGFloat minY = endFrame.origin.y-LLCHAT_INPUT_H;
+        CGFloat minY = endFrame.origin.y-WZMChat_INPUT_H;
         [self minYWillChange:minY duration:duration isFinishEditing:NO];
     }
 }
@@ -141,7 +141,7 @@ typedef enum : NSInteger {
 - (void)minYWillChange:(CGFloat)minY duration:(CGFloat)duration isFinishEditing:(BOOL)isFinishEditing {
     _isEditing = !isFinishEditing;
     if (isFinishEditing) {
-        minY -= LLCHAT_BOTTOM_H;
+        minY -= WZMChat_BOTTOM_H;
         [self recoverSetting:_voiceBtn.selected];
     }
     else {
@@ -201,7 +201,7 @@ typedef enum : NSInteger {
             else {
                 //弹出自定义键盘
                 CGFloat duration = 0.25;
-                CGFloat minY = LLCHAT_SCREEN_HEIGHT-[[WZMChatHelper shareInstance] inputKeyboardH];
+                CGFloat minY = WZMChat_SCREEN_HEIGHT-[[WZMChatHelper shareInstance] inputKeyboardH];
                 [self minYWillChange:minY duration:duration isFinishEditing:NO];
             }
         }
@@ -212,34 +212,34 @@ typedef enum : NSInteger {
 - (void)touchDown:(UIButton *)btn {
     [_recordBtn setTitle:@"松开 结束" forState:UIControlStateNormal];
     [_recordBtn setTitleColor:[UIColor darkTextColor] forState:UIControlStateNormal];
-    [self didChangeRecordType:LLChatRecordTypeTouchDown];
+    [self didChangeRecordType:WZMChatRecordTypeTouchDown];
 }
 
 - (void)touchCancel:(UIButton *)btn {
     [_recordBtn setTitle:@"按住 说话" forState:UIControlStateNormal];
     [_recordBtn setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
-    [self didChangeRecordType:LLChatRecordTypeTouchCancel];
+    [self didChangeRecordType:WZMChatRecordTypeTouchCancel];
 }
 
 - (void)touchFinish:(UIButton *)btn {
     [_recordBtn setTitle:@"按住 说话" forState:UIControlStateNormal];
     [_recordBtn setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
-    [self didChangeRecordType:LLChatRecordTypeTouchFinish];
+    [self didChangeRecordType:WZMChatRecordTypeTouchFinish];
 }
 
 - (void)touchDragOutside:(UIButton *)btn {
     [_recordBtn setTitle:@"松开 结束" forState:UIControlStateNormal];
     [_recordBtn setTitleColor:[UIColor darkTextColor] forState:UIControlStateNormal];
-    [self didChangeRecordType:LLChatRecordTypeTouchDragOutside];
+    [self didChangeRecordType:WZMChatRecordTypeTouchDragOutside];
 }
 
 - (void)touchDragInside:(UIButton *)btn {
     [_recordBtn setTitle:@"松开 结束" forState:UIControlStateNormal];
     [_recordBtn setTitleColor:[UIColor darkTextColor] forState:UIControlStateNormal];
-    [self didChangeRecordType:LLChatRecordTypeTouchDragInside];
+    [self didChangeRecordType:WZMChatRecordTypeTouchDragInside];
 }
 
-- (void)didChangeRecordType:(LLChatRecordType)type {
+- (void)didChangeRecordType:(WZMChatRecordType)type {
     if ([self.delegate respondsToSelector:@selector(inputView:didChangeRecordType:)]) {
         [self.delegate inputView:self didChangeRecordType:type];
     }
@@ -258,7 +258,7 @@ typedef enum : NSInteger {
         _isEditing = NO;
         //结束编辑
         CGFloat duration = 0.25;
-        CGFloat minY = LLCHAT_SCREEN_HEIGHT-LLCHAT_INPUT_H;
+        CGFloat minY = WZMChat_SCREEN_HEIGHT-WZMChat_INPUT_H;
         [self minYWillChange:minY duration:duration isFinishEditing:YES];
     }
     [_textView resignFirstResponder];
@@ -368,7 +368,7 @@ typedef enum : NSInteger {
 #pragma mark - getter
 - (WZMEmojisKeyboard *)emojisKeyboard {
     if (_emojisKeyboard == nil) {
-        _emojisKeyboard = [[WZMEmojisKeyboard alloc] initWithFrame:CGRectMake(0, LLCHAT_INPUT_H, LLCHAT_SCREEN_WIDTH, LLCHAT_KEYBOARD_H)];
+        _emojisKeyboard = [[WZMEmojisKeyboard alloc] initWithFrame:CGRectMake(0, WZMChat_INPUT_H, WZMChat_SCREEN_WIDTH, WZMChat_KEYBOARD_H)];
         _emojisKeyboard.delegate = self;
         _emojisKeyboard.hidden = YES;
     }
@@ -377,7 +377,7 @@ typedef enum : NSInteger {
 
 - (WZMChatMoreKeyboard *)moreKeyboard {
     if (_moreKeyboard == nil) {
-        _moreKeyboard = [[WZMChatMoreKeyboard alloc] initWithFrame:CGRectMake(0, LLCHAT_INPUT_H, LLCHAT_SCREEN_WIDTH, LLCHAT_KEYBOARD_H)];
+        _moreKeyboard = [[WZMChatMoreKeyboard alloc] initWithFrame:CGRectMake(0, WZMChat_INPUT_H, WZMChat_SCREEN_WIDTH, WZMChat_KEYBOARD_H)];
         _moreKeyboard.delegate = self;
         _moreKeyboard.hidden = YES;
     }

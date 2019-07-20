@@ -1,6 +1,6 @@
 //
 //  WZMChatSessionModel.m
-//  LLChat
+//  WZMChat
 //
 //  Created by WangZhaomeng on 2019/4/29.
 //  Copyright © 2019 WangZhaomeng. All rights reserved.
