@@ -10,33 +10,33 @@
 		754A1F7D22E2BE53005A0585 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 754A1F7C22E2BE53005A0585 /* AppDelegate.m */; };
 		754A1F7F22E2BE54005A0585 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 754A1F7E22E2BE54005A0585 /* Assets.xcassets */; };
 		754A1F8522E2BE54005A0585 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 754A1F8422E2BE54005A0585 /* main.m */; };
-		754A1F9A22E2BEB6005A0585 /* LLUserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 754A1F8F22E2BEB6005A0585 /* LLUserViewController.m */; };
-		754A1F9B22E2BEB6005A0585 /* LLUserTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 754A1F9222E2BEB6005A0585 /* LLUserTableViewCell.m */; };
-		754A1F9C22E2BEB6005A0585 /* LLSessionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 754A1F9522E2BEB6005A0585 /* LLSessionViewController.m */; };
-		754A1F9D22E2BEB6005A0585 /* LLSessionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 754A1F9922E2BEB6005A0585 /* LLSessionTableViewCell.m */; };
-		754A1FFF22E2BF24005A0585 /* LLChatMessageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 754A1FA122E2BF23005A0585 /* LLChatMessageManager.m */; };
-		754A200022E2BF24005A0585 /* LLChatNotificationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 754A1FA322E2BF23005A0585 /* LLChatNotificationManager.m */; };
-		754A200122E2BF24005A0585 /* LLChatHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 754A1FA522E2BF23005A0585 /* LLChatHelper.m */; };
-		754A200222E2BF24005A0585 /* LLChatSqliteManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 754A1FA822E2BF23005A0585 /* LLChatSqliteManager.m */; };
-		754A200322E2BF24005A0585 /* LLChatDBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 754A1FAB22E2BF23005A0585 /* LLChatDBManager.m */; };
-		754A200422E2BF24005A0585 /* LLChatBaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 754A1FB022E2BF23005A0585 /* LLChatBaseCell.m */; };
-		754A200522E2BF24005A0585 /* LLChatBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = 754A1FB422E2BF23005A0585 /* LLChatBtn.m */; };
-		754A200622E2BF24005A0585 /* LLEmojisKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 754A1FB722E2BF23005A0585 /* LLEmojisKeyboard.m */; };
-		754A200722E2BF24005A0585 /* LLEmoticonManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 754A1FB922E2BF23005A0585 /* LLEmoticonManager.m */; };
-		754A200822E2BF24005A0585 /* LLHorizontalLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 754A1FBF22E2BF23005A0585 /* LLHorizontalLayout.m */; };
-		754A200922E2BF24005A0585 /* LLChatRecordAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 754A1FC222E2BF23005A0585 /* LLChatRecordAnimation.m */; };
-		754A200A22E2BF24005A0585 /* LLBlankCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 754A1FC722E2BF23005A0585 /* LLBlankCell.m */; };
-		754A200B22E2BF24005A0585 /* LLDeleteCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 754A1FC822E2BF23005A0585 /* LLDeleteCell.m */; };
-		754A200C22E2BF24005A0585 /* LLEmojisCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 754A1FC922E2BF23005A0585 /* LLEmojisCell.m */; };
-		754A200D22E2BF24005A0585 /* LLEmoticonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 754A1FCA22E2BF23005A0585 /* LLEmoticonCell.m */; };
-		754A200E22E2BF24005A0585 /* LLChatMoreKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 754A1FCD22E2BF24005A0585 /* LLChatMoreKeyboard.m */; };
-		754A200F22E2BF24005A0585 /* LLInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 754A1FCF22E2BF24005A0585 /* LLInputView.m */; };
-		754A201022E2BF24005A0585 /* LLChatSystemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 754A1FD122E2BF24005A0585 /* LLChatSystemCell.m */; };
-		754A201122E2BF24005A0585 /* LLChatTextMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 754A1FD222E2BF24005A0585 /* LLChatTextMessageCell.m */; };
-		754A201222E2BF24005A0585 /* LLChatImageMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 754A1FD422E2BF24005A0585 /* LLChatImageMessageCell.m */; };
-		754A201322E2BF24005A0585 /* LLChatVideoMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 754A1FD622E2BF24005A0585 /* LLChatVideoMessageCell.m */; };
-		754A201422E2BF24005A0585 /* LLChatMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 754A1FD922E2BF24005A0585 /* LLChatMessageCell.m */; };
-		754A201522E2BF24005A0585 /* LLChatVoiceMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 754A1FDC22E2BF24005A0585 /* LLChatVoiceMessageCell.m */; };
+		754A1F9A22E2BEB6005A0585 /* WZMUserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 754A1F8F22E2BEB6005A0585 /* WZMUserViewController.m */; };
+		754A1F9B22E2BEB6005A0585 /* WZMUserTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 754A1F9222E2BEB6005A0585 /* WZMUserTableViewCell.m */; };
+		754A1F9C22E2BEB6005A0585 /* WZMSessionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 754A1F9522E2BEB6005A0585 /* WZMSessionViewController.m */; };
+		754A1F9D22E2BEB6005A0585 /* WZMSessionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 754A1F9922E2BEB6005A0585 /* WZMSessionTableViewCell.m */; };
+		754A1FFF22E2BF24005A0585 /* WZMChatMessageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 754A1FA122E2BF23005A0585 /* WZMChatMessageManager.m */; };
+		754A200022E2BF24005A0585 /* WZMChatNotificationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 754A1FA322E2BF23005A0585 /* WZMChatNotificationManager.m */; };
+		754A200122E2BF24005A0585 /* WZMChatHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 754A1FA522E2BF23005A0585 /* WZMChatHelper.m */; };
+		754A200222E2BF24005A0585 /* WZMChatSqliteManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 754A1FA822E2BF23005A0585 /* WZMChatSqliteManager.m */; };
+		754A200322E2BF24005A0585 /* WZMChatDBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 754A1FAB22E2BF23005A0585 /* WZMChatDBManager.m */; };
+		754A200422E2BF24005A0585 /* WZMChatBaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 754A1FB022E2BF23005A0585 /* WZMChatBaseCell.m */; };
+		754A200522E2BF24005A0585 /* WZMChatBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = 754A1FB422E2BF23005A0585 /* WZMChatBtn.m */; };
+		754A200622E2BF24005A0585 /* WZMEmojisKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 754A1FB722E2BF23005A0585 /* WZMEmojisKeyboard.m */; };
+		754A200722E2BF24005A0585 /* WZMEmoticonManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 754A1FB922E2BF23005A0585 /* WZMEmoticonManager.m */; };
+		754A200822E2BF24005A0585 /* WZMHorizontalLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 754A1FBF22E2BF23005A0585 /* WZMHorizontalLayout.m */; };
+		754A200922E2BF24005A0585 /* WZMChatRecordAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 754A1FC222E2BF23005A0585 /* WZMChatRecordAnimation.m */; };
+		754A200A22E2BF24005A0585 /* WZMBlankCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 754A1FC722E2BF23005A0585 /* WZMBlankCell.m */; };
+		754A200B22E2BF24005A0585 /* WZMDeleteCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 754A1FC822E2BF23005A0585 /* WZMDeleteCell.m */; };
+		754A200C22E2BF24005A0585 /* WZMEmojisCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 754A1FC922E2BF23005A0585 /* WZMEmojisCell.m */; };
+		754A200D22E2BF24005A0585 /* WZMEmoticonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 754A1FCA22E2BF23005A0585 /* WZMEmoticonCell.m */; };
+		754A200E22E2BF24005A0585 /* WZMChatMoreKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 754A1FCD22E2BF24005A0585 /* WZMChatMoreKeyboard.m */; };
+		754A200F22E2BF24005A0585 /* WZMInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 754A1FCF22E2BF24005A0585 /* WZMInputView.m */; };
+		754A201022E2BF24005A0585 /* WZMChatSystemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 754A1FD122E2BF24005A0585 /* WZMChatSystemCell.m */; };
+		754A201122E2BF24005A0585 /* WZMChatTextMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 754A1FD222E2BF24005A0585 /* WZMChatTextMessageCell.m */; };
+		754A201222E2BF24005A0585 /* WZMChatImageMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 754A1FD422E2BF24005A0585 /* WZMChatImageMessageCell.m */; };
+		754A201322E2BF24005A0585 /* WZMChatVideoMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 754A1FD622E2BF24005A0585 /* WZMChatVideoMessageCell.m */; };
+		754A201422E2BF24005A0585 /* WZMChatMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 754A1FD922E2BF24005A0585 /* WZMChatMessageCell.m */; };
+		754A201522E2BF24005A0585 /* WZMChatVoiceMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 754A1FDC22E2BF24005A0585 /* WZMChatVoiceMessageCell.m */; };
 		754A201622E2BF24005A0585 /* NSAttributedString+WZMChat.m in Sources */ = {isa = PBXBuildFile; fileRef = 754A1FDF22E2BF24005A0585 /* NSAttributedString+WZMChat.m */; };
 		754A201722E2BF24005A0585 /* NSDateFormatter+WZMChat.m in Sources */ = {isa = PBXBuildFile; fileRef = 754A1FE022E2BF24005A0585 /* NSDateFormatter+WZMChat.m */; };
 		754A201822E2BF24005A0585 /* WZMImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 754A1FE122E2BF24005A0585 /* WZMImageCache.m */; };
@@ -44,16 +44,16 @@
 		754A201A22E2BF24005A0585 /* NSString+WZMChat.m in Sources */ = {isa = PBXBuildFile; fileRef = 754A1FE322E2BF24005A0585 /* NSString+WZMChat.m */; };
 		754A201B22E2BF24005A0585 /* UIView+WZMChat.m in Sources */ = {isa = PBXBuildFile; fileRef = 754A1FE722E2BF24005A0585 /* UIView+WZMChat.m */; };
 		754A201C22E2BF24005A0585 /* WZMBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = 754A1FEB22E2BF24005A0585 /* WZMBase64.m */; };
-		754A201D22E2BF24005A0585 /* LLChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 754A1FEE22E2BF24005A0585 /* LLChatViewController.m */; };
-		754A201E22E2BF24005A0585 /* LLChatBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 754A1FF322E2BF24005A0585 /* LLChatBaseModel.m */; };
-		754A201F22E2BF24005A0585 /* LLChatSessionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 754A1FF622E2BF24005A0585 /* LLChatSessionModel.m */; };
-		754A202022E2BF24005A0585 /* LLChatUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 754A1FF922E2BF24005A0585 /* LLChatUserModel.m */; };
-		754A202122E2BF24005A0585 /* LLChatGroupModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 754A1FFA22E2BF24005A0585 /* LLChatGroupModel.m */; };
-		754A202222E2BF24005A0585 /* LLChatMessageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 754A1FFC22E2BF24005A0585 /* LLChatMessageModel.m */; };
-		754A202722E2C1AD005A0585 /* LLEmojis.plist in Resources */ = {isa = PBXBuildFile; fileRef = 754A202422E2C1AC005A0585 /* LLEmojis.plist */; };
-		754A202822E2C1AD005A0585 /* LLEmoticon1.plist in Resources */ = {isa = PBXBuildFile; fileRef = 754A202522E2C1AC005A0585 /* LLEmoticon1.plist */; };
-		754A202922E2C1AD005A0585 /* LLEmoticon2.plist in Resources */ = {isa = PBXBuildFile; fileRef = 754A202622E2C1AD005A0585 /* LLEmoticon2.plist */; };
-		754A202B22E2C276005A0585 /* emoticon.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 754A202A22E2C276005A0585 /* emoticon.bundle */; };
+		754A201D22E2BF24005A0585 /* WZMChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 754A1FEE22E2BF24005A0585 /* WZMChatViewController.m */; };
+		754A201E22E2BF24005A0585 /* WZMChatBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 754A1FF322E2BF24005A0585 /* WZMChatBaseModel.m */; };
+		754A201F22E2BF24005A0585 /* WZMChatSessionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 754A1FF622E2BF24005A0585 /* WZMChatSessionModel.m */; };
+		754A202022E2BF24005A0585 /* WZMChatUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 754A1FF922E2BF24005A0585 /* WZMChatUserModel.m */; };
+		754A202122E2BF24005A0585 /* WZMChatGroupModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 754A1FFA22E2BF24005A0585 /* WZMChatGroupModel.m */; };
+		754A202222E2BF24005A0585 /* WZMChatMessageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 754A1FFC22E2BF24005A0585 /* WZMChatMessageModel.m */; };
+		754A202722E2C1AD005A0585 /* WZMEmojis.plist in Resources */ = {isa = PBXBuildFile; fileRef = 754A202422E2C1AC005A0585 /* WZMEmojis.plist */; };
+		754A202822E2C1AD005A0585 /* WZMEmoticon1.plist in Resources */ = {isa = PBXBuildFile; fileRef = 754A202522E2C1AC005A0585 /* WZMEmoticon1.plist */; };
+		754A202922E2C1AD005A0585 /* WZMEmoticon2.plist in Resources */ = {isa = PBXBuildFile; fileRef = 754A202622E2C1AD005A0585 /* WZMEmoticon2.plist */; };
+		754A202B22E2C276005A0585 /* WZMEmoticon.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 754A202A22E2C276005A0585 /* WZMEmoticon.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,60 +63,60 @@
 		754A1F7E22E2BE54005A0585 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		754A1F8322E2BE54005A0585 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		754A1F8422E2BE54005A0585 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		754A1F8E22E2BEB6005A0585 /* LLUserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLUserViewController.h; sourceTree = "<group>"; };
-		754A1F8F22E2BEB6005A0585 /* LLUserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLUserViewController.m; sourceTree = "<group>"; };
-		754A1F9122E2BEB6005A0585 /* LLUserTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLUserTableViewCell.h; sourceTree = "<group>"; };
-		754A1F9222E2BEB6005A0585 /* LLUserTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLUserTableViewCell.m; sourceTree = "<group>"; };
-		754A1F9522E2BEB6005A0585 /* LLSessionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLSessionViewController.m; sourceTree = "<group>"; };
-		754A1F9622E2BEB6005A0585 /* LLSessionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLSessionViewController.h; sourceTree = "<group>"; };
-		754A1F9822E2BEB6005A0585 /* LLSessionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLSessionTableViewCell.h; sourceTree = "<group>"; };
-		754A1F9922E2BEB6005A0585 /* LLSessionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLSessionTableViewCell.m; sourceTree = "<group>"; };
-		754A1FA122E2BF23005A0585 /* LLChatMessageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLChatMessageManager.m; sourceTree = "<group>"; };
-		754A1FA222E2BF23005A0585 /* LLChatHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLChatHelper.h; sourceTree = "<group>"; };
-		754A1FA322E2BF23005A0585 /* LLChatNotificationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLChatNotificationManager.m; sourceTree = "<group>"; };
-		754A1FA422E2BF23005A0585 /* LLChatMessageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLChatMessageManager.h; sourceTree = "<group>"; };
-		754A1FA522E2BF23005A0585 /* LLChatHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLChatHelper.m; sourceTree = "<group>"; };
-		754A1FA622E2BF23005A0585 /* LLChatNotificationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLChatNotificationManager.h; sourceTree = "<group>"; };
-		754A1FA822E2BF23005A0585 /* LLChatSqliteManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLChatSqliteManager.m; sourceTree = "<group>"; };
-		754A1FA922E2BF23005A0585 /* LLChatSqliteManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLChatSqliteManager.h; sourceTree = "<group>"; };
-		754A1FAB22E2BF23005A0585 /* LLChatDBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLChatDBManager.m; sourceTree = "<group>"; };
-		754A1FAC22E2BF23005A0585 /* LLChatDBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLChatDBManager.h; sourceTree = "<group>"; };
-		754A1FAF22E2BF23005A0585 /* LLChatBaseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLChatBaseCell.h; sourceTree = "<group>"; };
-		754A1FB022E2BF23005A0585 /* LLChatBaseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLChatBaseCell.m; sourceTree = "<group>"; };
-		754A1FB322E2BF23005A0585 /* LLChatBtn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLChatBtn.h; sourceTree = "<group>"; };
-		754A1FB422E2BF23005A0585 /* LLChatBtn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLChatBtn.m; sourceTree = "<group>"; };
-		754A1FB522E2BF23005A0585 /* LLInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLInputView.h; sourceTree = "<group>"; };
-		754A1FB722E2BF23005A0585 /* LLEmojisKeyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLEmojisKeyboard.m; sourceTree = "<group>"; };
-		754A1FB922E2BF23005A0585 /* LLEmoticonManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLEmoticonManager.m; sourceTree = "<group>"; };
-		754A1FBA22E2BF23005A0585 /* LLEmoticonManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLEmoticonManager.h; sourceTree = "<group>"; };
-		754A1FBB22E2BF23005A0585 /* LLEmojisKeyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLEmojisKeyboard.h; sourceTree = "<group>"; };
-		754A1FBE22E2BF23005A0585 /* LLHorizontalLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLHorizontalLayout.h; sourceTree = "<group>"; };
-		754A1FBF22E2BF23005A0585 /* LLHorizontalLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLHorizontalLayout.m; sourceTree = "<group>"; };
-		754A1FC122E2BF23005A0585 /* LLChatRecordAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLChatRecordAnimation.h; sourceTree = "<group>"; };
-		754A1FC222E2BF23005A0585 /* LLChatRecordAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLChatRecordAnimation.m; sourceTree = "<group>"; };
-		754A1FC422E2BF23005A0585 /* LLEmoticonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLEmoticonCell.h; sourceTree = "<group>"; };
-		754A1FC522E2BF23005A0585 /* LLEmojisCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLEmojisCell.h; sourceTree = "<group>"; };
-		754A1FC622E2BF23005A0585 /* LLDeleteCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLDeleteCell.h; sourceTree = "<group>"; };
-		754A1FC722E2BF23005A0585 /* LLBlankCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLBlankCell.m; sourceTree = "<group>"; };
-		754A1FC822E2BF23005A0585 /* LLDeleteCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLDeleteCell.m; sourceTree = "<group>"; };
-		754A1FC922E2BF23005A0585 /* LLEmojisCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLEmojisCell.m; sourceTree = "<group>"; };
-		754A1FCA22E2BF23005A0585 /* LLEmoticonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLEmoticonCell.m; sourceTree = "<group>"; };
-		754A1FCB22E2BF24005A0585 /* LLBlankCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLBlankCell.h; sourceTree = "<group>"; };
-		754A1FCD22E2BF24005A0585 /* LLChatMoreKeyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLChatMoreKeyboard.m; sourceTree = "<group>"; };
-		754A1FCE22E2BF24005A0585 /* LLChatMoreKeyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLChatMoreKeyboard.h; sourceTree = "<group>"; };
-		754A1FCF22E2BF24005A0585 /* LLInputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLInputView.m; sourceTree = "<group>"; };
-		754A1FD122E2BF24005A0585 /* LLChatSystemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLChatSystemCell.m; sourceTree = "<group>"; };
-		754A1FD222E2BF24005A0585 /* LLChatTextMessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLChatTextMessageCell.m; sourceTree = "<group>"; };
-		754A1FD322E2BF24005A0585 /* LLChatMessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLChatMessageCell.h; sourceTree = "<group>"; };
-		754A1FD422E2BF24005A0585 /* LLChatImageMessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLChatImageMessageCell.m; sourceTree = "<group>"; };
-		754A1FD522E2BF24005A0585 /* LLChatVoiceMessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLChatVoiceMessageCell.h; sourceTree = "<group>"; };
-		754A1FD622E2BF24005A0585 /* LLChatVideoMessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLChatVideoMessageCell.m; sourceTree = "<group>"; };
-		754A1FD722E2BF24005A0585 /* LLChatSystemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLChatSystemCell.h; sourceTree = "<group>"; };
-		754A1FD822E2BF24005A0585 /* LLChatImageMessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLChatImageMessageCell.h; sourceTree = "<group>"; };
-		754A1FD922E2BF24005A0585 /* LLChatMessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLChatMessageCell.m; sourceTree = "<group>"; };
-		754A1FDA22E2BF24005A0585 /* LLChatTextMessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLChatTextMessageCell.h; sourceTree = "<group>"; };
-		754A1FDB22E2BF24005A0585 /* LLChatVideoMessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLChatVideoMessageCell.h; sourceTree = "<group>"; };
-		754A1FDC22E2BF24005A0585 /* LLChatVoiceMessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLChatVoiceMessageCell.m; sourceTree = "<group>"; };
+		754A1F8E22E2BEB6005A0585 /* WZMUserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WZMUserViewController.h; sourceTree = "<group>"; };
+		754A1F8F22E2BEB6005A0585 /* WZMUserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WZMUserViewController.m; sourceTree = "<group>"; };
+		754A1F9122E2BEB6005A0585 /* WZMUserTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WZMUserTableViewCell.h; sourceTree = "<group>"; };
+		754A1F9222E2BEB6005A0585 /* WZMUserTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WZMUserTableViewCell.m; sourceTree = "<group>"; };
+		754A1F9522E2BEB6005A0585 /* WZMSessionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WZMSessionViewController.m; sourceTree = "<group>"; };
+		754A1F9622E2BEB6005A0585 /* WZMSessionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WZMSessionViewController.h; sourceTree = "<group>"; };
+		754A1F9822E2BEB6005A0585 /* WZMSessionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WZMSessionTableViewCell.h; sourceTree = "<group>"; };
+		754A1F9922E2BEB6005A0585 /* WZMSessionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WZMSessionTableViewCell.m; sourceTree = "<group>"; };
+		754A1FA122E2BF23005A0585 /* WZMChatMessageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WZMChatMessageManager.m; sourceTree = "<group>"; };
+		754A1FA222E2BF23005A0585 /* WZMChatHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WZMChatHelper.h; sourceTree = "<group>"; };
+		754A1FA322E2BF23005A0585 /* WZMChatNotificationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WZMChatNotificationManager.m; sourceTree = "<group>"; };
+		754A1FA422E2BF23005A0585 /* WZMChatMessageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WZMChatMessageManager.h; sourceTree = "<group>"; };
+		754A1FA522E2BF23005A0585 /* WZMChatHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WZMChatHelper.m; sourceTree = "<group>"; };
+		754A1FA622E2BF23005A0585 /* WZMChatNotificationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WZMChatNotificationManager.h; sourceTree = "<group>"; };
+		754A1FA822E2BF23005A0585 /* WZMChatSqliteManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WZMChatSqliteManager.m; sourceTree = "<group>"; };
+		754A1FA922E2BF23005A0585 /* WZMChatSqliteManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WZMChatSqliteManager.h; sourceTree = "<group>"; };
+		754A1FAB22E2BF23005A0585 /* WZMChatDBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WZMChatDBManager.m; sourceTree = "<group>"; };
+		754A1FAC22E2BF23005A0585 /* WZMChatDBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WZMChatDBManager.h; sourceTree = "<group>"; };
+		754A1FAF22E2BF23005A0585 /* WZMChatBaseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WZMChatBaseCell.h; sourceTree = "<group>"; };
+		754A1FB022E2BF23005A0585 /* WZMChatBaseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WZMChatBaseCell.m; sourceTree = "<group>"; };
+		754A1FB322E2BF23005A0585 /* WZMChatBtn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WZMChatBtn.h; sourceTree = "<group>"; };
+		754A1FB422E2BF23005A0585 /* WZMChatBtn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WZMChatBtn.m; sourceTree = "<group>"; };
+		754A1FB522E2BF23005A0585 /* WZMInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WZMInputView.h; sourceTree = "<group>"; };
+		754A1FB722E2BF23005A0585 /* WZMEmojisKeyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WZMEmojisKeyboard.m; sourceTree = "<group>"; };
+		754A1FB922E2BF23005A0585 /* WZMEmoticonManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WZMEmoticonManager.m; sourceTree = "<group>"; };
+		754A1FBA22E2BF23005A0585 /* WZMEmoticonManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WZMEmoticonManager.h; sourceTree = "<group>"; };
+		754A1FBB22E2BF23005A0585 /* WZMEmojisKeyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WZMEmojisKeyboard.h; sourceTree = "<group>"; };
+		754A1FBE22E2BF23005A0585 /* WZMHorizontalLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WZMHorizontalLayout.h; sourceTree = "<group>"; };
+		754A1FBF22E2BF23005A0585 /* WZMHorizontalLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WZMHorizontalLayout.m; sourceTree = "<group>"; };
+		754A1FC122E2BF23005A0585 /* WZMChatRecordAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WZMChatRecordAnimation.h; sourceTree = "<group>"; };
+		754A1FC222E2BF23005A0585 /* WZMChatRecordAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WZMChatRecordAnimation.m; sourceTree = "<group>"; };
+		754A1FC422E2BF23005A0585 /* WZMEmoticonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WZMEmoticonCell.h; sourceTree = "<group>"; };
+		754A1FC522E2BF23005A0585 /* WZMEmojisCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WZMEmojisCell.h; sourceTree = "<group>"; };
+		754A1FC622E2BF23005A0585 /* WZMDeleteCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WZMDeleteCell.h; sourceTree = "<group>"; };
+		754A1FC722E2BF23005A0585 /* WZMBlankCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WZMBlankCell.m; sourceTree = "<group>"; };
+		754A1FC822E2BF23005A0585 /* WZMDeleteCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WZMDeleteCell.m; sourceTree = "<group>"; };
+		754A1FC922E2BF23005A0585 /* WZMEmojisCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WZMEmojisCell.m; sourceTree = "<group>"; };
+		754A1FCA22E2BF23005A0585 /* WZMEmoticonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WZMEmoticonCell.m; sourceTree = "<group>"; };
+		754A1FCB22E2BF24005A0585 /* WZMBlankCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WZMBlankCell.h; sourceTree = "<group>"; };
+		754A1FCD22E2BF24005A0585 /* WZMChatMoreKeyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WZMChatMoreKeyboard.m; sourceTree = "<group>"; };
+		754A1FCE22E2BF24005A0585 /* WZMChatMoreKeyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WZMChatMoreKeyboard.h; sourceTree = "<group>"; };
+		754A1FCF22E2BF24005A0585 /* WZMInputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WZMInputView.m; sourceTree = "<group>"; };
+		754A1FD122E2BF24005A0585 /* WZMChatSystemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WZMChatSystemCell.m; sourceTree = "<group>"; };
+		754A1FD222E2BF24005A0585 /* WZMChatTextMessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WZMChatTextMessageCell.m; sourceTree = "<group>"; };
+		754A1FD322E2BF24005A0585 /* WZMChatMessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WZMChatMessageCell.h; sourceTree = "<group>"; };
+		754A1FD422E2BF24005A0585 /* WZMChatImageMessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WZMChatImageMessageCell.m; sourceTree = "<group>"; };
+		754A1FD522E2BF24005A0585 /* WZMChatVoiceMessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WZMChatVoiceMessageCell.h; sourceTree = "<group>"; };
+		754A1FD622E2BF24005A0585 /* WZMChatVideoMessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WZMChatVideoMessageCell.m; sourceTree = "<group>"; };
+		754A1FD722E2BF24005A0585 /* WZMChatSystemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WZMChatSystemCell.h; sourceTree = "<group>"; };
+		754A1FD822E2BF24005A0585 /* WZMChatImageMessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WZMChatImageMessageCell.h; sourceTree = "<group>"; };
+		754A1FD922E2BF24005A0585 /* WZMChatMessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WZMChatMessageCell.m; sourceTree = "<group>"; };
+		754A1FDA22E2BF24005A0585 /* WZMChatTextMessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WZMChatTextMessageCell.h; sourceTree = "<group>"; };
+		754A1FDB22E2BF24005A0585 /* WZMChatVideoMessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WZMChatVideoMessageCell.h; sourceTree = "<group>"; };
+		754A1FDC22E2BF24005A0585 /* WZMChatVoiceMessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WZMChatVoiceMessageCell.m; sourceTree = "<group>"; };
 		754A1FDE22E2BF24005A0585 /* UIView+WZMChat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WZMChat.h"; sourceTree = "<group>"; };
 		754A1FDF22E2BF24005A0585 /* NSAttributedString+WZMChat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSAttributedString+WZMChat.m"; sourceTree = "<group>"; };
 		754A1FE022E2BF24005A0585 /* NSDateFormatter+WZMChat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDateFormatter+WZMChat.m"; sourceTree = "<group>"; };
@@ -132,23 +132,23 @@
 		754A1FEA22E2BF24005A0585 /* WZMImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WZMImageCache.h; sourceTree = "<group>"; };
 		754A1FEB22E2BF24005A0585 /* WZMBase64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WZMBase64.m; sourceTree = "<group>"; };
 		754A1FEC22E2BF24005A0585 /* WZChatMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WZChatMacro.h; sourceTree = "<group>"; };
-		754A1FEE22E2BF24005A0585 /* LLChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLChatViewController.m; sourceTree = "<group>"; };
-		754A1FEF22E2BF24005A0585 /* LLChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLChatViewController.h; sourceTree = "<group>"; };
-		754A1FF222E2BF24005A0585 /* LLChatBaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLChatBaseModel.h; sourceTree = "<group>"; };
-		754A1FF322E2BF24005A0585 /* LLChatBaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLChatBaseModel.m; sourceTree = "<group>"; };
-		754A1FF522E2BF24005A0585 /* LLChatUserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLChatUserModel.h; sourceTree = "<group>"; };
-		754A1FF622E2BF24005A0585 /* LLChatSessionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLChatSessionModel.m; sourceTree = "<group>"; };
-		754A1FF722E2BF24005A0585 /* LLChatGroupModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLChatGroupModel.h; sourceTree = "<group>"; };
-		754A1FF822E2BF24005A0585 /* LLChatSessionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLChatSessionModel.h; sourceTree = "<group>"; };
-		754A1FF922E2BF24005A0585 /* LLChatUserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLChatUserModel.m; sourceTree = "<group>"; };
-		754A1FFA22E2BF24005A0585 /* LLChatGroupModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLChatGroupModel.m; sourceTree = "<group>"; };
-		754A1FFC22E2BF24005A0585 /* LLChatMessageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLChatMessageModel.m; sourceTree = "<group>"; };
-		754A1FFD22E2BF24005A0585 /* LLChatMessageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLChatMessageModel.h; sourceTree = "<group>"; };
+		754A1FEE22E2BF24005A0585 /* WZMChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WZMChatViewController.m; sourceTree = "<group>"; };
+		754A1FEF22E2BF24005A0585 /* WZMChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WZMChatViewController.h; sourceTree = "<group>"; };
+		754A1FF222E2BF24005A0585 /* WZMChatBaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WZMChatBaseModel.h; sourceTree = "<group>"; };
+		754A1FF322E2BF24005A0585 /* WZMChatBaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WZMChatBaseModel.m; sourceTree = "<group>"; };
+		754A1FF522E2BF24005A0585 /* WZMChatUserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WZMChatUserModel.h; sourceTree = "<group>"; };
+		754A1FF622E2BF24005A0585 /* WZMChatSessionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WZMChatSessionModel.m; sourceTree = "<group>"; };
+		754A1FF722E2BF24005A0585 /* WZMChatGroupModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WZMChatGroupModel.h; sourceTree = "<group>"; };
+		754A1FF822E2BF24005A0585 /* WZMChatSessionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WZMChatSessionModel.h; sourceTree = "<group>"; };
+		754A1FF922E2BF24005A0585 /* WZMChatUserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WZMChatUserModel.m; sourceTree = "<group>"; };
+		754A1FFA22E2BF24005A0585 /* WZMChatGroupModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WZMChatGroupModel.m; sourceTree = "<group>"; };
+		754A1FFC22E2BF24005A0585 /* WZMChatMessageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WZMChatMessageModel.m; sourceTree = "<group>"; };
+		754A1FFD22E2BF24005A0585 /* WZMChatMessageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WZMChatMessageModel.h; sourceTree = "<group>"; };
 		754A1FFE22E2BF24005A0585 /* LLChat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLChat.h; sourceTree = "<group>"; };
-		754A202422E2C1AC005A0585 /* LLEmojis.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = LLEmojis.plist; sourceTree = "<group>"; };
-		754A202522E2C1AC005A0585 /* LLEmoticon1.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = LLEmoticon1.plist; sourceTree = "<group>"; };
-		754A202622E2C1AD005A0585 /* LLEmoticon2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = LLEmoticon2.plist; sourceTree = "<group>"; };
-		754A202A22E2C276005A0585 /* emoticon.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = emoticon.bundle; sourceTree = "<group>"; };
+		754A202422E2C1AC005A0585 /* WZMEmojis.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = WZMEmojis.plist; sourceTree = "<group>"; };
+		754A202522E2C1AC005A0585 /* WZMEmoticon1.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = WZMEmoticon1.plist; sourceTree = "<group>"; };
+		754A202622E2C1AD005A0585 /* WZMEmoticon2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = WZMEmoticon2.plist; sourceTree = "<group>"; };
+		754A202A22E2C276005A0585 /* WZMEmoticon.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = WZMEmoticon.bundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -205,8 +205,8 @@
 		754A1F8D22E2BEB6005A0585 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				754A1F8E22E2BEB6005A0585 /* LLUserViewController.h */,
-				754A1F8F22E2BEB6005A0585 /* LLUserViewController.m */,
+				754A1F8E22E2BEB6005A0585 /* WZMUserViewController.h */,
+				754A1F8F22E2BEB6005A0585 /* WZMUserViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -214,8 +214,8 @@
 		754A1F9022E2BEB6005A0585 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				754A1F9122E2BEB6005A0585 /* LLUserTableViewCell.h */,
-				754A1F9222E2BEB6005A0585 /* LLUserTableViewCell.m */,
+				754A1F9122E2BEB6005A0585 /* WZMUserTableViewCell.h */,
+				754A1F9222E2BEB6005A0585 /* WZMUserTableViewCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -232,8 +232,8 @@
 		754A1F9422E2BEB6005A0585 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				754A1F9622E2BEB6005A0585 /* LLSessionViewController.h */,
-				754A1F9522E2BEB6005A0585 /* LLSessionViewController.m */,
+				754A1F9622E2BEB6005A0585 /* WZMSessionViewController.h */,
+				754A1F9522E2BEB6005A0585 /* WZMSessionViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -241,8 +241,8 @@
 		754A1F9722E2BEB6005A0585 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				754A1F9822E2BEB6005A0585 /* LLSessionTableViewCell.h */,
-				754A1F9922E2BEB6005A0585 /* LLSessionTableViewCell.m */,
+				754A1F9822E2BEB6005A0585 /* WZMSessionTableViewCell.h */,
+				754A1F9922E2BEB6005A0585 /* WZMSessionTableViewCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -265,16 +265,16 @@
 			isa = PBXGroup;
 			children = (
 				754A1FEC22E2BF24005A0585 /* WZChatMacro.h */,
-				754A1FA222E2BF23005A0585 /* LLChatHelper.h */,
-				754A1FA522E2BF23005A0585 /* LLChatHelper.m */,
+				754A1FA222E2BF23005A0585 /* WZMChatHelper.h */,
+				754A1FA522E2BF23005A0585 /* WZMChatHelper.m */,
 				754A1FEA22E2BF24005A0585 /* WZMImageCache.h */,
 				754A1FE122E2BF24005A0585 /* WZMImageCache.m */,
-				754A1FA922E2BF23005A0585 /* LLChatSqliteManager.h */,
-				754A1FA822E2BF23005A0585 /* LLChatSqliteManager.m */,
-				754A1FA422E2BF23005A0585 /* LLChatMessageManager.h */,
-				754A1FA122E2BF23005A0585 /* LLChatMessageManager.m */,
-				754A1FA622E2BF23005A0585 /* LLChatNotificationManager.h */,
-				754A1FA322E2BF23005A0585 /* LLChatNotificationManager.m */,
+				754A1FA922E2BF23005A0585 /* WZMChatSqliteManager.h */,
+				754A1FA822E2BF23005A0585 /* WZMChatSqliteManager.m */,
+				754A1FA422E2BF23005A0585 /* WZMChatMessageManager.h */,
+				754A1FA122E2BF23005A0585 /* WZMChatMessageManager.m */,
+				754A1FA622E2BF23005A0585 /* WZMChatNotificationManager.h */,
+				754A1FA322E2BF23005A0585 /* WZMChatNotificationManager.m */,
 				754A1FAA22E2BF23005A0585 /* DBManager */,
 			);
 			path = Common;
@@ -283,8 +283,8 @@
 		754A1FAA22E2BF23005A0585 /* DBManager */ = {
 			isa = PBXGroup;
 			children = (
-				754A1FAC22E2BF23005A0585 /* LLChatDBManager.h */,
-				754A1FAB22E2BF23005A0585 /* LLChatDBManager.m */,
+				754A1FAC22E2BF23005A0585 /* WZMChatDBManager.h */,
+				754A1FAB22E2BF23005A0585 /* WZMChatDBManager.m */,
 			);
 			path = DBManager;
 			sourceTree = "<group>";
@@ -301,8 +301,8 @@
 		754A1FAE22E2BF23005A0585 /* BaseCell */ = {
 			isa = PBXGroup;
 			children = (
-				754A1FAF22E2BF23005A0585 /* LLChatBaseCell.h */,
-				754A1FB022E2BF23005A0585 /* LLChatBaseCell.m */,
+				754A1FAF22E2BF23005A0585 /* WZMChatBaseCell.h */,
+				754A1FB022E2BF23005A0585 /* WZMChatBaseCell.m */,
 			);
 			path = BaseCell;
 			sourceTree = "<group>";
@@ -310,40 +310,40 @@
 		754A1FB122E2BF23005A0585 /* Keyboard */ = {
 			isa = PBXGroup;
 			children = (
-				754A1FB522E2BF23005A0585 /* LLInputView.h */,
-				754A1FCF22E2BF24005A0585 /* LLInputView.m */,
-				754A1FB222E2BF23005A0585 /* LLChatBtn */,
-				754A1FB622E2BF23005A0585 /* LLEmojisKeyboard */,
-				754A1FCC22E2BF24005A0585 /* LLMoreKeyboard */,
+				754A1FB522E2BF23005A0585 /* WZMInputView.h */,
+				754A1FCF22E2BF24005A0585 /* WZMInputView.m */,
+				754A1FB222E2BF23005A0585 /* WZMChatBtn */,
+				754A1FB622E2BF23005A0585 /* WZMEmojisKeyboard */,
+				754A1FCC22E2BF24005A0585 /* WZMMoreKeyboard */,
 			);
 			path = Keyboard;
 			sourceTree = "<group>";
 		};
-		754A1FB222E2BF23005A0585 /* LLChatBtn */ = {
+		754A1FB222E2BF23005A0585 /* WZMChatBtn */ = {
 			isa = PBXGroup;
 			children = (
-				754A1FB322E2BF23005A0585 /* LLChatBtn.h */,
-				754A1FB422E2BF23005A0585 /* LLChatBtn.m */,
+				754A1FB322E2BF23005A0585 /* WZMChatBtn.h */,
+				754A1FB422E2BF23005A0585 /* WZMChatBtn.m */,
 			);
-			path = LLChatBtn;
+			path = WZMChatBtn;
 			sourceTree = "<group>";
 		};
-		754A1FB622E2BF23005A0585 /* LLEmojisKeyboard */ = {
+		754A1FB622E2BF23005A0585 /* WZMEmojisKeyboard */ = {
 			isa = PBXGroup;
 			children = (
-				754A1FBB22E2BF23005A0585 /* LLEmojisKeyboard.h */,
-				754A1FB722E2BF23005A0585 /* LLEmojisKeyboard.m */,
+				754A1FBB22E2BF23005A0585 /* WZMEmojisKeyboard.h */,
+				754A1FB722E2BF23005A0585 /* WZMEmojisKeyboard.m */,
 				754A1FBC22E2BF23005A0585 /* View */,
 				754A1FB822E2BF23005A0585 /* EmoticonManager */,
 			);
-			path = LLEmojisKeyboard;
+			path = WZMEmojisKeyboard;
 			sourceTree = "<group>";
 		};
 		754A1FB822E2BF23005A0585 /* EmoticonManager */ = {
 			isa = PBXGroup;
 			children = (
-				754A1FBA22E2BF23005A0585 /* LLEmoticonManager.h */,
-				754A1FB922E2BF23005A0585 /* LLEmoticonManager.m */,
+				754A1FBA22E2BF23005A0585 /* WZMEmoticonManager.h */,
+				754A1FB922E2BF23005A0585 /* WZMEmoticonManager.m */,
 			);
 			path = EmoticonManager;
 			sourceTree = "<group>";
@@ -361,8 +361,8 @@
 		754A1FBD22E2BF23005A0585 /* layout */ = {
 			isa = PBXGroup;
 			children = (
-				754A1FBE22E2BF23005A0585 /* LLHorizontalLayout.h */,
-				754A1FBF22E2BF23005A0585 /* LLHorizontalLayout.m */,
+				754A1FBE22E2BF23005A0585 /* WZMHorizontalLayout.h */,
+				754A1FBF22E2BF23005A0585 /* WZMHorizontalLayout.m */,
 			);
 			path = layout;
 			sourceTree = "<group>";
@@ -370,8 +370,8 @@
 		754A1FC022E2BF23005A0585 /* recordAnimation */ = {
 			isa = PBXGroup;
 			children = (
-				754A1FC122E2BF23005A0585 /* LLChatRecordAnimation.h */,
-				754A1FC222E2BF23005A0585 /* LLChatRecordAnimation.m */,
+				754A1FC122E2BF23005A0585 /* WZMChatRecordAnimation.h */,
+				754A1FC222E2BF23005A0585 /* WZMChatRecordAnimation.m */,
 			);
 			path = recordAnimation;
 			sourceTree = "<group>";
@@ -379,43 +379,43 @@
 		754A1FC322E2BF23005A0585 /* cell */ = {
 			isa = PBXGroup;
 			children = (
-				754A1FCB22E2BF24005A0585 /* LLBlankCell.h */,
-				754A1FC722E2BF23005A0585 /* LLBlankCell.m */,
-				754A1FC622E2BF23005A0585 /* LLDeleteCell.h */,
-				754A1FC822E2BF23005A0585 /* LLDeleteCell.m */,
-				754A1FC522E2BF23005A0585 /* LLEmojisCell.h */,
-				754A1FC922E2BF23005A0585 /* LLEmojisCell.m */,
-				754A1FC422E2BF23005A0585 /* LLEmoticonCell.h */,
-				754A1FCA22E2BF23005A0585 /* LLEmoticonCell.m */,
+				754A1FCB22E2BF24005A0585 /* WZMBlankCell.h */,
+				754A1FC722E2BF23005A0585 /* WZMBlankCell.m */,
+				754A1FC622E2BF23005A0585 /* WZMDeleteCell.h */,
+				754A1FC822E2BF23005A0585 /* WZMDeleteCell.m */,
+				754A1FC522E2BF23005A0585 /* WZMEmojisCell.h */,
+				754A1FC922E2BF23005A0585 /* WZMEmojisCell.m */,
+				754A1FC422E2BF23005A0585 /* WZMEmoticonCell.h */,
+				754A1FCA22E2BF23005A0585 /* WZMEmoticonCell.m */,
 			);
 			path = cell;
 			sourceTree = "<group>";
 		};
-		754A1FCC22E2BF24005A0585 /* LLMoreKeyboard */ = {
+		754A1FCC22E2BF24005A0585 /* WZMMoreKeyboard */ = {
 			isa = PBXGroup;
 			children = (
-				754A1FCE22E2BF24005A0585 /* LLChatMoreKeyboard.h */,
-				754A1FCD22E2BF24005A0585 /* LLChatMoreKeyboard.m */,
+				754A1FCE22E2BF24005A0585 /* WZMChatMoreKeyboard.h */,
+				754A1FCD22E2BF24005A0585 /* WZMChatMoreKeyboard.m */,
 			);
-			path = LLMoreKeyboard;
+			path = WZMMoreKeyboard;
 			sourceTree = "<group>";
 		};
 		754A1FD022E2BF24005A0585 /* MsgCell */ = {
 			isa = PBXGroup;
 			children = (
 				754A1FAE22E2BF23005A0585 /* BaseCell */,
-				754A1FD322E2BF24005A0585 /* LLChatMessageCell.h */,
-				754A1FD922E2BF24005A0585 /* LLChatMessageCell.m */,
-				754A1FD722E2BF24005A0585 /* LLChatSystemCell.h */,
-				754A1FD122E2BF24005A0585 /* LLChatSystemCell.m */,
-				754A1FDA22E2BF24005A0585 /* LLChatTextMessageCell.h */,
-				754A1FD222E2BF24005A0585 /* LLChatTextMessageCell.m */,
-				754A1FD822E2BF24005A0585 /* LLChatImageMessageCell.h */,
-				754A1FD422E2BF24005A0585 /* LLChatImageMessageCell.m */,
-				754A1FD522E2BF24005A0585 /* LLChatVoiceMessageCell.h */,
-				754A1FDC22E2BF24005A0585 /* LLChatVoiceMessageCell.m */,
-				754A1FDB22E2BF24005A0585 /* LLChatVideoMessageCell.h */,
-				754A1FD622E2BF24005A0585 /* LLChatVideoMessageCell.m */,
+				754A1FD322E2BF24005A0585 /* WZMChatMessageCell.h */,
+				754A1FD922E2BF24005A0585 /* WZMChatMessageCell.m */,
+				754A1FD722E2BF24005A0585 /* WZMChatSystemCell.h */,
+				754A1FD122E2BF24005A0585 /* WZMChatSystemCell.m */,
+				754A1FDA22E2BF24005A0585 /* WZMChatTextMessageCell.h */,
+				754A1FD222E2BF24005A0585 /* WZMChatTextMessageCell.m */,
+				754A1FD822E2BF24005A0585 /* WZMChatImageMessageCell.h */,
+				754A1FD422E2BF24005A0585 /* WZMChatImageMessageCell.m */,
+				754A1FD522E2BF24005A0585 /* WZMChatVoiceMessageCell.h */,
+				754A1FDC22E2BF24005A0585 /* WZMChatVoiceMessageCell.m */,
+				754A1FDB22E2BF24005A0585 /* WZMChatVideoMessageCell.h */,
+				754A1FD622E2BF24005A0585 /* WZMChatVideoMessageCell.m */,
 			);
 			path = MsgCell;
 			sourceTree = "<group>";
@@ -442,8 +442,8 @@
 		754A1FED22E2BF24005A0585 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				754A1FEF22E2BF24005A0585 /* LLChatViewController.h */,
-				754A1FEE22E2BF24005A0585 /* LLChatViewController.m */,
+				754A1FEF22E2BF24005A0585 /* WZMChatViewController.h */,
+				754A1FEE22E2BF24005A0585 /* WZMChatViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -451,51 +451,51 @@
 		754A1FF022E2BF24005A0585 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				754A1FF122E2BF24005A0585 /* LLChatBaseModel */,
-				754A1FF422E2BF24005A0585 /* LLChatUserModel */,
-				754A1FFB22E2BF24005A0585 /* LLChatMessageModel */,
+				754A1FF122E2BF24005A0585 /* WZMChatBaseModel */,
+				754A1FF422E2BF24005A0585 /* WZMChatUserModel */,
+				754A1FFB22E2BF24005A0585 /* WZMChatMessageModel */,
 			);
 			path = Model;
 			sourceTree = "<group>";
 		};
-		754A1FF122E2BF24005A0585 /* LLChatBaseModel */ = {
+		754A1FF122E2BF24005A0585 /* WZMChatBaseModel */ = {
 			isa = PBXGroup;
 			children = (
-				754A1FF222E2BF24005A0585 /* LLChatBaseModel.h */,
-				754A1FF322E2BF24005A0585 /* LLChatBaseModel.m */,
+				754A1FF222E2BF24005A0585 /* WZMChatBaseModel.h */,
+				754A1FF322E2BF24005A0585 /* WZMChatBaseModel.m */,
 			);
-			path = LLChatBaseModel;
+			path = WZMChatBaseModel;
 			sourceTree = "<group>";
 		};
-		754A1FF422E2BF24005A0585 /* LLChatUserModel */ = {
+		754A1FF422E2BF24005A0585 /* WZMChatUserModel */ = {
 			isa = PBXGroup;
 			children = (
-				754A1FF522E2BF24005A0585 /* LLChatUserModel.h */,
-				754A1FF922E2BF24005A0585 /* LLChatUserModel.m */,
-				754A1FF722E2BF24005A0585 /* LLChatGroupModel.h */,
-				754A1FFA22E2BF24005A0585 /* LLChatGroupModel.m */,
-				754A1FF822E2BF24005A0585 /* LLChatSessionModel.h */,
-				754A1FF622E2BF24005A0585 /* LLChatSessionModel.m */,
+				754A1FF522E2BF24005A0585 /* WZMChatUserModel.h */,
+				754A1FF922E2BF24005A0585 /* WZMChatUserModel.m */,
+				754A1FF722E2BF24005A0585 /* WZMChatGroupModel.h */,
+				754A1FFA22E2BF24005A0585 /* WZMChatGroupModel.m */,
+				754A1FF822E2BF24005A0585 /* WZMChatSessionModel.h */,
+				754A1FF622E2BF24005A0585 /* WZMChatSessionModel.m */,
 			);
-			path = LLChatUserModel;
+			path = WZMChatUserModel;
 			sourceTree = "<group>";
 		};
-		754A1FFB22E2BF24005A0585 /* LLChatMessageModel */ = {
+		754A1FFB22E2BF24005A0585 /* WZMChatMessageModel */ = {
 			isa = PBXGroup;
 			children = (
-				754A1FFD22E2BF24005A0585 /* LLChatMessageModel.h */,
-				754A1FFC22E2BF24005A0585 /* LLChatMessageModel.m */,
+				754A1FFD22E2BF24005A0585 /* WZMChatMessageModel.h */,
+				754A1FFC22E2BF24005A0585 /* WZMChatMessageModel.m */,
 			);
-			path = LLChatMessageModel;
+			path = WZMChatMessageModel;
 			sourceTree = "<group>";
 		};
 		754A202322E2C10F005A0585 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
-				754A202A22E2C276005A0585 /* emoticon.bundle */,
-				754A202422E2C1AC005A0585 /* LLEmojis.plist */,
-				754A202522E2C1AC005A0585 /* LLEmoticon1.plist */,
-				754A202622E2C1AD005A0585 /* LLEmoticon2.plist */,
+				754A202422E2C1AC005A0585 /* WZMEmojis.plist */,
+				754A202522E2C1AC005A0585 /* WZMEmoticon1.plist */,
+				754A202622E2C1AD005A0585 /* WZMEmoticon2.plist */,
+				754A202A22E2C276005A0585 /* WZMEmoticon.bundle */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -558,10 +558,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				754A1F7F22E2BE54005A0585 /* Assets.xcassets in Resources */,
-				754A202B22E2C276005A0585 /* emoticon.bundle in Resources */,
-				754A202922E2C1AD005A0585 /* LLEmoticon2.plist in Resources */,
-				754A202722E2C1AD005A0585 /* LLEmojis.plist in Resources */,
-				754A202822E2C1AD005A0585 /* LLEmoticon1.plist in Resources */,
+				754A202B22E2C276005A0585 /* WZMEmoticon.bundle in Resources */,
+				754A202922E2C1AD005A0585 /* WZMEmoticon2.plist in Resources */,
+				754A202722E2C1AD005A0585 /* WZMEmojis.plist in Resources */,
+				754A202822E2C1AD005A0585 /* WZMEmoticon1.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -572,47 +572,47 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				754A200D22E2BF24005A0585 /* LLEmoticonCell.m in Sources */,
-				754A200A22E2BF24005A0585 /* LLBlankCell.m in Sources */,
-				754A201022E2BF24005A0585 /* LLChatSystemCell.m in Sources */,
-				754A202222E2BF24005A0585 /* LLChatMessageModel.m in Sources */,
-				754A200022E2BF24005A0585 /* LLChatNotificationManager.m in Sources */,
-				754A202022E2BF24005A0585 /* LLChatUserModel.m in Sources */,
+				754A200D22E2BF24005A0585 /* WZMEmoticonCell.m in Sources */,
+				754A200A22E2BF24005A0585 /* WZMBlankCell.m in Sources */,
+				754A201022E2BF24005A0585 /* WZMChatSystemCell.m in Sources */,
+				754A202222E2BF24005A0585 /* WZMChatMessageModel.m in Sources */,
+				754A200022E2BF24005A0585 /* WZMChatNotificationManager.m in Sources */,
+				754A202022E2BF24005A0585 /* WZMChatUserModel.m in Sources */,
 				754A201722E2BF24005A0585 /* NSDateFormatter+WZMChat.m in Sources */,
-				754A1F9D22E2BEB6005A0585 /* LLSessionTableViewCell.m in Sources */,
-				754A201E22E2BF24005A0585 /* LLChatBaseModel.m in Sources */,
-				754A201222E2BF24005A0585 /* LLChatImageMessageCell.m in Sources */,
+				754A1F9D22E2BEB6005A0585 /* WZMSessionTableViewCell.m in Sources */,
+				754A201E22E2BF24005A0585 /* WZMChatBaseModel.m in Sources */,
+				754A201222E2BF24005A0585 /* WZMChatImageMessageCell.m in Sources */,
 				754A201622E2BF24005A0585 /* NSAttributedString+WZMChat.m in Sources */,
-				754A200322E2BF24005A0585 /* LLChatDBManager.m in Sources */,
-				754A201422E2BF24005A0585 /* LLChatMessageCell.m in Sources */,
-				754A1F9A22E2BEB6005A0585 /* LLUserViewController.m in Sources */,
-				754A1F9C22E2BEB6005A0585 /* LLSessionViewController.m in Sources */,
+				754A200322E2BF24005A0585 /* WZMChatDBManager.m in Sources */,
+				754A201422E2BF24005A0585 /* WZMChatMessageCell.m in Sources */,
+				754A1F9A22E2BEB6005A0585 /* WZMUserViewController.m in Sources */,
+				754A1F9C22E2BEB6005A0585 /* WZMSessionViewController.m in Sources */,
 				754A1F8522E2BE54005A0585 /* main.m in Sources */,
-				754A201F22E2BF24005A0585 /* LLChatSessionModel.m in Sources */,
-				754A200422E2BF24005A0585 /* LLChatBaseCell.m in Sources */,
-				754A200522E2BF24005A0585 /* LLChatBtn.m in Sources */,
-				754A1F9B22E2BEB6005A0585 /* LLUserTableViewCell.m in Sources */,
+				754A201F22E2BF24005A0585 /* WZMChatSessionModel.m in Sources */,
+				754A200422E2BF24005A0585 /* WZMChatBaseCell.m in Sources */,
+				754A200522E2BF24005A0585 /* WZMChatBtn.m in Sources */,
+				754A1F9B22E2BEB6005A0585 /* WZMUserTableViewCell.m in Sources */,
 				754A201A22E2BF24005A0585 /* NSString+WZMChat.m in Sources */,
-				754A200B22E2BF24005A0585 /* LLDeleteCell.m in Sources */,
+				754A200B22E2BF24005A0585 /* WZMDeleteCell.m in Sources */,
 				754A1F7D22E2BE53005A0585 /* AppDelegate.m in Sources */,
-				754A200C22E2BF24005A0585 /* LLEmojisCell.m in Sources */,
-				754A200722E2BF24005A0585 /* LLEmoticonManager.m in Sources */,
+				754A200C22E2BF24005A0585 /* WZMEmojisCell.m in Sources */,
+				754A200722E2BF24005A0585 /* WZMEmoticonManager.m in Sources */,
 				754A201C22E2BF24005A0585 /* WZMBase64.m in Sources */,
-				754A200E22E2BF24005A0585 /* LLChatMoreKeyboard.m in Sources */,
+				754A200E22E2BF24005A0585 /* WZMChatMoreKeyboard.m in Sources */,
 				754A201B22E2BF24005A0585 /* UIView+WZMChat.m in Sources */,
-				754A1FFF22E2BF24005A0585 /* LLChatMessageManager.m in Sources */,
-				754A200622E2BF24005A0585 /* LLEmojisKeyboard.m in Sources */,
-				754A200122E2BF24005A0585 /* LLChatHelper.m in Sources */,
-				754A201122E2BF24005A0585 /* LLChatTextMessageCell.m in Sources */,
-				754A200922E2BF24005A0585 /* LLChatRecordAnimation.m in Sources */,
-				754A200222E2BF24005A0585 /* LLChatSqliteManager.m in Sources */,
-				754A201322E2BF24005A0585 /* LLChatVideoMessageCell.m in Sources */,
+				754A1FFF22E2BF24005A0585 /* WZMChatMessageManager.m in Sources */,
+				754A200622E2BF24005A0585 /* WZMEmojisKeyboard.m in Sources */,
+				754A200122E2BF24005A0585 /* WZMChatHelper.m in Sources */,
+				754A201122E2BF24005A0585 /* WZMChatTextMessageCell.m in Sources */,
+				754A200922E2BF24005A0585 /* WZMChatRecordAnimation.m in Sources */,
+				754A200222E2BF24005A0585 /* WZMChatSqliteManager.m in Sources */,
+				754A201322E2BF24005A0585 /* WZMChatVideoMessageCell.m in Sources */,
 				754A201922E2BF24005A0585 /* UIImage+WZMChat.m in Sources */,
-				754A200822E2BF24005A0585 /* LLHorizontalLayout.m in Sources */,
-				754A200F22E2BF24005A0585 /* LLInputView.m in Sources */,
-				754A201522E2BF24005A0585 /* LLChatVoiceMessageCell.m in Sources */,
-				754A201D22E2BF24005A0585 /* LLChatViewController.m in Sources */,
-				754A202122E2BF24005A0585 /* LLChatGroupModel.m in Sources */,
+				754A200822E2BF24005A0585 /* WZMHorizontalLayout.m in Sources */,
+				754A200F22E2BF24005A0585 /* WZMInputView.m in Sources */,
+				754A201522E2BF24005A0585 /* WZMChatVoiceMessageCell.m in Sources */,
+				754A201D22E2BF24005A0585 /* WZMChatViewController.m in Sources */,
+				754A202122E2BF24005A0585 /* WZMChatGroupModel.m in Sources */,
 				754A201822E2BF24005A0585 /* WZMImageCache.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

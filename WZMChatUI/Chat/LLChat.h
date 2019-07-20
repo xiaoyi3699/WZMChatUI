@@ -11,9 +11,9 @@
 
 #import "WZMBase64.h"
 #import "WZChatMacro.h"
-#import "LLChatHelper.h"
+#import "WZMChatHelper.h"
 #import "WZMImageCache.h"
-#import "LLChatSqliteManager.h"
+#import "WZMChatSqliteManager.h"
 
 #import "UIView+WZMChat.h"
 #import "UIImage+WZMChat.h"
@@ -21,17 +21,17 @@
 #import "NSDateFormatter+WZMChat.h"
 #import "NSAttributedString+WZMChat.h"
 
-#import "LLChatBaseModel.h"
-#import "LLChatUserModel.h"
-#import "LLChatGroupModel.h"
-#import "LLChatSessionModel.h"
-#import "LLChatMessageModel.h"
+#import "WZMChatBaseModel.h"
+#import "WZMChatUserModel.h"
+#import "WZMChatGroupModel.h"
+#import "WZMChatSessionModel.h"
+#import "WZMChatMessageModel.h"
 
-#import "LLChatDBManager.h"
-#import "LLEmoticonManager.h"
-#import "LLChatMessageManager.h"
-#import "LLChatNotificationManager.h"
+#import "WZMChatDBManager.h"
+#import "WZMEmoticonManager.h"
+#import "WZMChatMessageManager.h"
+#import "WZMChatNotificationManager.h"
 
-#import "LLChatViewController.h"
+#import "WZMChatViewController.h"
 
 #endif /* LLChat_h */

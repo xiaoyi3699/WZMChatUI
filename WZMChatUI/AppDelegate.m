@@ -7,8 +7,8 @@
 //
 
 #import "AppDelegate.h"
-#import "LLUserViewController.h"
-#import "LLSessionViewController.h"
+#import "WZMUserViewController.h"
+#import "WZMSessionViewController.h"
 
 @interface AppDelegate ()
 
@@ -26,10 +26,10 @@
     UITabBarController *rootVC = [[UITabBarController alloc] init];
     rootVC.tabBar.translucent = NO;
     
-    LLSessionViewController *firstViewController = [[LLSessionViewController alloc] init];
+    WZMSessionViewController *firstViewController = [[WZMSessionViewController alloc] init];
     UINavigationController *firstNav = [[UINavigationController alloc] initWithRootViewController:firstViewController];
     
-    LLUserViewController *secondViewController = [[LLUserViewController alloc] init];
+    WZMUserViewController *secondViewController = [[WZMUserViewController alloc] init];
     UINavigationController *secondNav = [[UINavigationController alloc] initWithRootViewController:secondViewController];
     
     [rootVC setViewControllers:@[firstNav,secondNav]];
