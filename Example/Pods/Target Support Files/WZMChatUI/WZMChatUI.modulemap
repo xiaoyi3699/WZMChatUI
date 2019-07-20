@@ -1,0 +1,6 @@
+framework module WZMChatUI {
+  umbrella header "WZMChatUI-umbrella.h"
+
+  export *
+  module * { export * }
+}
