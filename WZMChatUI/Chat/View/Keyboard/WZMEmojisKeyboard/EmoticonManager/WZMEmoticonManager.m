@@ -153,7 +153,7 @@
             NSString *imageName = [self.chsDic objectForKey:[result chat_base64EncodedString]];
             UIImage *image = [self emoticonWithImageName:imageName];
             if (image) {
-                [attStr wzm_setImage:image rect:CGRectMake(0, -4, 20, 20) range:NSMakeRange(newLocation, match.range.length)];
+                [attStr chat_setImage:image rect:CGRectMake(0, -4, 20, 20) range:NSMakeRange(newLocation, match.range.length)];
                 offset += (1-match.range.length);
             }
         }

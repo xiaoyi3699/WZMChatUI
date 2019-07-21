@@ -20,13 +20,13 @@
 + (NSArray *)allPropertyName;
 
 ///解档
-+ (instancetype)wzm_unarchiveObjectWithData:(NSData *)data;
++ (instancetype)chat_unarchiveObjectWithData:(NSData *)data;
 
 @end
 
 @interface NSData (WZMChatBaseModel)
 
 ///归档
-+ (NSData *)wzm_archivedDataWithModel:(WZMChatBaseModel *)model;
++ (NSData *)chat_archivedDataWithModel:(WZMChatBaseModel *)model;
 
 @end

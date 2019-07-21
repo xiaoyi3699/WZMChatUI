@@ -14,7 +14,7 @@
 
 @implementation NSMutableAttributedString (WZMChat)
 
-- (void)wzm_setImage:(UIImage *)image rect:(CGRect)rect range:(NSRange)range{
+- (void)chat_setImage:(UIImage *)image rect:(CGRect)rect range:(NSRange)range{
     NSTextAttachment *attachment = [[NSTextAttachment alloc] init];
     attachment.image = image;
     attachment.bounds = rect;

@@ -17,6 +17,6 @@
 /**
  给富文本添加图片
  */
-- (void)wzm_setImage:(UIImage *)image rect:(CGRect)rect range:(NSRange)range;
+- (void)chat_setImage:(UIImage *)image rect:(CGRect)rect range:(NSRange)range;
 
 @end
