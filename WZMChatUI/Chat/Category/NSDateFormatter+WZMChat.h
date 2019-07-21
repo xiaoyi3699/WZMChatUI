@@ -10,8 +10,8 @@
 
 @interface NSDateFormatter (WZMChat)
 
-+ (NSDateFormatter *)wzm_defaultDateFormatter;
-+ (NSDateFormatter *)wzm_detailDateFormatter;
-+ (NSDateFormatter *)wzm_dateFormatter:(NSString *)f;
++ (NSDateFormatter *)chat_defaultDateFormatter;
++ (NSDateFormatter *)chat_detailDateFormatter;
++ (NSDateFormatter *)chat_dateFormatter:(NSString *)f;
 
 @end

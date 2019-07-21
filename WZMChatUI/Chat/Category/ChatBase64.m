@@ -1,4 +1,4 @@
-#import "WZMBase64.h"
+#import "ChatBase64.h"
 
 #pragma GCC diagnostic ignored "-Wselector"
 
@@ -8,7 +8,7 @@
 #endif
 
 
-@implementation NSData (WZMBase64)
+@implementation NSData (ChatBase64)
 
 + (NSData *)chat_dataWithBase64EncodedString:(NSString *)string
 {
@@ -96,7 +96,7 @@
 @end
 
 
-@implementation NSString (WZMBase64)
+@implementation NSString (ChatBase64)
 
 + (NSString *)chat_stringWithBase64EncodedString:(NSString *)string
 {

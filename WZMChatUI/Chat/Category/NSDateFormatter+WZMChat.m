@@ -19,17 +19,17 @@
     return cache;
 }
 
-+ (NSDateFormatter *)wzm_defaultDateFormatter {
++ (NSDateFormatter *)chat_defaultDateFormatter {
     NSString *f = @"yyyy-MM-dd HH:mm:ss";
-    return [self wzm_dateFormatter:f];
+    return [self chat_dateFormatter:f];
 }
 
-+ (NSDateFormatter *)wzm_detailDateFormatter{
++ (NSDateFormatter *)chat_detailDateFormatter{
     NSString *f = @"yyyy-MM-dd HH:mm:ss.SSS EEEE";
-    return [self wzm_dateFormatter:f];
+    return [self chat_dateFormatter:f];
 }
 
-+ (NSDateFormatter *)wzm_dateFormatter:(NSString *)f {
++ (NSDateFormatter *)chat_dateFormatter:(NSString *)f {
     NSDateFormatter *formatter = [[self formatterCache] objectForKey:f];
     if (formatter == nil) {
         formatter = [[NSDateFormatter alloc] init];

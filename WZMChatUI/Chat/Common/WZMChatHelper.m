@@ -194,7 +194,7 @@
     // 2.获得指定日期的年月日
     NSDateComponents *sinceCmps = [calendar components:unit fromDate:date];
     
-    NSDateFormatter *dateFormatter = [NSDateFormatter wzm_dateFormatter:@"HH:mm"];
+    NSDateFormatter *dateFormatter = [NSDateFormatter chat_dateFormatter:@"HH:mm"];
     NSString *time = [dateFormatter stringFromDate:date];
     if ((sinceCmps.year == nowCmps.year) &&
         (sinceCmps.month == nowCmps.month)) {

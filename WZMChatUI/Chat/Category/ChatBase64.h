@@ -1,14 +1,14 @@
 #import <Foundation/Foundation.h>
 
-@interface NSData (WZMBase64)
+@interface NSData (ChatBase64)
 
-+ (NSData *)chat_dataWithchat_base64EncodedString:(NSString *)string;
++ (NSData *)chat_dataWithBase64EncodedString:(NSString *)string;
 - (NSString *)chat_base64EncodedStringWithWrapWidth:(NSUInteger)wrapWidth;
 - (NSString *)chat_base64EncodedString;
 
 @end
 
-@interface NSString (WZMBase64)
+@interface NSString (ChatBase64)
 
 + (NSString *)chat_stringWithchat_base64EncodedString:(NSString *)string;
 - (NSString *)chat_base64EncodedStringWithWrapWidth:(NSUInteger)wrapWidth;

@@ -7,7 +7,7 @@
 //
 
 #import "WZMImageCache.h"
-#import "WZMBase64.h"
+#import "ChatBase64.h"
 
 @implementation WZMImageCache {
     NSString *_cachePath;

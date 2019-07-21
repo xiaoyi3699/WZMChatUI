@@ -7,7 +7,7 @@
 //
 
 #import "WZMEmoticonManager.h"
-#import "WZMBase64.h"
+#import "ChatBase64.h"
 #import "WZMChatHelper.h"
 #import "NSAttributedString+WZMChat.h"
 
