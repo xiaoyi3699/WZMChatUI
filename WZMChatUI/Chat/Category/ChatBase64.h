@@ -10,7 +10,7 @@
 
 @interface NSString (ChatBase64)
 
-+ (NSString *)chat_stringWithchat_base64EncodedString:(NSString *)string;
++ (NSString *)chat_stringWithBase64EncodedString:(NSString *)string;
 - (NSString *)chat_base64EncodedStringWithWrapWidth:(NSUInteger)wrapWidth;
 - (NSString *)chat_base64EncodedString;
 - (NSString *)chat_base64DecodedString;
