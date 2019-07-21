@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		753D70D222E42EC500A55E83 /* preview.png in Resources */ = {isa = PBXBuildFile; fileRef = 753D70D022E42EC500A55E83 /* preview.png */; };
+		753D70D322E42EC500A55E83 /* setting.png in Resources */ = {isa = PBXBuildFile; fileRef = 753D70D122E42EC500A55E83 /* setting.png */; };
 		754A1F7D22E2BE53005A0585 /* WZMAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 754A1F7C22E2BE53005A0585 /* WZMAppDelegate.m */; };
 		754A1F7F22E2BE54005A0585 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 754A1F7E22E2BE54005A0585 /* Assets.xcassets */; };
 		754A1F8522E2BE54005A0585 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 754A1F8422E2BE54005A0585 /* main.m */; };
@@ -55,6 +57,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		753D70D022E42EC500A55E83 /* preview.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = preview.png; sourceTree = "<group>"; };
+		753D70D122E42EC500A55E83 /* setting.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = setting.png; sourceTree = "<group>"; };
 		754A1F7822E2BE53005A0585 /* WZMChatUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WZMChatUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		754A1F7B22E2BE53005A0585 /* WZMAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WZMAppDelegate.h; sourceTree = "<group>"; };
 		754A1F7C22E2BE53005A0585 /* WZMAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WZMAppDelegate.m; sourceTree = "<group>"; };
@@ -168,6 +172,15 @@
 			path = WZMAppDelegete;
 			sourceTree = "<group>";
 		};
+		753D70CF22E42EC500A55E83 /* GitImage */ = {
+			isa = PBXGroup;
+			children = (
+				753D70D022E42EC500A55E83 /* preview.png */,
+				753D70D122E42EC500A55E83 /* setting.png */,
+			);
+			path = GitImage;
+			sourceTree = "<group>";
+		};
 		754A1F6F22E2BE53005A0585 = {
 			isa = PBXGroup;
 			children = (
@@ -191,6 +204,7 @@
 				754A1F9E22E2BEF3005A0585 /* Chat */,
 				754A1F8C22E2BEB6005A0585 /* Friend */,
 				754A1F9322E2BEB6005A0585 /* Session */,
+				753D70CF22E42EC500A55E83 /* GitImage */,
 			);
 			path = WZMChatUI;
 			sourceTree = "<group>";
@@ -557,6 +571,8 @@
 			files = (
 				754A1F7F22E2BE54005A0585 /* Assets.xcassets in Resources */,
 				754A202B22E2C276005A0585 /* WZMEmoticon.bundle in Resources */,
+				753D70D222E42EC500A55E83 /* preview.png in Resources */,
+				753D70D322E42EC500A55E83 /* setting.png in Resources */,
 				754A202922E2C1AD005A0585 /* WZMEmoticon2.plist in Resources */,
 				754A202722E2C1AD005A0585 /* WZMEmojis.plist in Resources */,
 				754A202822E2C1AD005A0585 /* WZMEmoticon1.plist in Resources */,
