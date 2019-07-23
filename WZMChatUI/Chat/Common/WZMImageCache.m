@@ -7,7 +7,7 @@
 //
 
 #import "WZMImageCache.h"
-#import "ChatBase64.h"
+#import "WZMInputBase64.h"
 
 @implementation WZMImageCache {
     NSString *_cachePath;
@@ -55,7 +55,7 @@
 
 - (UIImage *)getImageFromCacheWithUrl:(NSString *)url {
     //1、从内存存获取
-    NSString *urlKey = [url chat_base64EncodedString];
+    NSString *urlKey = [url input_base64EncodedString];
     UIImage *image = [_memoryCache objectForKey:urlKey];
     if (image) {
         return image;
@@ -76,7 +76,7 @@
 
 - (UIImage *)getImageWithUrl:(NSString *)url {
     //3、从网络获取
-    NSString *urlKey = [url chat_base64EncodedString];
+    NSString *urlKey = [url input_base64EncodedString];
     NSString *cachePath = [_cachePath stringByAppendingPathComponent:urlKey];
     NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:url]];
     if (imageData) {
@@ -121,7 +121,7 @@
 
 - (void)getImageFromCacheWithUrl:(NSString *)url placeholder:(UIImage *)placeholder completion:(void(^)(UIImage *image))completion {
     //1、从内存获取
-    NSString *urlKey = [url chat_base64EncodedString];
+    NSString *urlKey = [url input_base64EncodedString];
     UIImage *image = [_memoryCache objectForKey:urlKey];
     if (image) {
         completion(image);
@@ -145,7 +145,7 @@
     completion(pla);
     //3、从网络获取
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        NSString *urlKey = [url chat_base64EncodedString];
+        NSString *urlKey = [url input_base64EncodedString];
         NSString *cachePath = [_cachePath stringByAppendingPathComponent:urlKey];
         NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:url]];
         if (imageData) {
@@ -185,7 +185,7 @@
 
 - (NSData *)getDataFromCacheWithUrl:(NSString *)url {
     //1、从内存获取
-    NSString *urlKey = [url chat_base64EncodedString];
+    NSString *urlKey = [url input_base64EncodedString];
     NSData *data = [_memoryCache objectForKey:urlKey];
     if (data) {
         return data;
@@ -205,7 +205,7 @@
 
 - (NSData *)getDataWithUrl:(NSString *)url {
     //3、从网络获取
-    NSString *urlKey = [url chat_base64EncodedString];
+    NSString *urlKey = [url input_base64EncodedString];
     NSString *cachePath = [_cachePath stringByAppendingPathComponent:urlKey];
     NSData *urlData = [NSData dataWithContentsOfURL:[NSURL URLWithString:url]];
     if (urlData) {
@@ -247,7 +247,7 @@
 
 - (void)getDataFromCacheWithUrl:(NSString *)url completion:(void(^)(NSData *data))completion {
     //1、从内存获取
-    NSString *urlKey = [url chat_base64EncodedString];
+    NSString *urlKey = [url input_base64EncodedString];
     NSData *data = [_memoryCache objectForKey:urlKey];
     if (data) {
         completion(data);
@@ -270,7 +270,7 @@
 
 - (void)getDataWithUrl:(NSString *)url completion:(void(^)(NSData *data))completion {
     //3、从网络获取
-    NSString *urlKey = [url chat_base64EncodedString];
+    NSString *urlKey = [url input_base64EncodedString];
     NSString *cachePath = [_cachePath stringByAppendingPathComponent:urlKey];
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         NSData *urlData = [NSData dataWithContentsOfURL:[NSURL URLWithString:url]];
@@ -296,7 +296,7 @@
         NSLog(@"键值不能为空");
         return @"";
     }
-    NSString *tureKey = [key chat_base64EncodedString];
+    NSString *tureKey = [key input_base64EncodedString];
     //存到内存
     [_memoryCache setValue:image forKey:tureKey];
     //存到本地
@@ -308,7 +308,7 @@
 }
 
 - (UIImage *)imageForKey:(NSString *)key {
-    NSString *tureKey = [key chat_base64EncodedString];
+    NSString *tureKey = [key input_base64EncodedString];
     UIImage *image = [_memoryCache objectForKey:tureKey];
     if (image == nil) {
         NSString *cachePath = [_cachePath stringByAppendingPathComponent:tureKey];
@@ -326,7 +326,7 @@
         NSLog(@"键值不能为空");
         return @"";
     }
-    NSString *tureKey = [key chat_base64EncodedString];
+    NSString *tureKey = [key input_base64EncodedString];
     //存到内存
     [_memoryCache setValue:data forKey:tureKey];
     //存到本地
@@ -338,7 +338,7 @@
 }
 
 - (NSData *)dataForKey:(NSString *)key {
-    NSString *tureKey = [key chat_base64EncodedString];
+    NSString *tureKey = [key input_base64EncodedString];
     NSData *data = [_memoryCache objectForKey:tureKey];
     if (data == nil) {
         NSString *cachePath = [_cachePath stringByAppendingPathComponent:tureKey];
@@ -352,7 +352,7 @@
 }
 
 - (NSString *)filePathForKey:(NSString *)key {
-    NSString *tureKey = [key chat_base64EncodedString];
+    NSString *tureKey = [key input_base64EncodedString];
     return [_cachePath stringByAppendingPathComponent:tureKey];
 }
 

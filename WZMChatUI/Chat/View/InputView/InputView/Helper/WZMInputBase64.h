@@ -1,6 +1,6 @@
 #import <Foundation/Foundation.h>
 
-@interface NSData (ChatBase64)
+@interface NSData (WZMInputBase64)
 
 + (NSData *)input_dataWithBase64EncodedString:(NSString *)string;
 - (NSString *)input_base64EncodedStringWithWrapWidth:(NSUInteger)wrapWidth;
@@ -8,7 +8,7 @@
 
 @end
 
-@interface NSString (ChatBase64)
+@interface NSString (WZMInputBase64)
 
 + (NSString *)input_stringWithBase64EncodedString:(NSString *)string;
 - (NSString *)input_base64EncodedStringWithWrapWidth:(NSUInteger)wrapWidth;

@@ -8,7 +8,7 @@
 #endif
 
 
-@implementation NSData (ChatBase64)
+@implementation NSData (WZMInputBase64)
 
 + (NSData *)input_dataWithBase64EncodedString:(NSString *)string
 {
@@ -96,7 +96,7 @@
 @end
 
 
-@implementation NSString (ChatBase64)
+@implementation NSString (WZMInputBase64)
 
 + (NSString *)input_stringWithBase64EncodedString:(NSString *)string
 {

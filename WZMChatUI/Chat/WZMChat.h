@@ -14,10 +14,8 @@
 #import "WZMChatHelper.h"
 
 //扩展类
-#import "ChatBase64.h"
 #import "UIView+WZMChat.h"
 #import "NSDateFormatter+WZMChat.h"
-#import "NSAttributedString+WZMChat.h"
 
 //model类
 #import "WZMChatUserModel.h"

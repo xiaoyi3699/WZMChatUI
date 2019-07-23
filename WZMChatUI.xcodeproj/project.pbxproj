@@ -48,11 +48,9 @@
 		754A201322E2BF24005A0585 /* WZMChatVideoMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 754A1FD622E2BF24005A0585 /* WZMChatVideoMessageCell.m */; };
 		754A201422E2BF24005A0585 /* WZMChatMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 754A1FD922E2BF24005A0585 /* WZMChatMessageCell.m */; };
 		754A201522E2BF24005A0585 /* WZMChatVoiceMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 754A1FDC22E2BF24005A0585 /* WZMChatVoiceMessageCell.m */; };
-		754A201622E2BF24005A0585 /* NSAttributedString+WZMChat.m in Sources */ = {isa = PBXBuildFile; fileRef = 754A1FDF22E2BF24005A0585 /* NSAttributedString+WZMChat.m */; };
 		754A201722E2BF24005A0585 /* NSDateFormatter+WZMChat.m in Sources */ = {isa = PBXBuildFile; fileRef = 754A1FE022E2BF24005A0585 /* NSDateFormatter+WZMChat.m */; };
 		754A201822E2BF24005A0585 /* WZMImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 754A1FE122E2BF24005A0585 /* WZMImageCache.m */; };
 		754A201B22E2BF24005A0585 /* UIView+WZMChat.m in Sources */ = {isa = PBXBuildFile; fileRef = 754A1FE722E2BF24005A0585 /* UIView+WZMChat.m */; };
-		754A201C22E2BF24005A0585 /* ChatBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = 754A1FEB22E2BF24005A0585 /* ChatBase64.m */; };
 		754A201D22E2BF24005A0585 /* WZMChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 754A1FEE22E2BF24005A0585 /* WZMChatViewController.m */; };
 		754A201E22E2BF24005A0585 /* WZMChatBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 754A1FF322E2BF24005A0585 /* WZMChatBaseModel.m */; };
 		754A201F22E2BF24005A0585 /* WZMChatSessionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 754A1FF622E2BF24005A0585 /* WZMChatSessionModel.m */; };
@@ -140,15 +138,11 @@
 		754A1FDB22E2BF24005A0585 /* WZMChatVideoMessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WZMChatVideoMessageCell.h; sourceTree = "<group>"; };
 		754A1FDC22E2BF24005A0585 /* WZMChatVoiceMessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WZMChatVoiceMessageCell.m; sourceTree = "<group>"; };
 		754A1FDE22E2BF24005A0585 /* UIView+WZMChat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WZMChat.h"; sourceTree = "<group>"; };
-		754A1FDF22E2BF24005A0585 /* NSAttributedString+WZMChat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSAttributedString+WZMChat.m"; sourceTree = "<group>"; };
 		754A1FE022E2BF24005A0585 /* NSDateFormatter+WZMChat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDateFormatter+WZMChat.m"; sourceTree = "<group>"; };
 		754A1FE122E2BF24005A0585 /* WZMImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WZMImageCache.m; sourceTree = "<group>"; };
-		754A1FE422E2BF24005A0585 /* ChatBase64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatBase64.h; sourceTree = "<group>"; };
 		754A1FE522E2BF24005A0585 /* NSDateFormatter+WZMChat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDateFormatter+WZMChat.h"; sourceTree = "<group>"; };
-		754A1FE622E2BF24005A0585 /* NSAttributedString+WZMChat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSAttributedString+WZMChat.h"; sourceTree = "<group>"; };
 		754A1FE722E2BF24005A0585 /* UIView+WZMChat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WZMChat.m"; sourceTree = "<group>"; };
 		754A1FEA22E2BF24005A0585 /* WZMImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WZMImageCache.h; sourceTree = "<group>"; };
-		754A1FEB22E2BF24005A0585 /* ChatBase64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatBase64.m; sourceTree = "<group>"; };
 		754A1FEC22E2BF24005A0585 /* WZChatMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WZChatMacro.h; sourceTree = "<group>"; };
 		754A1FEE22E2BF24005A0585 /* WZMChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WZMChatViewController.m; sourceTree = "<group>"; };
 		754A1FEF22E2BF24005A0585 /* WZMChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WZMChatViewController.h; sourceTree = "<group>"; };
@@ -525,14 +519,10 @@
 		754A1FDD22E2BF24005A0585 /* Category */ = {
 			isa = PBXGroup;
 			children = (
-				754A1FE422E2BF24005A0585 /* ChatBase64.h */,
-				754A1FEB22E2BF24005A0585 /* ChatBase64.m */,
 				754A1FDE22E2BF24005A0585 /* UIView+WZMChat.h */,
 				754A1FE722E2BF24005A0585 /* UIView+WZMChat.m */,
 				754A1FE522E2BF24005A0585 /* NSDateFormatter+WZMChat.h */,
 				754A1FE022E2BF24005A0585 /* NSDateFormatter+WZMChat.m */,
-				754A1FE622E2BF24005A0585 /* NSAttributedString+WZMChat.h */,
-				754A1FDF22E2BF24005A0585 /* NSAttributedString+WZMChat.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -676,7 +666,6 @@
 				754A1F9D22E2BEB6005A0585 /* WZMSessionTableViewCell.m in Sources */,
 				754A201E22E2BF24005A0585 /* WZMChatBaseModel.m in Sources */,
 				754A201222E2BF24005A0585 /* WZMChatImageMessageCell.m in Sources */,
-				754A201622E2BF24005A0585 /* NSAttributedString+WZMChat.m in Sources */,
 				7505DDF422E69F720012A2E9 /* WZMEmoticonCell.m in Sources */,
 				754A200322E2BF24005A0585 /* WZMChatDBManager.m in Sources */,
 				754A201422E2BF24005A0585 /* WZMChatMessageCell.m in Sources */,
@@ -690,7 +679,6 @@
 				7505DE0022E69F720012A2E9 /* WZMBaseInputView.m in Sources */,
 				754A1F9B22E2BEB6005A0585 /* WZMUserTableViewCell.m in Sources */,
 				754A1F7D22E2BE53005A0585 /* WZMAppDelegate.m in Sources */,
-				754A201C22E2BF24005A0585 /* ChatBase64.m in Sources */,
 				754A201B22E2BF24005A0585 /* UIView+WZMChat.m in Sources */,
 				754A1FFF22E2BF24005A0585 /* WZMChatMessageManager.m in Sources */,
 				754A200122E2BF24005A0585 /* WZMChatHelper.m in Sources */,
