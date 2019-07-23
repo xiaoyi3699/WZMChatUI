@@ -67,6 +67,12 @@
     }
 }
 
+- (void)toolView:(WZMToolView *)toolView didChangeRecordType:(WZMRecordType)type {
+    if ([self.delegate respondsToSelector:@selector(inputView:didChangeRecordType:)]) {
+        [self.delegate inputView:self didChangeRecordType:type];
+    }
+}
+
 //表情键盘
 - (void)emojisKeyboardDidSelectSend:(WZMEmojisKeyboard *)emojisKeyboard {
     //发送按钮

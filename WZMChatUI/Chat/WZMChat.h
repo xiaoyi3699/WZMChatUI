@@ -29,7 +29,8 @@
 #import "WZMImageCache.h"
 //数据库管理
 #import "WZMChatDBManager.h"
-//表情管理
+//表情键盘
+#import "WZMInputView.h"
 #import "WZMEmoticonManager.h"
 //消息管理
 #import "WZMChatMessageManager.h"

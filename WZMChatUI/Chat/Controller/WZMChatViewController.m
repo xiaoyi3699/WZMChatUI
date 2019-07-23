@@ -7,34 +7,29 @@
 //
 
 #import "WZMChatViewController.h"
-#import "WZMInputView.h"
 #import "WZMChatSystemCell.h"
 #import "WZMChatTextMessageCell.h"
 #import "WZMChatVoiceMessageCell.h"
 #import "WZMChatImageMessageCell.h"
 #import "WZMChatVideoMessageCell.h"
-#import "WZMChatDBManager.h"
-#import "WZMChatUserModel.h"
-#import "WZMChatGroupModel.h"
-#import "WZMChatHelper.h"
-#import "WZMChatMessageManager.h"
-#import "WZChatMacro.h"
-#import "UIView+WZMChat.h"
-#import "WZMChatNotificationManager.h"
 
 @interface WZMChatViewController ()<UITableViewDelegate,UITableViewDataSource,UIGestureRecognizerDelegate,WZMInputViewDelegate>
 
+///列表相关
 @property (nonatomic, assign) CGFloat tableViewY;
 @property (nonatomic, strong) UITableView *tableView;
-@property (nonatomic, strong) WZMInputView *inputView;
 @property (nonatomic, strong) NSMutableArray *messageModels;
-@property (nonatomic, assign, getter=isEditing) BOOL editing;
-@property (nonatomic, assign, getter=isShowName) BOOL showName;
-@property (nonatomic, assign, getter=isDeferredSystemGestures) BOOL deferredSystemGestures;
-@property (nonatomic, assign) CGFloat recordDuration;
+///当前私聊用户
 @property (nonatomic, strong) WZMChatUserModel *userModel;
+///当前群聊
 @property (nonatomic, strong) WZMChatGroupModel *groupModel;
+///私聊消息是否显示昵称, 不需要手动设置, 会根据私聊或者群聊用户自动判断, 此处只做记录
+@property (nonatomic, assign, getter=isShowName) BOOL showName;
+///自定义表情键盘
+@property (nonatomic, strong) WZMInputView *inputView;
+///手势处理相关
 @property (nonatomic, weak) id<UIGestureRecognizerDelegate> recognizerDelegate;
+@property (nonatomic, assign, getter=isDeferredSystemGestures) BOOL deferredSystemGestures;
 
 @end
 
@@ -75,6 +70,7 @@
         self.groupModel = (WZMChatGroupModel *)model;
         self.showName = self.groupModel.isShowName;
     }
+    self.showName = YES;
 }
 
 - (void)viewDidLoad {
@@ -270,16 +266,19 @@
 
 //录音状态变化
 - (void)inputView:(WZMInputView *)inputView didChangeRecordType:(WZMRecordType)type {
+    static NSInteger start;
     if (type == WZMRecordTypeBegin) {
-        
+        //开始录音
+        start = [WZMChatHelper nowTimestamp];
     }
     else if (type == WZMRecordTypeFinish) {
+        NSInteger duration = [WZMChatHelper nowTimestamp]-start;
+        //结束录音
         //将录音上传到服务器, 获取录音链接
         NSString *voiceUrl = @"";
-        
         //创建录音model
         WZMChatMessageModel *model = [WZMChatMessageManager createVoiceMessage:self.userModel
-                                                                      duration:(NSInteger)self.recordDuration/1000
+                                                                      duration:duration/1000
                                                                       voiceUrl:voiceUrl
                                                                       isSender:YES];
         [self sendMessageModel:model];

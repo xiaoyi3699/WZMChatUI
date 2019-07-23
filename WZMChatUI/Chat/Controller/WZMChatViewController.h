@@ -7,9 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "WZMChatUserModel.h"
-#import "WZMChatGroupModel.h"
-#import "WZMChatSessionModel.h"
+#import "WZMChat.h"
 
 @interface WZMChatViewController : UIViewController
 
