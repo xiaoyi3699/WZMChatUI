@@ -26,7 +26,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         CGFloat toolW = self.bounds.size.width;
-        CGFloat toolH = self.bounds.size.height;
+        //CGFloat toolH = self.bounds.size.height;
         
         UIView *lineView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, toolW, 0.5)];
         lineView.backgroundColor = [UIColor colorWithRed:200/255. green:200/255. blue:200/255. alpha:1.0];

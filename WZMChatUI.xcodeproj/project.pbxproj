@@ -840,6 +840,10 @@
 				PRODUCT_BUNDLE_IDENTIFIER = WangZhaomeng.WZMChatUI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
+				WARNING_CFLAGS = (
+					"-Wno-implicit-retain-self",
+					"-Wno-deprecated-declarations",
+				);
 			};
 			name = Debug;
 		};
@@ -859,6 +863,10 @@
 				PRODUCT_BUNDLE_IDENTIFIER = WangZhaomeng.WZMChatUI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
+				WARNING_CFLAGS = (
+					"-Wno-implicit-retain-self",
+					"-Wno-deprecated-declarations",
+				);
 			};
 			name = Release;
 		};

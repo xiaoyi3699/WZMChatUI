@@ -176,7 +176,7 @@
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
     NSInteger index = scrollView.contentOffset.x/[WZMInputHelper helper].screenW;
     NSInteger section = [self currectSection:index];
-    NSInteger page = [self currectPage:index];
+    //NSInteger page = [self currectPage:index];
     UIButton *btn = [_btns objectAtIndex:section];
     if (btn.isSelected) return;
     [self selectedBtn:btn];
