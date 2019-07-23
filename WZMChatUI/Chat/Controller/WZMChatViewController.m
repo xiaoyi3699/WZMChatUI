@@ -61,7 +61,7 @@
 
 - (void)setConfig:(WZMChatBaseModel *)model {
     self.title = @"消息";
-    self.tableViewY = WZMChat_NAV_TOP_H;
+    self.tableViewY = CHAT_NAV_BAR_H;
     if ([model isKindOfClass:[WZMChatUserModel class]]) {
         self.userModel = (WZMChatUserModel *)model;
         self.showName = self.userModel.isShowName;
@@ -513,7 +513,7 @@
     if (self.navigationController.viewControllers.count <= 1) return NO;
     if ([gestureRecognizer isKindOfClass:[UIPanGestureRecognizer class]]) {
         CGPoint point = [touch locationInView:gestureRecognizer.view];
-        if (point.y > WZMChat_SCREEN_HEIGHT-self.inputView.toolViewH) {
+        if (point.y > CHAT_SCREEN_HEIGHT-self.inputView.toolViewH) {
             return NO;
         }
         if (point.x <= 100) {//设置手势触发区

@@ -10,15 +10,15 @@
 #define WZChatMacro_h
 
 #import "WZMInputHelper.h"
-#define WZMChat_SCREEN_WIDTH   [[WZMInputHelper helper] screenW]
-#define WZMChat_SCREEN_HEIGHT  [[WZMInputHelper helper] screenH]
+#define CHAT_SCREEN_WIDTH  [[WZMInputHelper helper] screenW]
+#define CHAT_SCREEN_HEIGHT [[WZMInputHelper helper] screenH]
 
-#define WZMChat_IPHONEX    [[WZMInputHelper helper] iPhoneX]
-#define WZMChat_NAV_TOP_H  [[WZMInputHelper helper] navBarH]
-#define WZMChat_BAR_BOT_H  [[WZMInputHelper helper] tabBarH]
-#define WZMChat_BOTTOM_H   [[WZMInputHelper helper] iPhoneXBottomH]
+#define CHAT_IPHONEX   [[WZMInputHelper helper] iPhoneX]
+#define CHAT_NAV_BAR_H [[WZMInputHelper helper] navBarH]
+#define CHAT_TAB_BAR_H [[WZMInputHelper helper] tabBarH]
+#define CHAT_BOTTOM_H  [[WZMInputHelper helper] iPhoneXBottomH]
 
 //默认图
-#define WZMChat_BAD_IMAGE [WZMInputHelper otherImageNamed:@"wzm_chat_default"]
+#define CHAT_BAD_IMAGE [WZMInputHelper otherImageNamed:@"wzm_chat_default"]
 
 #endif /* LLMacro_h */

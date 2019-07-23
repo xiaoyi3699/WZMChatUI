@@ -7,7 +7,7 @@
 //
 
 #import "WZMChatImageMessageCell.h"
-#import "WZMImageCache.h"
+#import "WZMChatHelper.h"
 #import "WZChatMacro.h"
 
 @implementation WZMChatImageMessageCell {
@@ -30,7 +30,7 @@
     
     _contentImageView.frame = _contentRect;
     
-    [[WZMImageCache imageCache] getImageWithUrl:model.thumbnail isUseCatch:YES placeholder:WZMChat_BAD_IMAGE completion:^(UIImage *image) {
+    [WZMChatHelper getImageWithUrl:model.thumbnail placeholder:CHAT_BAD_IMAGE completion:^(UIImage *image) {
         _contentImageView.image = image;
     }];
 }

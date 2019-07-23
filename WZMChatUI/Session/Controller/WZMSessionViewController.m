@@ -155,8 +155,8 @@
 - (UITableView *)tableView {
     if (_tableView == nil) {
         CGRect rect = self.view.bounds;
-        rect.origin.y = WZMChat_NAV_TOP_H;
-        rect.size.height -= (WZMChat_NAV_TOP_H+WZMChat_BAR_BOT_H);
+        rect.origin.y = CHAT_NAV_BAR_H;
+        rect.size.height -= (CHAT_NAV_BAR_H+CHAT_TAB_BAR_H);
         
         _tableView = [[UITableView alloc] initWithFrame:rect];
         _tableView.delegate = self;

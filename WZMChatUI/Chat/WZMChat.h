@@ -23,8 +23,6 @@
 #import "WZMChatSessionModel.h"
 #import "WZMChatMessageModel.h"
 
-//图片缓存
-#import "WZMImageCache.h"
 //数据库管理
 #import "WZMChatDBManager.h"
 //表情键盘

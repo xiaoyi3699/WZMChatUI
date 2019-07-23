@@ -7,7 +7,6 @@
 //
 
 #import "WZMChatMessageManager.h"
-#import "WZMImageCache.h"
 #import "WZMChatUserModel.h"
 #import "WZMChatHelper.h"
 
@@ -65,8 +64,8 @@
     msgModel.imgW = oriImage.size.width;
     msgModel.imgH = oriImage.size.height;
     //将图片保存到本地
-    [[WZMImageCache imageCache] storeImage:oriImage forKey:original];
-    [[WZMImageCache imageCache] storeImage:thumImage forKey:thumbnail];
+    [WZMChatHelper storeImage:oriImage forKey:original];
+    [WZMChatHelper storeImage:thumImage forKey:thumbnail];
     [self setConfig:msgModel userModel:userModel isSender:isSender];
     return msgModel;
 }
@@ -85,7 +84,7 @@
     msgModel.imgW = coverImage.size.width;
     msgModel.imgH = coverImage.size.height;
     //将封面图片保存到本地
-    [[WZMImageCache imageCache] storeImage:coverImage forKey:coverUrl];
+    [WZMChatHelper storeImage:coverImage forKey:coverUrl];
     [self setConfig:msgModel userModel:userModel isSender:isSender];
     return msgModel;
 }

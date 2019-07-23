@@ -7,7 +7,7 @@
 //
 
 #import "WZMChatVideoMessageCell.h"
-#import "WZMImageCache.h"
+#import "WZMChatHelper.h"
 #import "WZChatMacro.h"
 
 @implementation WZMChatVideoMessageCell {
@@ -36,7 +36,7 @@
     _contentImageView.frame = _contentRect;
     _markImageView.center = _contentImageView.center;
     
-    [[WZMImageCache imageCache] getImageWithUrl:model.coverUrl isUseCatch:YES placeholder:WZMChat_BAD_IMAGE completion:^(UIImage *image) {
+    [WZMChatHelper getImageWithUrl:model.coverUrl placeholder:CHAT_BAD_IMAGE completion:^(UIImage *image) {
         _contentImageView.image = image;
     }];
 }

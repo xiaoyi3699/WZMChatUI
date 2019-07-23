@@ -49,7 +49,6 @@
 		754A201422E2BF24005A0585 /* WZMChatMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 754A1FD922E2BF24005A0585 /* WZMChatMessageCell.m */; };
 		754A201522E2BF24005A0585 /* WZMChatVoiceMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 754A1FDC22E2BF24005A0585 /* WZMChatVoiceMessageCell.m */; };
 		754A201722E2BF24005A0585 /* NSDateFormatter+WZMChat.m in Sources */ = {isa = PBXBuildFile; fileRef = 754A1FE022E2BF24005A0585 /* NSDateFormatter+WZMChat.m */; };
-		754A201822E2BF24005A0585 /* WZMImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 754A1FE122E2BF24005A0585 /* WZMImageCache.m */; };
 		754A201B22E2BF24005A0585 /* UIView+WZMChat.m in Sources */ = {isa = PBXBuildFile; fileRef = 754A1FE722E2BF24005A0585 /* UIView+WZMChat.m */; };
 		754A201D22E2BF24005A0585 /* WZMChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 754A1FEE22E2BF24005A0585 /* WZMChatViewController.m */; };
 		754A201E22E2BF24005A0585 /* WZMChatBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 754A1FF322E2BF24005A0585 /* WZMChatBaseModel.m */; };
@@ -139,10 +138,8 @@
 		754A1FDC22E2BF24005A0585 /* WZMChatVoiceMessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WZMChatVoiceMessageCell.m; sourceTree = "<group>"; };
 		754A1FDE22E2BF24005A0585 /* UIView+WZMChat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WZMChat.h"; sourceTree = "<group>"; };
 		754A1FE022E2BF24005A0585 /* NSDateFormatter+WZMChat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDateFormatter+WZMChat.m"; sourceTree = "<group>"; };
-		754A1FE122E2BF24005A0585 /* WZMImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WZMImageCache.m; sourceTree = "<group>"; };
 		754A1FE522E2BF24005A0585 /* NSDateFormatter+WZMChat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDateFormatter+WZMChat.h"; sourceTree = "<group>"; };
 		754A1FE722E2BF24005A0585 /* UIView+WZMChat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WZMChat.m"; sourceTree = "<group>"; };
-		754A1FEA22E2BF24005A0585 /* WZMImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WZMImageCache.h; sourceTree = "<group>"; };
 		754A1FEC22E2BF24005A0585 /* WZChatMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WZChatMacro.h; sourceTree = "<group>"; };
 		754A1FEE22E2BF24005A0585 /* WZMChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WZMChatViewController.m; sourceTree = "<group>"; };
 		754A1FEF22E2BF24005A0585 /* WZMChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WZMChatViewController.h; sourceTree = "<group>"; };
@@ -455,26 +452,16 @@
 				754A1FEC22E2BF24005A0585 /* WZChatMacro.h */,
 				754A1FA222E2BF23005A0585 /* WZMChatHelper.h */,
 				754A1FA522E2BF23005A0585 /* WZMChatHelper.m */,
-				754A1FEA22E2BF24005A0585 /* WZMImageCache.h */,
-				754A1FE122E2BF24005A0585 /* WZMImageCache.m */,
+				754A1FAC22E2BF23005A0585 /* WZMChatDBManager.h */,
+				754A1FAB22E2BF23005A0585 /* WZMChatDBManager.m */,
 				754A1FA922E2BF23005A0585 /* WZMChatSqliteManager.h */,
 				754A1FA822E2BF23005A0585 /* WZMChatSqliteManager.m */,
 				754A1FA422E2BF23005A0585 /* WZMChatMessageManager.h */,
 				754A1FA122E2BF23005A0585 /* WZMChatMessageManager.m */,
 				754A1FA622E2BF23005A0585 /* WZMChatNotificationManager.h */,
 				754A1FA322E2BF23005A0585 /* WZMChatNotificationManager.m */,
-				754A1FAA22E2BF23005A0585 /* DBManager */,
 			);
 			path = Common;
-			sourceTree = "<group>";
-		};
-		754A1FAA22E2BF23005A0585 /* DBManager */ = {
-			isa = PBXGroup;
-			children = (
-				754A1FAC22E2BF23005A0585 /* WZMChatDBManager.h */,
-				754A1FAB22E2BF23005A0585 /* WZMChatDBManager.m */,
-			);
-			path = DBManager;
 			sourceTree = "<group>";
 		};
 		754A1FAD22E2BF23005A0585 /* View */ = {
@@ -693,7 +680,6 @@
 				7505DDF822E69F720012A2E9 /* WZMEmojisKeyboard.m in Sources */,
 				754A201D22E2BF24005A0585 /* WZMChatViewController.m in Sources */,
 				754A202122E2BF24005A0585 /* WZMChatGroupModel.m in Sources */,
-				754A201822E2BF24005A0585 /* WZMImageCache.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

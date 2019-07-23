@@ -9,7 +9,6 @@
 #import "WZMChatMessageCell.h"
 #import "WZMChatBtn.h"
 #import "WZChatMacro.h"
-#import "WZMImageCache.h"
 #import "UIView+WZMChat.h"
 #import "WZMChatHelper.h"
 
@@ -51,9 +50,9 @@
     
     if (model.isSender) {
         //头像
-        _avatarImageView.frame = CGRectMake(WZMChat_SCREEN_WIDTH-50, 10, 40, 40);
+        _avatarImageView.frame = CGRectMake(CHAT_SCREEN_WIDTH-50, 10, 40, 40);
         //可改成网络图片
-        [[WZMImageCache imageCache] getImageWithUrl:model.avatar isUseCatch:YES placeholder:WZMChat_BAD_IMAGE completion:^(UIImage *image) {
+        [WZMChatHelper getImageWithUrl:model.avatar placeholder:CHAT_BAD_IMAGE completion:^(UIImage *image) {
             _avatarImageView.image = image;
         }];
         
@@ -110,7 +109,7 @@
     else {
         _avatarImageView.frame = CGRectMake(10, 10, 40, 40);
         //可改成网络图片
-        [[WZMImageCache imageCache] getImageWithUrl:model.avatar isUseCatch:YES placeholder:WZMChat_BAD_IMAGE completion:^(UIImage *image) {
+        [WZMChatHelper getImageWithUrl:model.avatar placeholder:CHAT_BAD_IMAGE completion:^(UIImage *image) {
             _avatarImageView.image = image;
         }];
         

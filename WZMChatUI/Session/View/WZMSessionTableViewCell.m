@@ -42,7 +42,7 @@
         
         CGFloat timeW = 100;
         CGFloat nickX = _avatarImageView.chat_maxX+15;
-        CGFloat nimeW = WZMChat_SCREEN_WIDTH-nickX-timeW-15;
+        CGFloat nimeW = CHAT_SCREEN_WIDTH-nickX-timeW-15;
         
         _nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(nickX, 13, nimeW, 20)];
         _nameLabel.font = [UIFont systemFontOfSize:16];
@@ -62,7 +62,7 @@
         _timeLabel.textAlignment = NSTextAlignmentRight;
         [self addSubview:_timeLabel];
         
-        _notiImageView = [[UIImageView alloc] initWithFrame:CGRectMake(WZMChat_SCREEN_WIDTH-32, _avatarImageView.chat_maxY-20, 17, 17)];
+        _notiImageView = [[UIImageView alloc] initWithFrame:CGRectMake(CHAT_SCREEN_WIDTH-32, _avatarImageView.chat_maxY-20, 17, 17)];
         _notiImageView.hidden = YES;
         [self addSubview:_notiImageView];
     }
@@ -116,7 +116,7 @@
         }
     }
     
-    [[WZMImageCache imageCache] getImageWithUrl:model.avatar isUseCatch:YES placeholder:WZMChat_BAD_IMAGE completion:^(UIImage *image) {
+    [WZMChatHelper getImageWithUrl:model.avatar placeholder:CHAT_BAD_IMAGE completion:^(UIImage *image) {
         _avatarImageView.image = image;
     }];
     _notiImageView.image = [WZMInputHelper otherImageNamed:@"wzm_chat_bell_not"];
