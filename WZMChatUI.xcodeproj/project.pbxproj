@@ -330,6 +330,15 @@
 			path = BaseInputView;
 			sourceTree = "<group>";
 		};
+		7505DE0822E6D2DB0012A2E9 /* Btn */ = {
+			isa = PBXGroup;
+			children = (
+				7505DE0222E6A0940012A2E9 /* WZMChatBtn.h */,
+				7505DE0122E6A0940012A2E9 /* WZMChatBtn.m */,
+			);
+			path = Btn;
+			sourceTree = "<group>";
+		};
 		753D70CE22E368C600A55E83 /* WZMAppDelegete */ = {
 			isa = PBXGroup;
 			children = (
@@ -477,8 +486,7 @@
 		754A1FAD22E2BF23005A0585 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				7505DE0222E6A0940012A2E9 /* WZMChatBtn.h */,
-				7505DE0122E6A0940012A2E9 /* WZMChatBtn.m */,
+				7505DE0822E6D2DB0012A2E9 /* Btn */,
 				754A1FD022E2BF24005A0585 /* MsgCell */,
 				7505DDBC22E69F710012A2E9 /* InputView */,
 			);
