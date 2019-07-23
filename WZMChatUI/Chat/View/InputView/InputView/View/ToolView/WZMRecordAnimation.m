@@ -64,8 +64,10 @@
         [self showVoiceShort];
         //录音时间太短
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            if (self.superview) {
-                [self removeFromSuperview];
+            if (self.isBegin == NO) {
+                if (self.superview) {
+                    [self removeFromSuperview];
+                }
             }
         });
         return NO;
