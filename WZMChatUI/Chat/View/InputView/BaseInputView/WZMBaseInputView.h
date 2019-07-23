@@ -27,8 +27,8 @@
 
 #pragma mark - 公开的方法
 //使用时只需要调用这两个方法即可
-- (void)becomeFirstResponder;
-- (void)resignFirstResponder;
+- (void)chatBecomeFirstResponder;
+- (void)chatResignFirstResponder;
 
 #pragma mark - 内部以及子类内部调用的方法
 ///显示系统键盘

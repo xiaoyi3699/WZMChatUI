@@ -94,11 +94,11 @@
 
 #pragma mark - 公开的方法
 //使用时只需要调用这两个方法即可
-- (void)becomeFirstResponder {
+- (void)chatBecomeFirstResponder {
     [self showSystemKeyboard];
 }
 
-- (void)resignFirstResponder {
+- (void)chatResignFirstResponder {
     [self willResetConfig];
     [self dismissKeyboard];
 }

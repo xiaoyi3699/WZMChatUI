@@ -70,7 +70,6 @@
         self.groupModel = (WZMChatGroupModel *)model;
         self.showName = self.groupModel.isShowName;
     }
-    self.showName = YES;
 }
 
 - (void)viewDidLoad {
@@ -372,7 +371,7 @@
 
 #pragma mark - UITableViewDelegate,UITableViewDataSource
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
-    [self.inputView resignFirstResponder];
+    [self.inputView chatResignFirstResponder];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
