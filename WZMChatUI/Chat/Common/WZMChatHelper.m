@@ -7,139 +7,37 @@
 //
 
 #import "WZMChatHelper.h"
+#import "WZMInputHelper.h"
 #import "NSDateFormatter+WZMChat.h"
 
 @interface WZMChatHelper ()
-
-@property (nonatomic, strong) NSString *lxhPath;
-@property (nonatomic, strong) NSString *otherPath;
-@property (nonatomic, strong) NSString *defaultPath;
-@property (nonatomic, strong) NSMutableDictionary *imageCache;
-
+@property (nonatomic, strong) UIImage *senderBubbleImage;
+@property (nonatomic, strong)  UIImage *receiverBubbleImage;
 @end
 
-@implementation WZMChatHelper {
-    
-    NSInteger _iPhoneX;
-    
-    CGFloat _navBarH;
-    CGFloat _tabBarH;
-    
-    CGFloat _screenH;
-    CGFloat _screenW;
-    
-    CGFloat _inputH;
-    CGFloat _keyboardH;
-    CGFloat _inputKeyboardH;
-    CGFloat _iPhoneXBottomH;
-    
-    UIImage *_senderBubbleImage;
-    UIImage *_receiverBubbleImage;
-}
+@implementation WZMChatHelper
 
-+ (instancetype)shareInstance {
-    static WZMChatHelper *instance;
++ (instancetype)helper {
+    static WZMChatHelper *helper;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        instance = [[WZMChatHelper alloc] init];
+        helper = [[WZMChatHelper alloc] init];
     });
-    return instance;
+    return helper;
 }
 
-- (instancetype)init {
-    self = [super init];
-    if (self) {
-        _iPhoneX = -1;
-        _navBarH = 0;
-        _tabBarH = 0;
-        _screenW = 0;
-        _screenH = 0;
-        _inputH = 0;
-        _keyboardH = 0;
-        _inputKeyboardH = 0;
-        _iPhoneXBottomH = 0;
-        self.imageCache = [[NSMutableDictionary alloc] initWithCapacity:0];
-    }
-    return self;
++ (UIImage *)senderBubble {
+    return [WZMChatHelper helper].senderBubbleImage;
 }
 
-///是否是iPhoneX
-- (BOOL)iPhoneX {
-    if (_iPhoneX == -1) {
-        BOOL iPhone = (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone);
-        _iPhoneX = (iPhone && [UIScreen mainScreen].bounds.size.height>=812);
-    }
-    return (_iPhoneX == 1);
-}
-
-///导航高
-- (CGFloat)navBarH {
-    if (_navBarH == 0) {
-        _navBarH = ([self iPhoneX] ? 88:64);
-    }
-    return _navBarH;
-}
-
-///taBar高
-- (CGFloat)tabBarH {
-    if (_tabBarH == 0) {
-        _tabBarH = ([self iPhoneX] ? 83:49);
-    }
-    return _tabBarH;
-}
-
-///屏幕宽
-- (CGFloat)screenW {
-    if (_screenW == 0) {
-        _screenW = [UIScreen mainScreen].bounds.size.width;
-    }
-    return _screenW;
-}
-
-///屏幕高
-- (CGFloat)screenH {
-    if (_screenH == 0) {
-        _screenH = [UIScreen mainScreen].bounds.size.height;
-    }
-    return _screenH;
-}
-
-///输入框高度
-- (CGFloat)inputH {
-    if (_inputH == 0) {
-        _inputH = 49;
-    }
-    return _inputH;
-}
-
-///键盘高度
-- (CGFloat)keyboardH {
-    if (_keyboardH == 0) {
-        _keyboardH = (200+[self iPhoneXBottomH]);
-    }
-    return _keyboardH;
-}
-
-///输入框和键盘的高度和
-- (CGFloat)inputKeyboardH {
-    if (_inputKeyboardH == 0) {
-        _inputKeyboardH = [self inputH]+[self keyboardH];
-    }
-    return _inputKeyboardH;
-}
-
-///iPhoneX底部高度
-- (CGFloat)iPhoneXBottomH {
-    if (_iPhoneXBottomH == 0) {
-        _iPhoneXBottomH = ([self iPhoneX] ? 34:0);
-    }
-    return _iPhoneXBottomH;
++ (UIImage *)receiverBubble {
+    return [WZMChatHelper helper].receiverBubbleImage;
 }
 
 //聊天气泡
 - (UIImage *)senderBubbleImage {
     if (_senderBubbleImage == nil) {
-        UIImage *image = [WZMChatHelper otherImageNamed:@"wzm_chat_bj2"];
+        UIImage *image = [WZMInputHelper otherImageNamed:@"wzm_chat_bj2"];
         CGSize size = image.size;
         _senderBubbleImage = [image stretchableImageWithLeftCapWidth:size.width/2 topCapHeight:size.height*0.8];
     }
@@ -148,7 +46,7 @@
 
 - (UIImage *)receiverBubbleImage {
     if (_receiverBubbleImage == nil) {
-        UIImage *image = [WZMChatHelper otherImageNamed:@"wzm_chat_bj1"];
+        UIImage *image = [WZMInputHelper otherImageNamed:@"wzm_chat_bj1"];
         CGSize size = image.size;
         _receiverBubbleImage = [image stretchableImageWithLeftCapWidth:size.width/2 topCapHeight:size.height*0.8];
     }
@@ -209,62 +107,6 @@
         }
     }
     return [NSString stringWithFormat:@"%@/%@/%@ %@",@(sinceCmps.year),@(sinceCmps.month),@(sinceCmps.day),time];
-}
-
-+ (UIImage *)otherImageNamed:(NSString *)name {
-    if (name.length == 0) return nil;
-    if (name.pathExtension == nil) {
-        name = [name stringByAppendingString:@".png"];
-    }
-    WZMChatHelper *helper = [WZMChatHelper shareInstance];
-    UIImage *image = [helper.imageCache objectForKey:name];
-    if (image == nil) {
-        NSString *path = [NSString stringWithFormat:@"%@/%@",helper.otherPath,name];
-        image = [UIImage imageWithContentsOfFile:path];
-    }
-    if (image) {
-        [helper.imageCache setObject:image forKey:name];
-    }
-    return image;
-}
-
-+ (UIImage *)emoticonImageNamed:(NSString *)name {
-    if (name.length == 0) return nil;
-    if (name.pathExtension == nil) {
-        name = [name stringByAppendingString:@".png"];
-    }
-    WZMChatHelper *helper = [WZMChatHelper shareInstance];
-    NSString *path = [NSString stringWithFormat:@"%@/%@",helper.defaultPath,name];
-    UIImage *image = [UIImage imageWithContentsOfFile:path];
-    if (image == nil) {
-        NSString *path = [NSString stringWithFormat:@"%@/%@",helper.lxhPath,name];
-        image = [UIImage imageWithContentsOfFile:path];
-    }
-    return image;
-}
-
-- (NSString *)lxhPath {
-    if (_lxhPath == nil) {
-        NSString *emoticon = [[NSBundle mainBundle] pathForResource:@"WZMEmoticon" ofType:@"bundle"];
-        _lxhPath = [emoticon stringByAppendingPathComponent:@"emoticon_lxh"];
-    }
-    return _lxhPath;
-}
-
-- (NSString *)otherPath {
-    if (_otherPath == nil) {
-        NSString *emoticon = [[NSBundle mainBundle] pathForResource:@"WZMEmoticon" ofType:@"bundle"];
-        _otherPath = [emoticon stringByAppendingPathComponent:@"emoticon_other"];
-    }
-    return _otherPath;
-}
-
-- (NSString *)defaultPath {
-    if (_defaultPath == nil) {
-        NSString *emoticon = [[NSBundle mainBundle] pathForResource:@"WZMEmoticon" ofType:@"bundle"];
-        _defaultPath = [emoticon stringByAppendingPathComponent:@"emoticon_default"];
-    }
-    return _defaultPath;
 }
 
 @end

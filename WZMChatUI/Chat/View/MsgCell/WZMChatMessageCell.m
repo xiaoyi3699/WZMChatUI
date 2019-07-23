@@ -11,6 +11,7 @@
 #import "WZChatMacro.h"
 #import "WZMImageCache.h"
 #import "UIView+WZMChat.h"
+#import "WZMChatHelper.h"
 
 @implementation WZMChatMessageCell {
     WZMChatBtn *_retryBtn;
@@ -38,7 +39,7 @@
         [self addSubview:_activityView];
         
         _retryBtn = [WZMChatBtn chatButtonWithType:WZMChatButtonTypeRetry];
-        [_retryBtn setImage:[WZMChatHelper otherImageNamed:@"wzm_chat_retry"] forState:UIControlStateNormal];
+        [_retryBtn setImage:[WZMInputHelper otherImageNamed:@"wzm_chat_retry"] forState:UIControlStateNormal];
         [_retryBtn addTarget:self action:@selector(retryBtnClick:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:_retryBtn];
     }
@@ -71,7 +72,7 @@
             //聊天气泡
             _bubbleImageView.frame = CGRectMake(_avatarImageView.chat_minX-model.modelW-22, _avatarImageView.chat_minY, model.modelW+17, model.modelH+10);
         }
-        _bubbleImageView.image = [[WZMChatHelper shareInstance] senderBubbleImage];
+        _bubbleImageView.image = [WZMChatHelper senderBubble];
         
         //消息内容
         CGRect rect = _bubbleImageView.frame;
@@ -127,7 +128,7 @@
             //聊天气泡
             _bubbleImageView.frame = CGRectMake(_avatarImageView.chat_maxX+5, _avatarImageView.chat_minY, model.modelW+17, model.modelH+10);
         }
-        _bubbleImageView.image = [[WZMChatHelper shareInstance] receiverBubbleImage];
+        _bubbleImageView.image = [WZMChatHelper receiverBubble];
         
         CGRect rect = _bubbleImageView.frame;
         if (model.msgType == WZMMessageTypeText) {

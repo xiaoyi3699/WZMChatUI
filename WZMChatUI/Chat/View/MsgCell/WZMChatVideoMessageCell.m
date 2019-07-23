@@ -24,7 +24,7 @@
         [self addSubview:_contentImageView];
         
         _markImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 40, 40)];
-        _markImageView.image = [WZMChatHelper otherImageNamed:@"wzm_chat_video_mark"];
+        _markImageView.image = [WZMInputHelper otherImageNamed:@"wzm_chat_video_mark"];
         [self addSubview:_markImageView];
     }
     return self;

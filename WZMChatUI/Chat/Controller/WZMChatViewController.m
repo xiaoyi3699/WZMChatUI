@@ -513,7 +513,7 @@
     if (self.navigationController.viewControllers.count <= 1) return NO;
     if ([gestureRecognizer isKindOfClass:[UIPanGestureRecognizer class]]) {
         CGPoint point = [touch locationInView:gestureRecognizer.view];
-        if (point.y > WZMChat_SCREEN_HEIGHT-WZMChat_INPUT_H-WZMChat_BOTTOM_H) {
+        if (point.y > WZMChat_SCREEN_HEIGHT-self.inputView.toolViewH) {
             return NO;
         }
         if (point.x <= 100) {//设置手势触发区

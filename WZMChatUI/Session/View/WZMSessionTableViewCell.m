@@ -26,7 +26,7 @@
         [self addSubview:_avatarImageView];
         
         _badgeView = [[UIView alloc] initWithFrame:CGRectMake(_avatarImageView.chat_maxX-5, _avatarImageView.chat_minY-5, 10, 10)];
-        _badgeView.backgroundColor = R_G_B(250, 81, 81);
+        _badgeView.backgroundColor = [UIColor colorWithRed:250/255. green:81/255. blue:81/255. alpha:1];
         _badgeView.chat_cornerRadius = 5;
         _badgeView.hidden = YES;
         [self addSubview:_badgeView];
@@ -35,7 +35,7 @@
         _badgeLabel.font = [UIFont systemFontOfSize:12];
         _badgeLabel.textColor = [UIColor whiteColor];
         _badgeLabel.textAlignment = NSTextAlignmentCenter;
-        _badgeLabel.backgroundColor = R_G_B(250, 81, 81);
+        _badgeLabel.backgroundColor = [UIColor colorWithRed:250/255. green:81/255. blue:81/255. alpha:1];
         _badgeLabel.chat_cornerRadius = 9;
         _badgeLabel.hidden = YES;
         [self addSubview:_badgeLabel];
@@ -52,7 +52,7 @@
         
         _messageLabel = [[UILabel alloc] initWithFrame:CGRectMake(nickX, _nameLabel.chat_maxY+7, nimeW+60, 15)];
         _messageLabel.font = [UIFont systemFontOfSize:13];
-        _messageLabel.textColor = R_G_B(160, 160, 160);
+        _messageLabel.textColor = [UIColor colorWithRed:160/255. green:160/255. blue:160/255. alpha:1];
         _messageLabel.textAlignment = NSTextAlignmentLeft;
         [self addSubview:_messageLabel];
         
@@ -119,7 +119,7 @@
     [[WZMImageCache imageCache] getImageWithUrl:model.avatar isUseCatch:YES placeholder:WZMChat_BAD_IMAGE completion:^(UIImage *image) {
         _avatarImageView.image = image;
     }];
-    _notiImageView.image = [WZMChatHelper otherImageNamed:@"wzm_chat_bell_not"];
+    _notiImageView.image = [WZMInputHelper otherImageNamed:@"wzm_chat_bell_not"];
     _nameLabel.text = model.name;
     _messageLabel.text = lastMsg;
     _timeLabel.text = [WZMChatHelper timeFromTimeStamp:[NSString stringWithFormat:@"%@",@(lastTimestamp)]];
