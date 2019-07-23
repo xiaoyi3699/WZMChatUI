@@ -14,7 +14,7 @@ typedef enum : NSUInteger {
     WZMKeyboardTypeIdle = 0, //闲置状态
     WZMKeyboardTypeSystem,   //系统键盘
     WZMKeyboardTypeOther,    //自定义键盘
-    //自定义键盘类型
+    //扩展键盘类型 - 按需求自行扩展
     WZMKeyboardTypeEmoticon, //表情键盘
     WZMKeyboardTypeMore,     //More键盘
 } WZMKeyboardType;
