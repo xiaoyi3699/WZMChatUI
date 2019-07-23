@@ -92,9 +92,11 @@
 }
 
 - (void)sendText {
+    if (self.text.length == 0) return;
     if ([self.delegate respondsToSelector:@selector(inputView:sendMessage:)]) {
         [self.delegate inputView:self sendMessage:self.text];
     }
+    self.text = @"";
 }
 
 #pragma mark - 父类回调事件
@@ -106,18 +108,18 @@
 
 ///开始编辑
 - (void)didBeginEditing {
-    NSLog(@"开始编辑");
     [self willResetConfig];
 }
 
 ///结束编辑
 - (void)didEndEditing {
-    NSLog(@"结束编辑");
 }
 
 ///输入框值改变
 - (void)valueDidChange {
-    NSLog(@"输入框值改变：%@",self.text);
+    if ([self.delegate respondsToSelector:@selector(inputView:didChangeText:)]) {
+        [self.delegate inputView:self didChangeText:self.text];
+    }
 }
 
 ///还原视图

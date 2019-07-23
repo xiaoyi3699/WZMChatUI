@@ -113,7 +113,7 @@
         }
         dispatch_async(dispatch_get_main_queue(), ^{
             [self.tableView reloadData];
-            [self tableViewScrollToBottom:NO];
+            [self tableViewScrollToBottom:NO duration:0.25];
         });
     });
 }
@@ -289,35 +289,7 @@
 
 //键盘状态变化
 - (void)inputView:(WZMInputView *)inputView willChangeFrameWithDuration:(CGFloat)duration {
-    CGFloat TContentH = self.tableView.contentSize.height;
-    CGFloat tableViewH = self.tableView.bounds.size.height;
-    CGFloat keyboardH = self.inputView.keyboardH;
-    
-    CGFloat offsetY = 0;
-    if (TContentH < tableViewH) {
-        offsetY = TContentH+keyboardH-tableViewH;
-        if (offsetY < 0) {
-            offsetY = 0;
-        }
-    }
-    else {
-        offsetY = keyboardH;
-    }
-    
-    CGRect TRect = self.tableView.frame;
-    if (offsetY > 0) {
-        TRect.origin.y = WZMChat_NAV_TOP_H-offsetY;
-        [UIView animateWithDuration:duration animations:^{
-            self.tableView.frame = TRect;
-            [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:(self.messageModels.count-1) inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:YES];
-        }];
-    }
-    else {
-        TRect.origin.y = WZMChat_NAV_TOP_H;
-        [UIView animateWithDuration:duration animations:^{
-            self.tableView.frame = TRect;
-        }];
-    }
+    [self tableViewScrollToBottom:YES duration:duration];
 }
 
 #pragma mark - private method
@@ -358,7 +330,7 @@
 - (void)addMessageModel:(WZMChatMessageModel *)model {
     [self.messageModels addObject:model];
     [_tableView reloadData];
-    [self tableViewScrollToBottom:YES];
+    [self tableViewScrollToBottom:YES duration:0.25];
     
     if (self.userModel) {
         [[WZMChatDBManager DBManager] insertMessage:model chatWithUser:self.userModel];
@@ -368,43 +340,27 @@
     }
 }
 
-- (void)tableViewScrollToBottom:(BOOL)animated {
+- (void)tableViewScrollToBottom:(BOOL)animated duration:(CGFloat)duration {
     if (animated) {
-        if (self.isEditing) {
-            CGFloat TContentH = self.tableView.contentSize.height;
-            CGFloat tableViewH = self.tableView.bounds.size.height;
-            
-            CGFloat keyboardH = self.inputView.keyboardH;
-            
-            CGFloat offsetY = 0;
-            if (TContentH < tableViewH) {
-                offsetY = TContentH+keyboardH-tableViewH;
-                if (offsetY < 0) {
-                    offsetY = 0;
-                }
-            }
-            else {
-                offsetY = keyboardH;
-            }
-            
-            if (offsetY > 0) {
-                CGRect TRect = self.tableView.frame;
-                TRect.origin.y = WZMChat_NAV_TOP_H-offsetY;
-                [UIView animateWithDuration:0.25 animations:^{
-                    self.tableView.frame = TRect;
-                    [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:(self.messageModels.count-1) inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:NO];
-                }];
-            }
+        CGFloat keyboardH = self.inputView.keyboardH;
+        CGFloat contentH = self.tableView.contentSize.height;
+        CGFloat tableViewH = self.tableView.bounds.size.height;
+        
+        CGFloat offsetY = 0;
+        if (contentH < tableViewH) {
+            offsetY = MAX(contentH+keyboardH-tableViewH, 0);
         }
         else {
-            CGFloat TContentH = self.tableView.contentSize.height;
-            CGFloat tableViewH = self.tableView.bounds.size.height;
-            if (TContentH > tableViewH) {
-                [UIView animateWithDuration:0.25 animations:^{
-                    [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:(self.messageModels.count-1) inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:NO];
-                }];
-            }
+            offsetY = keyboardH;
         }
+        CGRect TRect = self.tableView.frame;
+        TRect.origin.y = WZMChat_NAV_TOP_H-offsetY;
+        [UIView animateWithDuration:0.25 animations:^{
+            self.tableView.frame = TRect;
+            if (self.messageModels.count) {
+                [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:(self.messageModels.count-1) inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:NO];
+            }
+        }];
     }
     else {
         if (self.messageModels.count) {
@@ -526,7 +482,7 @@
     if (_inputView == nil) {
         _inputView = [[WZMInputView alloc] init];
         _inputView.delegate = self;
-        [_inputView setText:[[WZMChatDBManager DBManager] draftWithModel:self.userModel]];
+        _inputView.text = [[WZMChatDBManager DBManager] draftWithModel:self.userModel];
     }
     return _inputView;
 }
