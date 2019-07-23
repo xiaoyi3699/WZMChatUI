@@ -7,7 +7,7 @@
 //
 
 #import "WZMEmoticonCell.h"
-#import "WZMEmoticonManager.h"
+#import "WZMInputHelper.h"
 
 @implementation WZMEmoticonCell {
     UIImageView *_emoticonImageView;
@@ -23,7 +23,7 @@
 }
 
 - (void)setConfig:(NSString *)image {
-    _emoticonImageView.image = [[WZMEmoticonManager manager] emoticonWithImageName:image];
+    _emoticonImageView.image = [WZMInputHelper emoticonImageNamed:image];
 }
 
 @end

@@ -13,7 +13,6 @@
 #import "WZMChatVoiceMessageCell.h"
 #import "WZMChatImageMessageCell.h"
 #import "WZMChatVideoMessageCell.h"
-#import "WZMChatRecordAnimation.h"
 #import "WZMChatDBManager.h"
 #import "WZMChatUserModel.h"
 #import "WZMChatGroupModel.h"
@@ -34,7 +33,6 @@
 @property (nonatomic, assign) CGFloat recordDuration;
 @property (nonatomic, strong) WZMChatUserModel *userModel;
 @property (nonatomic, strong) WZMChatGroupModel *groupModel;
-@property (nonatomic, strong) WZMChatRecordAnimation *recordAnimation;
 @property (nonatomic, weak) id<UIGestureRecognizerDelegate> recognizerDelegate;
 
 @end
@@ -205,8 +203,8 @@
 }
 
 //其他自定义消息, 如: 图片、视频、位置等等
-- (void)inputView:(WZMInputView *)inputView selectedType:(WZMChatMoreType)type {
-    if (type == WZMChatMoreTypeImage) {
+- (void)inputView:(WZMInputView *)inputView didSelectMoreType:(WZInputMoreType)type {
+    if (type == WZInputMoreTypeImage) {
         //发送图片
         //选择图片的代码就不多写了, 这里假定已经选择了图片
         
@@ -232,7 +230,7 @@
                                                                     isSender:YES];
         [self sendMessageModel:model];
     }
-    else if (type == WZMChatMoreTypeVideo) {
+    else if (type == WZInputMoreTypeVideo) {
         //发送视频
         //选择视频的代码就不多写了, 这里假定已经选择了视频
         //上传到服务器, 获取视频链接
@@ -252,11 +250,11 @@
                                                                     isSender:YES];
         [self sendMessageModel:model];
     }
-    else if (type == WZMChatMoreTypeLocation) {
+    else if (type == WZInputMoreTypeLocation) {
         //发送定位 - 未实现
         
     }
-    else if (type == WZMChatMoreTypeTransfer) {
+    else if (type == WZInputMoreTypeTransfer) {
         //文件互传 - 未实现
         
     }
@@ -269,68 +267,31 @@
 }
 
 //录音状态变化
-- (void)inputView:(WZMInputView *)inputView didChangeRecordType:(WZMChatRecordType)type {
-    if (type == WZMChatRecordTypeTouchDown) {
-        //手指按下, 开始录音
-        //此处录音计时采用的时间差
-        //若是需要限制录音时长, 可采用计时器进行计时
-        self.recordDuration = [WZMChatHelper nowTimestamp];
-        [self.view addSubview:self.recordAnimation];
-        self.recordAnimation.volume = 1.0;
+- (void)inputView:(WZMInputView *)inputView didChangeRecordType:(WZMRecordType)type {
+    if (type == WZMRecordTypeBegin) {
+        
     }
-    else if (type == WZMChatRecordTypeTouchDragOutside) {
-        //手指滑动到外面
-        [self.recordAnimation showVoiceCancel];
+    else if (type == WZMRecordTypeFinish) {
+        //将录音上传到服务器, 获取录音链接
+        NSString *voiceUrl = @"";
+        
+        //创建录音model
+        WZMChatMessageModel *model = [WZMChatMessageManager createVoiceMessage:self.userModel
+                                                                      duration:(NSInteger)self.recordDuration/1000
+                                                                      voiceUrl:voiceUrl
+                                                                      isSender:YES];
+        [self sendMessageModel:model];
     }
-    else if (type == WZMChatRecordTypeTouchDragInside) {
-        //手指滑动到里面
-        [self.recordAnimation showVoiceAnimation];
-    }
-    else if (type == WZMChatRecordTypeTouchCancel) {
-        //取消录音
-        [self.recordAnimation removeFromSuperview];
-    }
-    else if (type == WZMChatRecordTypeTouchFinish) {
-        //结束录音
-        self.recordDuration = ([WZMChatHelper nowTimestamp]-self.recordDuration);
-        if (self.recordDuration > 1000) {
-            //录音完成
-            [self.recordAnimation removeFromSuperview];
-            //发送声音
-            //录音的代码就不多写了, 这里假定已经录音
-            
-            //将录音上传到服务器, 获取录音链接
-            NSString *voiceUrl = @"";
-            
-            //创建录音model
-            WZMChatMessageModel *model = [WZMChatMessageManager createVoiceMessage:self.userModel
-                                                                        duration:(NSInteger)self.recordDuration/1000
-                                                                        voiceUrl:voiceUrl
-                                                                        isSender:YES];
-            [self sendMessageModel:model];
-        }
-        else {
-            [self.recordAnimation showVoiceShort];
-            if (self.recordDuration > 200) {
-                //录音时间太短
-                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                    [self.recordAnimation removeFromSuperview];
-                });
-            }
-            else {
-                [self.recordAnimation removeFromSuperview];
-            }
-        }
+    else {
+        
     }
 }
 
 //键盘状态变化
-- (void)inputView:(WZMInputView *)inputView willChangeFrameWithDuration:(CGFloat)duration isEditing:(BOOL)isEditing {
-    self.editing = isEditing;
-    
+- (void)inputView:(WZMInputView *)inputView willChangeFrameWithDuration:(CGFloat)duration {
     CGFloat TContentH = self.tableView.contentSize.height;
     CGFloat tableViewH = self.tableView.bounds.size.height;
-    CGFloat keyboardH = WZMChat_SCREEN_HEIGHT-self.inputView.chat_minY-WZMChat_INPUT_H;
+    CGFloat keyboardH = self.inputView.keyboardH;
     
     CGFloat offsetY = 0;
     if (TContentH < tableViewH) {
@@ -345,7 +306,7 @@
     
     CGRect TRect = self.tableView.frame;
     if (offsetY > 0) {
-        TRect.origin.y = WZMChat_NAV_TOP_H-offsetY+WZMChat_BOTTOM_H;
+        TRect.origin.y = WZMChat_NAV_TOP_H-offsetY;
         [UIView animateWithDuration:duration animations:^{
             self.tableView.frame = TRect;
             [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:(self.messageModels.count-1) inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:YES];
@@ -413,7 +374,7 @@
             CGFloat TContentH = self.tableView.contentSize.height;
             CGFloat tableViewH = self.tableView.bounds.size.height;
             
-            CGFloat keyboardH = WZMChat_SCREEN_HEIGHT-self.inputView.chat_minY-WZMChat_INPUT_H;
+            CGFloat keyboardH = self.inputView.keyboardH;
             
             CGFloat offsetY = 0;
             if (TContentH < tableViewH) {
@@ -426,9 +387,9 @@
                 offsetY = keyboardH;
             }
             
-            if (offsetY > WZMChat_BOTTOM_H) {
+            if (offsetY > 0) {
                 CGRect TRect = self.tableView.frame;
-                TRect.origin.y = WZMChat_NAV_TOP_H-offsetY+WZMChat_BOTTOM_H;
+                TRect.origin.y = WZMChat_NAV_TOP_H-offsetY;
                 [UIView animateWithDuration:0.25 animations:^{
                     self.tableView.frame = TRect;
                     [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:(self.messageModels.count-1) inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:NO];
@@ -454,7 +415,7 @@
 
 #pragma mark - UITableViewDelegate,UITableViewDataSource
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
-    [self.inputView chatResignFirstResponder];
+    [self.inputView resignFirstResponder];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -575,13 +536,6 @@
         _messageModels = [[NSMutableArray alloc] initWithCapacity:0];
     }
     return _messageModels;
-}
-
-- (WZMChatRecordAnimation *)recordAnimation {
-    if (_recordAnimation == nil) {
-        _recordAnimation = [[WZMChatRecordAnimation alloc] init];
-    }
-    return _recordAnimation;
 }
 
 #pragma mark - 录音按钮手势冲突处理

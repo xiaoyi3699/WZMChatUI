@@ -13,8 +13,7 @@
 #import "WZMEmoticonCell.h"
 #import "WZMHorizontalLayout.h"
 #import "WZMEmoticonManager.h"
-#import "WZChatMacro.h"
-#import "UIView+WZMChat.h"
+#import "WZMInputHelper.h"
 
 #define key_rows  3
 #define key_nums  7
@@ -42,11 +41,11 @@
         WZMHorizontalLayout *horLayout = [[WZMHorizontalLayout alloc] initWithSpacing:spcing rows:key_rows nums:key_nums];
         
         CGRect rect = self.bounds;
-        rect.size.height -= (40+WZMChat_BOTTOM_H);
+        rect.size.height -= (40+[WZMInputHelper helper].iPhoneXBottomH);
         _collectionView = [[UICollectionView alloc] initWithFrame:rect collectionViewLayout:horLayout];
         _collectionView.delegate = self;
         _collectionView.dataSource = self;
-        _collectionView.backgroundColor = [UIColor whiteColor];
+        _collectionView.backgroundColor = [UIColor clearColor];
 #if __IPHONE_OS_VERSION_MAX_ALLOWED >= 110000
         if (@available(iOS 11.0, *)) {
             _collectionView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
@@ -60,7 +59,7 @@
         [self addSubview:_collectionView];
         
         UIColor *themeColor = [UIColor colorWithRed:34/255. green:207/255. blue:172/255. alpha:1];
-        UIView *toolView = [[UIView alloc] initWithFrame:CGRectMake(0, _collectionView.chat_maxY, frame.size.width, 40+WZMChat_BOTTOM_H)];
+        UIView *toolView = [[UIView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(_collectionView.frame), frame.size.width, 40+[WZMInputHelper helper].iPhoneXBottomH)];
         toolView.backgroundColor = [UIColor colorWithRed:220/255. green:220/255. blue:220/255. alpha:1];
         [self addSubview:toolView];
         
@@ -139,14 +138,14 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     if ([self isDelete:indexPath.item]) {
-        if ([self.delegate respondsToSelector:@selector(emojisKeyboardDelete)]) {
-            [self.delegate emojisKeyboardDelete];
+        if ([self.delegate respondsToSelector:@selector(emojisKeyboardDidSelectDelete:)]) {
+            [self.delegate emojisKeyboardDidSelectDelete:self];
         }
     }
     else {
         NSString *text = [self textWithIndexPath:indexPath];
-        if ([self.delegate respondsToSelector:@selector(emojisKeyboardSendText:)]) {
-            [self.delegate emojisKeyboardSendText:text];
+        if ([self.delegate respondsToSelector:@selector(emojisKeyboard:didSelectText:)]) {
+            [self.delegate emojisKeyboard:self didSelectText:text];
         }
     }
 }
@@ -175,7 +174,7 @@
 }
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
-    NSInteger index = scrollView.contentOffset.x/WZMChat_SCREEN_WIDTH;
+    NSInteger index = scrollView.contentOffset.x/[WZMInputHelper helper].screenW;
     NSInteger section = [self currectSection:index];
     NSInteger page = [self currectPage:index];
     UIButton *btn = [_btns objectAtIndex:section];
@@ -187,7 +186,7 @@
     if (btn.isSelected) return;
     [self selectedBtn:btn];
     NSInteger index = [self totalPageBeforeSection:btn.tag];
-    [_collectionView setContentOffset:CGPointMake(WZMChat_SCREEN_WIDTH*index, 0) animated:NO];
+    [_collectionView setContentOffset:CGPointMake([WZMInputHelper helper].screenW*index, 0) animated:NO];
 }
 
 - (void)selectedBtn:(UIButton *)btn {
@@ -197,8 +196,8 @@
 }
 
 - (void)sendBtnClick:(UIButton *)btn {
-    if ([self.delegate respondsToSelector:@selector(emojisKeyboardSend)]) {
-        [self.delegate emojisKeyboardSend];
+    if ([self.delegate respondsToSelector:@selector(emojisKeyboardDidSelectSend:)]) {
+        [self.delegate emojisKeyboardDidSelectSend:self];
     }
 }
 

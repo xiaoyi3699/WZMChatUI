@@ -7,7 +7,7 @@
 //
 
 #import "WZMDeleteCell.h"
-#import "WZMChatHelper.h"
+#import "WZMInputHelper.h"
 
 @implementation WZMDeleteCell {
     UIImageView *_deleteImgView;
@@ -17,7 +17,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         _deleteImgView = [[UIImageView alloc] initWithFrame:CGRectMake(6, 5, 40, 40)];
-        _deleteImgView.image = [WZMChatHelper otherImageNamed:@"wzm_chat_delete"];
+        _deleteImgView.image = [WZMInputHelper otherImageNamed:@"wzm_chat_delete"];
         [self addSubview:_deleteImgView];
     }
     return self;

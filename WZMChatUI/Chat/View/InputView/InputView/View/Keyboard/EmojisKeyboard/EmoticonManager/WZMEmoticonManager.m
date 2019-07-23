@@ -7,13 +7,19 @@
 //
 
 #import "WZMEmoticonManager.h"
-#import "ChatBase64.h"
-#import "WZMChatHelper.h"
-#import "NSAttributedString+WZMChat.h"
+#import "WZMInputHelper.h"
+#import "WZMInputBase64.h"
 
 @interface WZMEmoticonManager ()
 
-@property (nonatomic, strong) NSMutableDictionary *imageCache;
+///所有简体表情, 如: [爱你]
+@property (nonatomic, strong) NSArray *chs;
+@property (nonatomic, strong) NSDictionary *chsDic;
+///所有繁体表情, 如: [愛你]
+@property (nonatomic, strong) NSArray *cht;
+@property (nonatomic, strong) NSDictionary *chtDic;
+///所有表情 <默认, 浪小花, emoji>
+@property (nonatomic, strong) NSArray *emoticons;
 
 @end
 
@@ -32,7 +38,6 @@
     self = [super init];
     if (self) {
         [self loadEmoticons];
-        self.imageCache = [[NSMutableDictionary alloc] initWithCapacity:0];
     }
     return self;
 }
@@ -67,8 +72,8 @@
         [chs addObject:ch1];
         [cht addObject:ch2];
         
-        NSString *key1 = [ch1 chat_base64EncodedString];
-        NSString *key2 = [ch2 chat_base64EncodedString];
+        NSString *key1 = [ch1 input_base64EncodedString];
+        NSString *key2 = [ch2 input_base64EncodedString];
         [chsDic setObject:png forKey:key1];
         [chtDic setObject:png forKey:key2];
     }
@@ -80,8 +85,8 @@
         [chs addObject:ch1];
         [cht addObject:ch2];
         
-        NSString *key1 = [ch1 chat_base64EncodedString];
-        NSString *key2 = [ch2 chat_base64EncodedString];
+        NSString *key1 = [ch1 input_base64EncodedString];
+        NSString *key2 = [ch2 input_base64EncodedString];
         [chsDic setObject:png forKey:key1];
         [chtDic setObject:png forKey:key2];
     }
@@ -150,10 +155,10 @@
         for (NSTextCheckingResult *match in matchs) {
             NSUInteger newLocation = match.range.location+offset;
             NSString *result = [aString substringWithRange:match.range];
-            NSString *imageName = [self.chsDic objectForKey:[result chat_base64EncodedString]];
-            UIImage *image = [self emoticonWithImageName:imageName];
+            NSString *imageName = [self.chsDic objectForKey:[result input_base64EncodedString]];
+            UIImage *image = [WZMInputHelper emoticonImageNamed:imageName];
             if (image) {
-                [attStr chat_setImage:image rect:CGRectMake(0, -4, 20, 20) range:NSMakeRange(newLocation, match.range.length)];
+                [self setAttributedString:attStr image:image rect:CGRectMake(0, -4, 20, 20) range:NSMakeRange(newLocation, match.range.length)];
                 offset += (1-match.range.length);
             }
         }
@@ -161,15 +166,13 @@
     return attStr;
 }
 
-- (UIImage *)emoticonWithImageName:(NSString *)imageName {
-    UIImage *image = [self.imageCache objectForKey:imageName];
-    if (image == nil) {
-        image = [WZMChatHelper emoticonImageNamed:imageName];
-    }
-    if (image) {
-        [self.imageCache setObject:image forKey:imageName];
-    }
-    return image;
+//private
+- (void)setAttributedString:(NSMutableAttributedString *)attributedString image:(UIImage *)image rect:(CGRect)rect range:(NSRange)range{
+    NSTextAttachment *attachment = [[NSTextAttachment alloc] init];
+    attachment.image = image;
+    attachment.bounds = rect;
+    NSAttributedString *attStr = [NSAttributedString attributedStringWithAttachment:attachment];
+    [attributedString replaceCharactersInRange:range withAttributedString:attStr];
 }
 
 @end

@@ -18,8 +18,8 @@
 @protocol WZMEmojisKeyboardDelegate <NSObject>
 
 @optional
-- (void)emojisKeyboardSend;
-- (void)emojisKeyboardDelete;
-- (void)emojisKeyboardSendText:(NSString *)text;
+- (void)emojisKeyboardDidSelectSend:(WZMEmojisKeyboard *)emojisKeyboard;
+- (void)emojisKeyboardDidSelectDelete:(WZMEmojisKeyboard *)emojisKeyboard;
+- (void)emojisKeyboard:(WZMEmojisKeyboard *)emojisKeyboard didSelectText:(NSString *)text;
 
 @end
