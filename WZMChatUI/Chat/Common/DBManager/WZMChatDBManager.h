@@ -71,6 +71,10 @@
 - (WZMChatGroupModel *)selectChatGroupModel:(WZMChatSessionModel *)model;
 
 #pragma mark - message表操纵
+///删除私聊消息记录
+- (void)deleteMessageWithUid:(NSString *)uid;
+///删除群聊消息记录
+- (void)deleteMessageWithGid:(NSString *)gid;
 //私聊消息列表
 - (NSMutableArray *)messagesWithUser:(WZMChatUserModel *)model;
 //群聊消息列表
@@ -83,5 +87,9 @@
 - (void)updateMessageModel:(WZMChatMessageModel *)message chatWithUser:(WZMChatUserModel *)model;
 ///更新群聊消息
 - (void)updateMessageModel:(WZMChatMessageModel *)message chatWithGroup:(WZMChatGroupModel *)model;
+///删除私聊消息
+- (void)deleteMessageModel:(WZMChatMessageModel *)message chatWithUser:(WZMChatUserModel *)model;
+///删除群聊消息
+- (void)deleteMessageModel:(WZMChatMessageModel *)message chatWithGroup:(WZMChatGroupModel *)model;
 
 @end

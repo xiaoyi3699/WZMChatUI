@@ -137,6 +137,13 @@
             [self.sessions removeObject:session];
             [self.tableView reloadData];
             [[WZMChatDBManager DBManager] deleteSessionModel:session.sid];
+            //删除聊天记录
+            if (session.isSilence) {
+                [[WZMChatDBManager DBManager] deleteMessageWithGid:session.sid];
+            }
+            else {
+                [[WZMChatDBManager DBManager] deleteMessageWithUid:session.sid];
+            }
         }];
         deleteAction.backgroundColor = [UIColor redColor];
         return @[deleteAction];

@@ -101,8 +101,9 @@ NSString *const WZM_SESSION = @"wzm_session";
 - (void)deleteUserModel:(NSString *)uid {
     NSString *sql = [NSString stringWithFormat:@"DELETE FROM %@ WHERE uid = '%@'",WZM_USER,uid];
     [[WZMChatSqliteManager defaultManager] execute:sql];
-    //同时删除对应的会话
+    //同时删除对应的会话和消息记录
     [self deleteSessionModel:uid];
+    [self deleteMessageWithUid:uid];
 }
 
 #pragma mark - group表操纵
@@ -143,8 +144,9 @@ NSString *const WZM_SESSION = @"wzm_session";
 - (void)deleteGroupModel:(NSString *)gid {
     NSString *sql = [NSString stringWithFormat:@"DELETE FROM %@ WHERE gid = '%@'",WZM_GROUP,gid];
     [[WZMChatSqliteManager defaultManager] execute:sql];
-    //同时删除对应的会话
+    //同时删除对应的会话和消息记录
     [self deleteSessionModel:gid];
+    [self deleteMessageWithGid:gid];
 }
 
 #pragma mark - session表操纵
@@ -243,6 +245,18 @@ NSString *const WZM_SESSION = @"wzm_session";
 }
 
 #pragma mark - message表操纵
+//删除私聊消息记录
+- (void)deleteMessageWithUid:(NSString *)uid {
+    NSString *tableName = [self tableNameWithUid:uid];
+    [[WZMChatSqliteManager defaultManager] deleteTableName:tableName];
+}
+
+//删除群聊消息记录
+- (void)deleteMessageWithGid:(NSString *)gid {
+    NSString *tableName = [self tableNameWithUid:gid];
+    [[WZMChatSqliteManager defaultManager] deleteTableName:tableName];
+}
+
 //私聊消息
 - (NSMutableArray *)messagesWithUser:(WZMChatUserModel *)model {
     return [self messagesWithModel:model];
@@ -300,16 +314,36 @@ NSString *const WZM_SESSION = @"wzm_session";
     [[WZMChatSqliteManager defaultManager] updateModel:message tableName:tableName primkey:@"mid"];
 }
 
+//删除私聊消息
+- (void)deleteMessageModel:(WZMChatMessageModel *)message chatWithUser:(WZMChatUserModel *)model {
+    NSString *tableName = [self tableNameWithModel:model];
+    [[WZMChatSqliteManager defaultManager] deleteModel:message tableName:tableName primkey:@"mid"];
+}
+
+//删除群聊消息
+- (void)deleteMessageModel:(WZMChatMessageModel *)message chatWithGroup:(WZMChatGroupModel *)model {
+    NSString *tableName = [self tableNameWithModel:model];
+    [[WZMChatSqliteManager defaultManager] deleteModel:message tableName:tableName primkey:@"mid"];
+}
+
 //private
 - (NSString *)tableNameWithModel:(WZMChatBaseModel *)model {
     if ([model isKindOfClass:[WZMChatUserModel class]]) {
         WZMChatUserModel *user = (WZMChatUserModel *)model;
-        return [NSString stringWithFormat:@"user_%@",user.uid];
+        return [self tableNameWithUid:user.uid];
     }
     else {
         WZMChatGroupModel *group = (WZMChatGroupModel *)model;
-        return [NSString stringWithFormat:@"group_%@",group.gid];
+        return [self tableNameWithGid:group.gid];
     }
+}
+
+- (NSString *)tableNameWithUid:(NSString *)uid {
+    return [NSString stringWithFormat:@"user_%@",uid];
+}
+
+- (NSString *)tableNameWithGid:(NSString *)gid {
+    return [NSString stringWithFormat:@"group_%@",gid];
 }
 
 @end
