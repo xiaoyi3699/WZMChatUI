@@ -26,11 +26,6 @@
 }
 
 #pragma mark - 实现以下三个数据源方法, 供父类调用
-///视图的初始y值
-- (CGFloat)startYOfInputView {
-    return [UIScreen mainScreen].bounds.size.height-self.inputToolView.bounds.size.height;
-}
-
 //设置toolView和keyboards
 - (UIView *)toolViewOfInputView {
     if (_toolView == nil) {
@@ -44,6 +39,11 @@
         _keyboards = @[self.emojisKeyboard,self.moreKeyboard];
     }
     return _keyboards;
+}
+
+///视图的初始y值, 一般放在屏幕的最下方, 即: 屏幕高度-toolView的高度
+- (CGFloat)startYOfInputView {
+    return [UIScreen mainScreen].bounds.size.height-self.inputToolView.bounds.size.height;
 }
 
 #pragma mark - 代理事件
@@ -91,14 +91,6 @@
     }
 }
 
-- (void)sendText {
-    if (self.text.length == 0) return;
-    if ([self.delegate respondsToSelector:@selector(inputView:sendMessage:)]) {
-        [self.delegate inputView:self sendMessage:self.text];
-    }
-    self.text = @"";
-}
-
 #pragma mark - 父类回调事件
 //点击return键
 - (BOOL)shouldReturn {
@@ -108,11 +100,7 @@
 
 ///开始编辑
 - (void)didBeginEditing {
-    [self willResetConfig];
-}
-
-///结束编辑
-- (void)didEndEditing {
+    [self resetToolViewStatus];
 }
 
 ///输入框值改变
@@ -124,7 +112,7 @@
 
 ///还原视图
 - (void)willResetConfig {
-    [self.inputToolView resetStatus];
+    [self resetToolViewStatus];
 }
 
 ///视图frameb改变
@@ -132,6 +120,21 @@
     if ([self.delegate respondsToSelector:@selector(inputView:willChangeFrameWithDuration:)]) {
         [self.delegate inputView:self willChangeFrameWithDuration:duration];
     }
+}
+
+#pragma mark - private method
+///还原toolView上的btn状态
+- (void)resetToolViewStatus {
+    [self.inputToolView resetStatus];
+}
+
+///点击发送按钮, 包括系统键盘和自定义表情键盘的发送按钮
+- (void)sendText {
+    if (self.text.length == 0) return;
+    if ([self.delegate respondsToSelector:@selector(inputView:sendMessage:)]) {
+        [self.delegate inputView:self sendMessage:self.text];
+    }
+    self.text = @"";
 }
 
 #pragma mark - getter

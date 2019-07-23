@@ -35,20 +35,20 @@
 - (void)showSystemKeyboard;
 ///显示自定义键盘
 - (void)showKeyboardAtIndex:(NSInteger)index duration:(CGFloat)duration;
-///结束编辑
+///键盘消失, 包括系统键盘和自定义键盘
 - (void)dismissKeyboard;
 ///输入框字符串处理
 - (void)deleteSelectedText;
 - (void)replaceSelectedTextWithText:(NSString *)text;
 
 #pragma mark - 子类中回调的方法
-///开始编辑, 是否是系统键盘
+/* 系统键盘才会响应 */
+///开始编辑
 - (void)didBeginEditing;
 ///结束编辑
 - (void)didEndEditing;
 ///输入框值改变
 - (void)valueDidChange;
-
 ///是否允许开始编辑
 - (BOOL)shouldBeginEditing;
 ///是否允许结束编辑
@@ -57,10 +57,12 @@
 - (BOOL)shouldReturn;
 ///是否允许编辑
 - (BOOL)shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text;
+/* end */
 
 ///还原视图
+///当调用resignFirstResponder时, 该方法会被调用, 用于还原子类相关视图状态
 - (void)willResetConfig;
-///视图frame改变
+///视图frame改变时调用, 即: 键盘的弹出与收回, 包括系统键盘和自定义键盘
 - (void)willChangeFrameWithDuration:(CGFloat)duration;
 
 #pragma mark - 子类中需要实现的数据源

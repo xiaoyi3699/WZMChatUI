@@ -24,6 +24,7 @@
 
 @interface WZMChatViewController ()<UITableViewDelegate,UITableViewDataSource,UIGestureRecognizerDelegate,WZMInputViewDelegate>
 
+@property (nonatomic, assign) CGFloat tableViewY;
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) WZMInputView *inputView;
 @property (nonatomic, strong) NSMutableArray *messageModels;
@@ -65,6 +66,7 @@
 
 - (void)setConfig:(WZMChatBaseModel *)model {
     self.title = @"消息";
+    self.tableViewY = WZMChat_NAV_TOP_H;
     if ([model isKindOfClass:[WZMChatUserModel class]]) {
         self.userModel = (WZMChatUserModel *)model;
         self.showName = self.userModel.isShowName;
@@ -354,7 +356,7 @@
             offsetY = keyboardH;
         }
         CGRect TRect = self.tableView.frame;
-        TRect.origin.y = WZMChat_NAV_TOP_H-offsetY;
+        TRect.origin.y = self.tableViewY-offsetY;
         [UIView animateWithDuration:0.25 animations:^{
             self.tableView.frame = TRect;
             if (self.messageModels.count) {
@@ -453,8 +455,8 @@
 - (UITableView *)tableView {
     if (_tableView == nil) {
         CGRect rect = self.view.bounds;
-        rect.origin.y = WZMChat_NAV_TOP_H;
-        rect.size.height -= (WZMChat_NAV_TOP_H+WZMChat_INPUT_H+WZMChat_BOTTOM_H);
+        rect.origin.y = self.tableViewY;
+        rect.size.height -= (self.tableViewY+self.inputView.toolViewH);
         
         _tableView = [[UITableView alloc] initWithFrame:rect];
         _tableView.delegate = self;

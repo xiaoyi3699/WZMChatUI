@@ -156,7 +156,7 @@
 ///视图的初始y值
 - (CGFloat)startYOfInputView {
     if (self.startY == -1) {
-        self.startY = self.bounds.size.height;
+        self.startY = [UIScreen mainScreen].bounds.size.height-self.toolViewH;
     }
     return self.startY;
 }
