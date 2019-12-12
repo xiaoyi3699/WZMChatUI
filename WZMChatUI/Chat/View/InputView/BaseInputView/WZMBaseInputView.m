@@ -266,6 +266,7 @@
     }
     if (k) {
         self.keyboardH = k.bounds.size.height;
+        //如果放在视图最下面,还需要再减去self.toolViewH
         CGFloat minY = self.startY-self.keyboardH;
         [self minYWillChange:minY duration:duration dismissKeyboard:NO];
     }
