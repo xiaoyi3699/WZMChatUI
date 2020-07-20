@@ -64,8 +64,18 @@
         viewController.tabBarItem.title = titles[i];
         viewController.tabBarItem.image = img;
         viewController.tabBarItem.selectedImage = selImg;
-        [viewController.tabBarItem setTitleTextAttributes:atts forState:UIControlStateNormal];
-        [viewController.tabBarItem setTitleTextAttributes:selAtts forState:UIControlStateSelected];
+        
+        if (@available(iOS 13.0, *)) {
+            UITabBarAppearance *appearance = [UITabBarAppearance new];
+            appearance.backgroundColor = [UIColor colorWithRed:247.0/255.0 green:247.0/255.0 blue:247.0/255.0 alpha:1.0];
+            appearance.stackedLayoutAppearance.normal.titleTextAttributes = atts;
+            appearance.stackedLayoutAppearance.selected.titleTextAttributes = selAtts;
+            viewController.tabBarItem.standardAppearance = appearance;
+        }
+        else {
+            [viewController.tabBarItem setTitleTextAttributes:atts forState:UIControlStateNormal];
+            [viewController.tabBarItem setTitleTextAttributes:selAtts forState:UIControlStateSelected];
+        }
     }
 }
 
