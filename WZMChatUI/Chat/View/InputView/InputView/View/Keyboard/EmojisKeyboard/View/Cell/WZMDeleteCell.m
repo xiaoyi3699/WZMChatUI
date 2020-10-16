@@ -18,7 +18,7 @@
     if (self) {
         _deleteImgView = [[UIImageView alloc] initWithFrame:CGRectMake(6, 5, 40, 40)];
         _deleteImgView.image = [WZMInputHelper otherImageNamed:@"wzm_chat_delete"];
-        [self addSubview:_deleteImgView];
+        [self.contentView addSubview:_deleteImgView];
     }
     return self;
 }

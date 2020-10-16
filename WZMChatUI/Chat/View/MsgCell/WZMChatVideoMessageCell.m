@@ -21,11 +21,11 @@
         _contentImageView = [[UIImageView alloc] init];
         _contentImageView.layer.masksToBounds = YES;
         _contentImageView.layer.cornerRadius = 5;
-        [self addSubview:_contentImageView];
+        [self.contentView addSubview:_contentImageView];
         
         _markImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 40, 40)];
         _markImageView.image = [WZMInputHelper otherImageNamed:@"wzm_chat_video_mark"];
-        [self addSubview:_markImageView];
+        [self.contentView addSubview:_markImageView];
     }
     return self;
 }

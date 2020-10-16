@@ -23,24 +23,24 @@
         _avatarImageView = [[UIImageView alloc] init];
         _avatarImageView.layer.masksToBounds = YES;
         _avatarImageView.layer.cornerRadius = 20;
-        [self addSubview:_avatarImageView];
+        [self.contentView addSubview:_avatarImageView];
         
         _nickLabel = [[UILabel alloc] init];
         _nickLabel.textColor = [UIColor grayColor];
         _nickLabel.textAlignment = NSTextAlignmentCenter;
         _nickLabel.font = [UIFont systemFontOfSize:12];
-        [self addSubview:_nickLabel];
+        [self.contentView addSubview:_nickLabel];
         
         _bubbleImageView = [[UIImageView alloc] init];
-        [self addSubview:_bubbleImageView];
+        [self.contentView addSubview:_bubbleImageView];
         
         _activityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-        [self addSubview:_activityView];
+        [self.contentView addSubview:_activityView];
         
         _retryBtn = [WZMChatBtn chatButtonWithType:WZMChatButtonTypeRetry];
         [_retryBtn setImage:[WZMInputHelper otherImageNamed:@"wzm_chat_retry"] forState:UIControlStateNormal];
         [_retryBtn addTarget:self action:@selector(retryBtnClick:) forControlEvents:UIControlEventTouchUpInside];
-        [self addSubview:_retryBtn];
+        [self.contentView addSubview:_retryBtn];
     }
     return self;
 }

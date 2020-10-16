@@ -20,17 +20,17 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         _voiceImageView = [[UIImageView alloc] init];
-        [self addSubview:_voiceImageView];
+        [self.contentView addSubview:_voiceImageView];
         
         _durationLabel = [[UILabel alloc] init];
         _durationLabel.textColor = [UIColor darkTextColor];
         _durationLabel.font = [UIFont systemFontOfSize:15];
-        [self addSubview:_durationLabel];
+        [self.contentView addSubview:_durationLabel];
         
         _unreadImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 8, 8)];
         _unreadImageView.backgroundColor = [UIColor colorWithRed:250/255. green:81/255. blue:81/255. alpha:1];
         _unreadImageView.chat_cornerRadius = 4;
-        [self addSubview:_unreadImageView];
+        [self.contentView addSubview:_unreadImageView];
     }
     return self;
 }

@@ -18,7 +18,7 @@
         _emojisLabel = [[UILabel alloc] initWithFrame:CGRectMake(4, 0, 45, 45)];
         _emojisLabel.font = [UIFont systemFontOfSize:33];
         _emojisLabel.textAlignment = NSTextAlignmentCenter;
-        [self addSubview:_emojisLabel];
+        [self.contentView addSubview:_emojisLabel];
     }
     return self;
 }

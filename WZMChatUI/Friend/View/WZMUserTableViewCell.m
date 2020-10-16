@@ -20,7 +20,7 @@
     if (self) {
         _avatarImageView = [[UIImageView alloc] initWithFrame:CGRectMake(15, 10, 40, 40)];
         _avatarImageView.chat_cornerRadius = 5;
-        [self addSubview:_avatarImageView];
+        [self.contentView addSubview:_avatarImageView];
         
         CGFloat nickX = _avatarImageView.chat_maxX+15;
         CGFloat nickW = CHAT_SCREEN_WIDTH-nickX-20;
@@ -29,7 +29,7 @@
         _nameLabel.font = [UIFont systemFontOfSize:16];
         _nameLabel.textColor = [UIColor darkTextColor];
         _nameLabel.textAlignment = NSTextAlignmentLeft;
-        [self addSubview:_nameLabel];
+        [self.contentView addSubview:_nameLabel];
     }
     return self;
 }

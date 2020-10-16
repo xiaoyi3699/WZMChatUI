@@ -20,7 +20,7 @@
         _messageLabel.font = [UIFont systemFontOfSize:10];
         _messageLabel.textColor = [UIColor colorWithRed:100/255. green:100/255. blue:100/255. alpha:1];
         _messageLabel.textAlignment = NSTextAlignmentCenter;
-        [self addSubview:_messageLabel];
+        [self.contentView addSubview:_messageLabel];
     }
     return self;
 }

@@ -20,7 +20,7 @@
         _contentImageView = [[UIImageView alloc] init];
         _contentImageView.layer.masksToBounds = YES;
         _contentImageView.layer.cornerRadius = 5;
-        [self addSubview:_contentImageView];
+        [self.contentView addSubview:_contentImageView];
     }
     return self;
 }
