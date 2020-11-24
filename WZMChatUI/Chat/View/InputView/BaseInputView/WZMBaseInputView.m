@@ -136,6 +136,10 @@
         self.keyboardIndex = -1;
         self.type = WZMKeyboardTypeIdle;
     }
+    if (minY < self.startY) {
+        minY += 34.0;
+        self.keyboardH -= 34.0;
+    }
     CGRect endFrame = self.frame;
     endFrame.origin.y = minY;
     [UIView animateWithDuration:duration animations:^{
