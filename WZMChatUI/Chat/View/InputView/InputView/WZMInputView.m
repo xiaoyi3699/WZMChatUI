@@ -155,7 +155,7 @@
 
 - (WZMEmojisKeyboard *)emojisKeyboard {
     if (_emojisKeyboard == nil) {
-        _emojisKeyboard = [[WZMEmojisKeyboard alloc] initWithFrame:CGRectMake(0, _toolView.bounds.size.height, self.bounds.size.width, 200+[WZMInputHelper helper].iPhoneXBottomH)];
+        _emojisKeyboard = [[WZMEmojisKeyboard alloc] initWithFrame:CGRectMake(0, _toolView.bounds.size.height-[WZMInputHelper helper].iPhoneXBottomH, self.bounds.size.width, 200+[WZMInputHelper helper].iPhoneXBottomH)];
         _emojisKeyboard.delegate = self;
         _emojisKeyboard.hidden = YES;
         _emojisKeyboard.backgroundColor = [UIColor whiteColor];
@@ -165,7 +165,7 @@
 
 - (WZMMoreKeyboard *)moreKeyboard {
     if (_moreKeyboard == nil) {
-        _moreKeyboard = [[WZMMoreKeyboard alloc] initWithFrame:CGRectMake(0, _toolView.bounds.size.height, self.bounds.size.width, 200+[WZMInputHelper helper].iPhoneXBottomH)];
+        _moreKeyboard = [[WZMMoreKeyboard alloc] initWithFrame:CGRectMake(0, _toolView.bounds.size.height-[WZMInputHelper helper].iPhoneXBottomH, self.bounds.size.width, 200+[WZMInputHelper helper].iPhoneXBottomH)];
         _moreKeyboard.delegate = self;
         _moreKeyboard.hidden = YES;
         _moreKeyboard.backgroundColor = [UIColor whiteColor];

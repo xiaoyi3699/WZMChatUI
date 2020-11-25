@@ -8,6 +8,7 @@
 
 #import "WZMBaseInputView.h"
 #import "WZMEmoticonManager.h"
+#import "WZMInputHelper.h"
 
 @interface WZMBaseInputView ()<UITextViewDelegate,UITextFieldDelegate>
 
@@ -137,8 +138,8 @@
         self.type = WZMKeyboardTypeIdle;
     }
     if (minY < self.startY) {
-        minY += 34.0;
-        self.keyboardH -= 34.0;
+        minY += [WZMInputHelper helper].iPhoneXBottomH;
+        self.keyboardH -= [WZMInputHelper helper].iPhoneXBottomH;
     }
     CGRect endFrame = self.frame;
     endFrame.origin.y = minY;

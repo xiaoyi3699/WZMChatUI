@@ -89,7 +89,7 @@
     if (_iPhoneX == -1) {
         if (@available(iOS 11.0, *)) {
             UIWindow *window = [UIApplication sharedApplication].delegate.window;
-            _iPhoneX = ([self iPhone] && (window.safeAreaInsets.top > 0.0));
+            _iPhoneX = ([self iPhone] && (window.safeAreaInsets.bottom > 0.0));
         }
         else {
             _iPhoneX = 0;
@@ -175,7 +175,13 @@
 ///iPhoneX底部高度
 - (CGFloat)iPhoneXBottomH {
     if (_iPhoneXBottomH == -1) {
-        _iPhoneXBottomH = ([self iPhoneX] ? 34:0);
+        if (@available(iOS 11.0, *)) {
+            UIWindow *window = [UIApplication sharedApplication].delegate.window;
+            _iPhoneXBottomH = window.safeAreaInsets.bottom;
+        }
+        else {
+            _iPhoneXBottomH = 0.0;
+        }
     }
     return _iPhoneXBottomH;
 }
