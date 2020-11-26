@@ -226,13 +226,13 @@
     if (_opened) return YES;
     _opened = YES;
     const char *filePath = [[self dataBasePath] UTF8String];
-    int result = sqlite3_open_v2(filePath, &_sql3, SQLITE_OPEN_READWRITE|SQLITE_OPEN_FULLMUTEX, NULL);
+    int result = sqlite3_open(filePath, &_sql3);
     if (result == SQLITE_OK) {
         return YES;
     }
     else{
         _opened = NO;
-        sqlite3_close_v2(_sql3);
+        sqlite3_close(_sql3);
         //NSAssert(NO, @"数据库-打开-失败");
         NSLog(@"数据库-打开-失败");
         return NO;
@@ -245,7 +245,7 @@
 -(BOOL)closeDataBase{
     if (_opened == NO) return YES;
     _opened = NO;
-    return !sqlite3_close_v2(_sql3);
+    return !sqlite3_close(_sql3);
 }
 
 /*
