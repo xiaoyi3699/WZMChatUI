@@ -15,7 +15,6 @@
  */
 - (UIViewController *)chat_viewController;
 
-//设置位置(宽和高保持不变)
 - (CGFloat)chat_minX;
 - (void)setChat_minX:(CGFloat)chat_minX;
 
@@ -37,7 +36,6 @@
 - (CGPoint)chat_postion;
 - (void)setChat_postion:(CGPoint)chat_postion;
 
-//设置宽和高(顶点位置不变)
 - (CGFloat)chat_width;
 - (void)setChat_width:(CGFloat)chat_width;
 
@@ -47,17 +45,6 @@
 - (CGSize)chat_size;
 - (void)setChat_size:(CGSize)chat_size;
 
-//设置宽和高(中心点不变)
-- (CGFloat)chat_center_width;
-- (void)setChat_center_width:(CGFloat)chat_center_width;
-
-- (CGFloat)chat_center_height;
-- (void)setChat_center_height:(CGFloat)chat_center_height;
-
-- (CGSize)chat_center_size;
-- (void)setChat_center_size:(CGSize)chat_center_size;
-
-//设置圆角
 - (CGFloat)chat_cornerRadius;
 - (void)setChat_cornerRadius:(CGFloat)chat_cornerRadius;
 

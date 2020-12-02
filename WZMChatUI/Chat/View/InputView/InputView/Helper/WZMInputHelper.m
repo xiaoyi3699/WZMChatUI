@@ -186,6 +186,7 @@
     return _iPhoneXBottomH;
 }
 
+//图片
 + (UIImage *)otherImageNamed:(NSString *)name {
     if (name.length == 0) return nil;
     if (name.pathExtension == nil) {
@@ -224,6 +225,7 @@
     return image;
 }
 
+//getter
 - (NSString *)lxhPath {
     if (_lxhPath == nil) {
         NSString *emoticon = [[NSBundle mainBundle] pathForResource:@"WZMEmoticon" ofType:@"bundle"];

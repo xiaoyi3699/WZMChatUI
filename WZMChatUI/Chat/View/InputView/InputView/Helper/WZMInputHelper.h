@@ -37,7 +37,7 @@
 ///iPhoneX底部高度
 - (CGFloat)iPhoneXBottomH;
 
-//图片
+///图片
 + (UIImage *)otherImageNamed:(NSString *)name;
 + (UIImage *)emoticonImageNamed:(NSString *)name;
 
