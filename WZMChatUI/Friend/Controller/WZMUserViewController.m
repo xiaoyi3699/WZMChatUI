@@ -18,17 +18,9 @@
 
 @implementation WZMUserViewController
 
-- (instancetype)init {
-    self = [super init];
-    if (self) {
-        self.title = @"好友";
-    }
-    return self;
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.navigationItem.title = @"好友";
     [self setupUI];
     [self loadUser];
 }

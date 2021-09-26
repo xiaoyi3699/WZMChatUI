@@ -28,9 +28,11 @@
     
     WZMSessionViewController *firstViewController = [[WZMSessionViewController alloc] init];
     UINavigationController *firstNav = [[UINavigationController alloc] initWithRootViewController:firstViewController];
+    [self handleNavigationController:firstNav];
     
     WZMUserViewController *secondViewController = [[WZMUserViewController alloc] init];
     UINavigationController *secondNav = [[UINavigationController alloc] initWithRootViewController:secondViewController];
+    [self handleNavigationController:secondNav];
     
     [rootVC setViewControllers:@[firstNav,secondNav]];
     [self setConfig:rootVC];
@@ -61,24 +63,34 @@
         UIImage *img = [[UIImage imageNamed:normalImages[i]] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
         UIImage *selImg = [[UIImage imageNamed:selectImages[i]] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
         
-        viewController.tabBarItem.title = titles[i];
-        viewController.tabBarItem.image = img;
-        viewController.tabBarItem.selectedImage = selImg;
-        
+        [viewController.tabBarItem setTitleTextAttributes:atts forState:UIControlStateNormal];
+        [viewController.tabBarItem setTitleTextAttributes:selAtts forState:UIControlStateSelected];
         if (@available(iOS 13.0, *)) {
             UITabBarAppearance *appearance = [UITabBarAppearance new];
             appearance.backgroundColor = [UIColor colorWithRed:247.0/255.0 green:247.0/255.0 blue:247.0/255.0 alpha:1.0];
             appearance.stackedLayoutAppearance.normal.titleTextAttributes = atts;
             appearance.stackedLayoutAppearance.selected.titleTextAttributes = selAtts;
             viewController.tabBarItem.standardAppearance = appearance;
+            if (@available(iOS 15.0, *)) {
+                viewController.tabBarItem.scrollEdgeAppearance = appearance;
+            }
         }
-        else {
-            [viewController.tabBarItem setTitleTextAttributes:atts forState:UIControlStateNormal];
-            [viewController.tabBarItem setTitleTextAttributes:selAtts forState:UIControlStateSelected];
-        }
+        viewController.tabBarItem.title = titles[i];
+        viewController.tabBarItem.image = img;
+        viewController.tabBarItem.selectedImage = selImg;
     }
 }
 
+- (void)handleNavigationController:(UINavigationController *)navigationController {
+    if (@available(iOS 13.0, *)) {
+        UINavigationBarAppearance *appearance = [UINavigationBarAppearance new];
+        [appearance configureWithOpaqueBackground];
+        appearance.backgroundColor = [UIColor whiteColor];
+        [appearance setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor darkTextColor]}];
+        navigationController.navigationBar.standardAppearance = appearance;
+        navigationController.navigationBar.scrollEdgeAppearance = appearance;
+    }
+}
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

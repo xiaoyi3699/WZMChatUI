@@ -60,7 +60,7 @@
 }
 
 - (void)setConfig:(WZMChatBaseModel *)model {
-    self.title = @"消息";
+    self.navigationItem.title = @"消息";
     self.tableViewY = CHAT_NAV_BAR_H;
     if ([model isKindOfClass:[WZMChatUserModel class]]) {
         self.userModel = (WZMChatUserModel *)model;

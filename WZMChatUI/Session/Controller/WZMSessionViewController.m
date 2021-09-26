@@ -22,7 +22,7 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        self.title = @"会话";
+        
         self.refreshSession = NO;
     }
     return self;
@@ -30,11 +30,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.navigationItem.title = @"会话";
     [self setupUI];
     [self loadSession];
     [self setRightItem];
-    
     [WZMChatNotificationManager observerSessionNotification:self sel:@selector(receiveSessionNotification)];
 }
 
