@@ -1,3 +1,29 @@
+**关于数据库使用中出现的闪退问题，闪退日志如下：**
+
+```
+BUG IN CLIENT OF libsqlite3.dylib: illegal multi-threaded access to database connection
+```
+解决方案：将数据库的调用放在`同一线程`中处理,如:全部在主线程中处理;若想要放在分线程中,则需要创建固定的分线程,统一在该线程中调用数据库即可.
+
+举例：通过GCD创建分线程的注意事项：
+```
+错误示例:
+通过如下代码创建的分线程并非固定的,而是系统按一定规则分配的
+dispatch_async(dispatch_get_global_queue(0, 0), ^{
+	//此处执行数据库操作可能会引起闪退
+});
+
+正确示例:
+首先创建自定义线程(只创建一次)
+dispatch_queue_t sqliteQueue = dispatch_queue_create("sqliteQueue",NULL);
+调用数据库时,进入该线程
+dispatch_async(sqliteQueue, ^{
+	//执行数据库操作
+});
+        
+```
+
+
 **一、效果图**
 
 ![效果图](https://github.com/wangzhaomeng/WZMChatUI/blob/master/WZMChatUI/GitImage/preview.png?raw=true)
