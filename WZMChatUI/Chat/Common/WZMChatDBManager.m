@@ -205,6 +205,10 @@ NSString *const WZM_SESSION = @"wzm_session";
     WZMChatSessionModel *session;
     if (list.count > 0) {
         session = [WZMChatSessionModel modelWithDic:list.firstObject];
+        session.sid = sid;
+        session.name = name;
+        session.avatar = avatar;
+        session.cluster = isGroup;
     }
     else {
         //创建会话,并插入数据库
