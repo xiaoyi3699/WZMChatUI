@@ -209,6 +209,7 @@ NSString *const WZM_SESSION = @"wzm_session";
         session.name = name;
         session.avatar = avatar;
         session.cluster = isGroup;
+        
     }
     else {
         //创建会话,并插入数据库
