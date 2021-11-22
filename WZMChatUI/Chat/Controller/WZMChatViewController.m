@@ -30,9 +30,15 @@
 ///手势处理相关
 @property (nonatomic, weak) id<UIGestureRecognizerDelegate> recognizerDelegate;
 @property (nonatomic, assign, getter=isDeferredSystemGestures) BOOL deferredSystemGestures;
+///下拉加载
+//此次加载的消息数量,为了计算加载后消息列表的偏移量
+@property (nonatomic, assign) NSInteger loadCount;
+@property (nonatomic, assign, getter=isLoading) BOOL loading;
+@property (nonatomic, strong) UIActivityIndicatorView *loadingView;
 
 @end
 
+#define WZM_LOADING_HEADER 50.0
 @implementation WZMChatViewController
 
 - (instancetype)initWithUser:(WZMChatUserModel *)userModel {
@@ -87,6 +93,7 @@
 - (void)createViews {
     [self.view addSubview:self.tableView];
     [self.view addSubview:self.inputView];
+    [self.tableView addSubview:self.loadingView];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -101,17 +108,29 @@
 
 //从数据库加载聊天记录
 - (void)loadMessage:(NSInteger)page {
+    [self beginLoading:page];
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        NSMutableArray *messages;
         if (self.userModel) {
-            self.messageModels = [[WZMChatDBManager DBManager] messagesWithUser:self.userModel];
+            messages = [[WZMChatDBManager DBManager] messagesWithUser:self.userModel page:page];
         }
         else {
-            self.messageModels = [[WZMChatDBManager DBManager] messagesWithGroup:self.groupModel];
+            messages = [[WZMChatDBManager DBManager] messagesWithGroup:self.groupModel page:page];
         }
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self.tableView reloadData];
-            [self tableViewScrollToBottom:NO duration:0.25];
-        });
+        if (page == 0) {
+            self.messageModels = messages;
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self endLoading:page];
+            });
+        }
+        else {
+            self.loadCount = messages.count;
+            [messages addObjectsFromArray:self.messageModels];
+            self.messageModels = messages;
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                [self endLoading:page];
+            });
+        }
     });
 }
 
@@ -449,6 +468,50 @@
     return cell;
 }
 
+///下拉加载处理
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
+    CGFloat y = scrollView.contentOffset.y;
+    if (y <= -WZM_LOADING_HEADER) {
+        if (self.messageModels.count == 0) return;
+        WZMChatMessageModel *model = self.messageModels.firstObject;
+        [self loadMessage:model.timestmp];
+    }
+}
+
+- (void)beginLoading:(NSInteger)page {
+    if (self.isLoading) return;
+    self.loading = YES;
+    if (page > 0) {
+        [self.loadingView startAnimating];
+        self.tableView.contentInset = UIEdgeInsetsMake(WZM_LOADING_HEADER, 0.0, 0.0, 0.0);
+    }
+}
+
+- (void)endLoading:(NSInteger)page {
+    if (self.isLoading == NO) return;
+    self.loading = NO;
+    if (page == 0) {
+        [self.tableView reloadData];
+        [self tableViewScrollToBottom:NO duration:0.25];
+    }
+    else {
+        [self.loadingView stopAnimating];
+        if (self.loadCount > 0) {
+            self.tableView.contentInset = UIEdgeInsetsMake(0.0, 0.0, 0.0, 0.0);
+            [self.tableView reloadData];
+            NSIndexPath *indexPath = [NSIndexPath indexPathForRow:self.loadCount inSection:0];
+            [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:NO];
+            CGFloat offset = self.tableView.contentOffset.y-WZM_LOADING_HEADER;
+            self.tableView.contentOffset = CGPointMake(0.0, offset);
+        }
+        else {
+            [UIView animateWithDuration:0.2 animations:^{
+                self.tableView.contentInset = UIEdgeInsetsMake(0.0, 0.0, 0.0, 0.0);
+            }];
+        }
+    }
+}
+
 #pragma mark - getter
 - (UITableView *)tableView {
     if (_tableView == nil) {
@@ -492,6 +555,15 @@
         _messageModels = [[NSMutableArray alloc] initWithCapacity:0];
     }
     return _messageModels;
+}
+
+- (UIActivityIndicatorView *)loadingView {
+    if (_loadingView == nil) {
+        _loadingView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+        _loadingView.frame = CGRectMake(0.0, -WZM_LOADING_HEADER, CHAT_SCREEN_WIDTH, WZM_LOADING_HEADER);
+        _loadingView.hidesWhenStopped = YES;
+    }
+    return _loadingView;
 }
 
 #pragma mark - 录音按钮手势冲突处理

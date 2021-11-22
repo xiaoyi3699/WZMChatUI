@@ -262,19 +262,25 @@ NSString *const WZM_SESSION = @"wzm_session";
 }
 
 //私聊消息
-- (NSMutableArray *)messagesWithUser:(WZMChatUserModel *)model {
-    return [self messagesWithModel:model];
+- (NSMutableArray *)messagesWithUser:(WZMChatUserModel *)model page:(NSInteger)page {
+    return [self messagesWithModel:model page:page];
 }
 
 //群聊消息
-- (NSMutableArray *)messagesWithGroup:(WZMChatGroupModel *)model {
-    return [self messagesWithModel:model];
+- (NSMutableArray *)messagesWithGroup:(WZMChatGroupModel *)model page:(NSInteger)page {
+    return [self messagesWithModel:model page:page];
 }
 
 //private
-- (NSMutableArray *)messagesWithModel:(WZMChatBaseModel *)model {
+- (NSMutableArray *)messagesWithModel:(WZMChatBaseModel *)model page:(NSInteger)page {
     NSString *tableName = [self tableNameWithModel:model];
-    NSString *sql = [NSString stringWithFormat:@"SELECT * FROM %@ ORDER BY timestmp DESC LIMIT 100",tableName];
+    NSString *sql;
+    if (page == 0) {
+        sql = [NSString stringWithFormat:@"SELECT * FROM %@ ORDER BY timestmp DESC LIMIT 20",tableName];
+    }
+    else {
+        sql = [NSString stringWithFormat:@"SELECT * FROM %@ WHERE timestmp < %@ ORDER BY timestmp DESC LIMIT 20",tableName,@(page)];
+    }
     NSArray *list = [[WZMChatSqliteManager defaultManager] selectWithSql:sql];
     NSMutableArray *arr = [NSMutableArray arrayWithCapacity:list.count];
     for (NSDictionary *dic in list) {

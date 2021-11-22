@@ -76,9 +76,9 @@
 ///删除群聊消息记录
 - (void)deleteMessageWithGid:(NSString *)gid;
 //私聊消息列表
-- (NSMutableArray *)messagesWithUser:(WZMChatUserModel *)model;
+- (NSMutableArray *)messagesWithUser:(WZMChatUserModel *)model page:(NSInteger)page;
 //群聊消息列表
-- (NSMutableArray *)messagesWithGroup:(WZMChatGroupModel *)model;
+- (NSMutableArray *)messagesWithGroup:(WZMChatGroupModel *)model page:(NSInteger)page;
 ///插入私聊消息
 - (void)insertMessage:(WZMChatMessageModel *)message chatWithUser:(WZMChatUserModel *)model;
 ///插入群聊消息
