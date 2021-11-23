@@ -104,6 +104,7 @@
 - (void)viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];
     [self updateRecognizerDelegate:NO];
+    self.deferredSystemGestures = NO;
 }
 
 //从数据库加载聊天记录
@@ -627,6 +628,7 @@
     if (self.isDeferredSystemGestures) {
         return  UIRectEdgeBottom;
     }
+    self.deferredSystemGestures = YES;
     return UIRectEdgeNone;
 }
 
