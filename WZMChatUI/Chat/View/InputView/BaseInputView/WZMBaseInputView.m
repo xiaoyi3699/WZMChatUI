@@ -129,6 +129,13 @@
         self.type = WZMKeyboardTypeSystem;
         CGFloat minY = endFrame.origin.y-self.toolView.bounds.size.height;
         [self minYWillChange:minY duration:duration dismissKeyboard:NO];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            //自定义键盘隐藏
+            for (NSInteger i = 0; i < self.keyboards.count; i ++) {
+                UIView *other = [self.keyboards objectAtIndex:i];
+                other.hidden = YES;
+            }
+        });
     }
 }
 
@@ -271,8 +278,14 @@
     }
     if (k) {
         self.keyboardH = k.bounds.size.height;
-        //如果放在视图最下面,还需要再减去self.toolViewH
-        CGFloat minY = self.startY-self.keyboardH;
+        CGFloat minY;
+        if (self.startY >= [UIScreen mainScreen].bounds.size.height) {
+            //如果放在视图最下面,还需要再减去self.toolViewH
+            minY = self.startY-self.keyboardH-self.toolViewH;
+        }
+        else {
+            minY = self.startY-self.keyboardH;
+        }
         [self minYWillChange:minY duration:duration dismissKeyboard:NO];
     }
 }

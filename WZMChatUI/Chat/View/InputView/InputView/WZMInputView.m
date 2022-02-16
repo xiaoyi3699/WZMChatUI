@@ -25,6 +25,9 @@
     NSArray *_keyboards;
 }
 
+//注意事项：
+//inputView在使用的时候要添加在self.view上(必须要保证inputView的父视图的高度和屏幕的高度一样)
+//因为计算键盘弹起的高度是基于屏幕的高度计算的，如果inputView的父视图和屏幕大小不一致，还要去计算高度的差值
 #pragma mark - 实现以下三个数据源方法, 供父类调用
 //设置toolView和keyboards
 - (UIView *)toolViewOfInputView {
