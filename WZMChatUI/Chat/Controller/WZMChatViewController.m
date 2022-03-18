@@ -110,29 +110,25 @@
 //从数据库加载聊天记录
 - (void)loadMessage:(NSInteger)page {
     [self beginLoading:page];
-    dispatch_async(dispatch_get_global_queue(0, 0), ^{
-        NSMutableArray *messages;
-        if (self.userModel) {
-            messages = [[WZMChatDBManager DBManager] messagesWithUser:self.userModel page:page];
-        }
-        else {
-            messages = [[WZMChatDBManager DBManager] messagesWithGroup:self.groupModel page:page];
-        }
-        if (page == 0) {
-            self.messageModels = messages;
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [self endLoading:page];
-            });
-        }
-        else {
-            self.loadCount = messages.count;
-            [messages addObjectsFromArray:self.messageModels];
-            self.messageModels = messages;
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                [self endLoading:page];
-            });
-        }
-    });
+    NSMutableArray *messages;
+    if (self.userModel) {
+        messages = [[WZMChatDBManager DBManager] messagesWithUser:self.userModel page:page];
+    }
+    else {
+        messages = [[WZMChatDBManager DBManager] messagesWithGroup:self.groupModel page:page];
+    }
+    if (page == 0) {
+        self.messageModels = messages;
+        [self endLoading:page];
+    }
+    else {
+        self.loadCount = messages.count;
+        [messages addObjectsFromArray:self.messageModels];
+        self.messageModels = messages;
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [self endLoading:page];
+        });
+    }
 }
 
 #pragma mark - 模拟收到消息

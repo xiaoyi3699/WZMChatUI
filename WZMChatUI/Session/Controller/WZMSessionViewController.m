@@ -50,12 +50,8 @@
 }
 
 - (void)loadSession {
-    dispatch_async(dispatch_get_global_queue(0, 0), ^{
-        self.sessions = [[WZMChatDBManager DBManager] sessions];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self.tableView reloadData];
-        });
-    });
+    self.sessions = [[WZMChatDBManager DBManager] sessions];
+    [self.tableView reloadData];
 }
 
 //收到刷新session的通知

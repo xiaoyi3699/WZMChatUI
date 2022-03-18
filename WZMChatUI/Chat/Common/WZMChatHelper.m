@@ -192,25 +192,27 @@
 }
 
 + (void)getImageFromNetworkWithUrl:(NSString *)url placeholder:(UIImage *)placeholder completion:(void(^)(UIImage *image))completion {
-    completion(placeholder);
-    //3、从网络获取
-    WZMChatHelper *helper = [WZMChatHelper helper];
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        NSString *urlKey = [url input_base64EncodedString];
-        NSString *cachePath = [helper.cachePath stringByAppendingPathComponent:urlKey];
-        NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:url]];
-        if (imageData) {
-            UIImage *urlImage = [UIImage imageWithData:imageData];
-            if (urlImage) {
-                //存到内存
-                [helper.memoryCache setValue:urlImage forKey:urlKey];
-                //存到本地
-                [helper writeFile:imageData toPath:cachePath];
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    completion(urlImage);
-                });
+    dispatch_async(dispatch_get_main_queue(), ^{
+        completion(placeholder);
+        //3、从网络获取
+        WZMChatHelper *helper = [WZMChatHelper helper];
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            NSString *urlKey = [url input_base64EncodedString];
+            NSString *cachePath = [helper.cachePath stringByAppendingPathComponent:urlKey];
+            NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:url]];
+            if (imageData) {
+                UIImage *urlImage = [UIImage imageWithData:imageData];
+                if (urlImage) {
+                    //存到内存
+                    [helper.memoryCache setValue:urlImage forKey:urlKey];
+                    //存到本地
+                    [helper writeFile:imageData toPath:cachePath];
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        completion(urlImage);
+                    });
+                }
             }
-        }
+        });
     });
 }
 
@@ -252,16 +254,18 @@
 }
 
 + (void)clearImageCacheCompletion:(void(^)(void))completion {
-    WZMChatHelper *helper = [WZMChatHelper helper];
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        [self clearMemory];
-        if ([helper deleteFileAtPath:helper.cachePath error:nil]) {
-            [helper createDirectoryAtPath:helper.cachePath];
-        }
-        dispatch_async(dispatch_get_main_queue(), ^{
-            if (completion) {
-                completion();
+    dispatch_async(dispatch_get_main_queue(), ^{
+        WZMChatHelper *helper = [WZMChatHelper helper];
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            [self clearMemory];
+            if ([helper deleteFileAtPath:helper.cachePath error:nil]) {
+                [helper createDirectoryAtPath:helper.cachePath];
             }
+            dispatch_async(dispatch_get_main_queue(), ^{
+                if (completion) {
+                    completion();
+                }
+            });
         });
     });
 }

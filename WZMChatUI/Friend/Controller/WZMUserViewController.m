@@ -31,12 +31,8 @@
 }
 
 - (void)loadUser {
-    dispatch_async(dispatch_get_global_queue(0, 0), ^{
-        self.users = [[WZMChatDBManager DBManager] users];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self.tableView reloadData];
-        });
-    });
+    self.users = [[WZMChatDBManager DBManager] users];
+    [self.tableView reloadData];
 }
 
 - (void)setRightItem {
