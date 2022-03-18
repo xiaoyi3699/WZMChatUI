@@ -18,7 +18,9 @@
 @property (nonatomic, strong) NSMutableDictionary *memoryCache;
 @end
 
-@implementation WZMChatHelper
+@implementation WZMChatHelper {
+    CGFloat _cacheSize;
+}
 
 + (instancetype)helper {
     static WZMChatHelper *helper;
@@ -105,50 +107,10 @@
 /**
  获取网络图片(同步)
  */
-+ (UIImage *)getImageWithUrl:(NSString *)url {
-    UIImage *image = [self getImageFromCacheWithUrl:url];
-    if (image == nil) {
-        image = [self getImageFromNetworkWithUrl:url];
-    }
-    return image;
-}
-
-+ (UIImage *)getImageFromCacheWithUrl:(NSString *)url {
-    //1、从内存存获取
-    WZMChatHelper *helper = [WZMChatHelper helper];
-    NSString *urlKey = [url input_base64EncodedString];
-    UIImage *image = [helper.memoryCache objectForKey:urlKey];
-    if (image) {
-        return image;
-    }
-    //2、从本地获取
-    NSString *cachePath = [helper.cachePath stringByAppendingPathComponent:urlKey];
-    if ([helper fileExistsAtPath:cachePath]) {
-        image = [UIImage imageWithContentsOfFile:cachePath];
-        if (image) {
-            //存到内存
-            [helper.memoryCache setValue:image forKey:urlKey];
-            return image;
-        }
-    }
-    return nil;
-}
-
-+ (UIImage *)getImageFromNetworkWithUrl:(NSString *)url {
-    //3、从网络获取
-    WZMChatHelper *helper = [WZMChatHelper helper];
-    NSString *urlKey = [url input_base64EncodedString];
-    NSString *cachePath = [helper.cachePath stringByAppendingPathComponent:urlKey];
-    NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:url]];
-    if (imageData) {
-        UIImage *urlImage = [UIImage imageWithData:imageData];
-        if (urlImage) {
-            //存到内存
-            [helper.memoryCache setValue:urlImage forKey:urlKey];
-            //存到本地
-            [helper writeFile:imageData toPath:cachePath];
-            return urlImage;
-        }
+- (UIImage *)getImageWithUrl:(NSString *)url isUseCatch:(BOOL)isUseCatch {
+    NSData *data = [self getDataWithUrl:url isUseCatch:isUseCatch];
+    if (data) {
+        return [UIImage imageWithData:data];
     }
     return nil;
 }
@@ -156,118 +118,175 @@
 /**
  获取网络图片(异步)
  */
-+ (void)getImageWithUrl:(NSString *)url placeholder:(UIImage *)placeholder completion:(void(^)(UIImage *image))completion {
-    if (!completion) return;
-    [self getImageFromCacheWithUrl:url placeholder:placeholder completion:^(UIImage *image) {
-        if (image) {
-            completion(image);
+- (UIImage *)getImageWithUrl:(NSString *)url isUseCatch:(BOOL)isUseCatch completion:(void(^)(UIImage *image))completion {
+    NSData *rd = [self getDataWithUrl:url isUseCatch:isUseCatch completion:^(NSData *data) {
+        if (data) {
+            if (completion) completion([UIImage imageWithData:data]);
         }
         else {
-            [self getImageFromNetworkWithUrl:url placeholder:placeholder completion:completion];
+            if (completion) completion(nil);
         }
     }];
+    return (rd == nil ? nil : [UIImage imageWithData:rd]);
 }
 
-+ (void)getImageFromCacheWithUrl:(NSString *)url placeholder:(UIImage *)placeholder completion:(void(^)(UIImage *image))completion {
-    //1、从内存获取
-    WZMChatHelper *helper = [WZMChatHelper helper];
-    NSString *urlKey = [url input_base64EncodedString];
-    UIImage *image = [helper.memoryCache objectForKey:urlKey];
-    if (image) {
-        completion(image);
-        return;
-    }
-    //2、从本地获取
-    NSString *cachePath = [helper.cachePath stringByAppendingPathComponent:urlKey];
-    if ([helper fileExistsAtPath:cachePath]) {
-        image = [UIImage imageWithContentsOfFile:cachePath];
-        if (image) {
-            //存到内存
-            [helper.memoryCache setValue:image forKey:urlKey];
-            completion(image);
-            return;
+/**
+ 获取网络数据(同步)
+ */
+- (NSData *)getDataWithUrl:(NSString *)url isUseCatch:(BOOL)isUseCatch {
+    NSData *data;
+    if (isUseCatch) {
+        data = [self getDataFromCacheWithUrl:url];
+        if (data == nil) {
+            data = [self getDataWithUrl:url];
         }
     }
-    completion(nil);
-}
-
-+ (void)getImageFromNetworkWithUrl:(NSString *)url placeholder:(UIImage *)placeholder completion:(void(^)(UIImage *image))completion {
-    dispatch_async(dispatch_get_main_queue(), ^{
-        completion(placeholder);
-        //3、从网络获取
-        WZMChatHelper *helper = [WZMChatHelper helper];
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-            NSString *urlKey = [url input_base64EncodedString];
-            NSString *cachePath = [helper.cachePath stringByAppendingPathComponent:urlKey];
-            NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:url]];
-            if (imageData) {
-                UIImage *urlImage = [UIImage imageWithData:imageData];
-                if (urlImage) {
-                    //存到内存
-                    [helper.memoryCache setValue:urlImage forKey:urlKey];
-                    //存到本地
-                    [helper writeFile:imageData toPath:cachePath];
-                    dispatch_async(dispatch_get_main_queue(), ^{
-                        completion(urlImage);
-                    });
-                }
-            }
-        });
-    });
-}
-
-+ (NSString *)storeImage:(UIImage *)image forKey:(NSString *)key {
-    if (image == nil || key.length == 0) {
-        NSLog(@"键值不能为空");
-        return @"";
+    else {
+        data = [self getDataWithUrl:url];
     }
-    WZMChatHelper *helper = [WZMChatHelper helper];
-    NSString *tureKey = [key input_base64EncodedString];
-    //存到内存
-    [helper.memoryCache setValue:image forKey:tureKey];
-    //存到本地
-    NSString *cachePath = [helper.cachePath stringByAppendingPathComponent:tureKey];
-    if ([helper writeFile:UIImagePNGRepresentation(image) toPath:cachePath]) {
-        return cachePath;
-    }
-    return @"";
+    return data;
 }
 
-+ (UIImage *)imageForKey:(NSString *)key {
-    WZMChatHelper *helper = [WZMChatHelper helper];
-    NSString *tureKey = [key input_base64EncodedString];
-    UIImage *image = [helper.memoryCache objectForKey:tureKey];
-    if (image == nil) {
-        NSString *cachePath = [helper.cachePath stringByAppendingPathComponent:tureKey];
-        if ([helper fileExistsAtPath:cachePath]) {
-            image = [UIImage imageWithContentsOfFile:cachePath];
-            //存到内存
-            [helper.memoryCache setValue:image forKey:key];
-        }
-    }
-    return image;
-}
-
-+ (void)clearMemory {
-    WZMChatHelper *helper = [WZMChatHelper helper];
-    [helper.memoryCache removeAllObjects];
-}
-
-+ (void)clearImageCacheCompletion:(void(^)(void))completion {
-    dispatch_async(dispatch_get_main_queue(), ^{
-        WZMChatHelper *helper = [WZMChatHelper helper];
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-            [self clearMemory];
-            if ([helper deleteFileAtPath:helper.cachePath error:nil]) {
-                [helper createDirectoryAtPath:helper.cachePath];
-            }
+/**
+ 获取网络数据(异步)
+ */
+- (NSData *)getDataWithUrl:(NSString *)url isUseCatch:(BOOL)isUseCatch completion:(void(^)(NSData *data))completion {
+    if (isUseCatch) {
+        NSData *cd = [self getDataFromCacheWithUrl:url];
+        if (completion) completion(cd);
+        if (cd) return cd;
+        dispatch_async(dispatch_get_global_queue(0, 0), ^{
+            NSData *ud = [self getDataWithUrl:url];
             dispatch_async(dispatch_get_main_queue(), ^{
-                if (completion) {
-                    completion();
-                }
+                if (completion) completion(ud);
             });
         });
+    }
+    else {
+        dispatch_async(dispatch_get_global_queue(0, 0), ^{
+            NSData *ud = [self getDataWithUrl:url];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                if (completion) completion(ud);
+            });
+        });
+    }
+    return nil;
+}
+
+///private method
+- (NSData *)getDataFromCacheWithUrl:(NSString *)url {
+    //1、从内存获取
+    NSString *urlKey = [self wzmEncodeString:url];
+    NSData *data = [_memoryCache objectForKey:urlKey];
+    if (data) {
+        return data;
+    }
+    //2、从本地获取
+    NSString *cachePath = [_cachePath stringByAppendingPathComponent:urlKey];
+    if ([self fileExistsAtPath:cachePath]) {
+        data = [NSData dataWithContentsOfFile:cachePath];
+        if (data) {
+            //存到内存
+            [self cacheData:data forKey:urlKey];
+            return data;
+        }
+    }
+    return nil;
+}
+
+- (NSData *)getDataWithUrl:(NSString *)url {
+    //3、从网络获取
+    NSString *urlKey = [self wzmEncodeString:url];
+    NSString *cachePath = [_cachePath stringByAppendingPathComponent:urlKey];
+    NSData *urlData = [NSData dataWithContentsOfURL:[NSURL URLWithString:url]];
+    if (urlData) {
+        //存到内存
+        [self cacheData:urlData forKey:urlKey];
+        //存到本地
+        [self writeFile:urlData toPath:cachePath];
+        return urlData;
+    }
+    return nil;
+}
+
+///other method
+- (NSString *)setObj:(id)obj forKey:(NSString *)key {
+    if (obj == nil || key == nil) {
+        return nil;
+    }
+    NSData *data;
+    if ([obj isKindOfClass:[UIImage class]]) {
+        BOOL hasAlpha = [self hasAlphaChannel:(UIImage *)obj];
+        if (hasAlpha) {
+            data = UIImagePNGRepresentation((UIImage *)obj);
+        }
+        else {
+            data = UIImageJPEGRepresentation((UIImage *)obj, 1.0);
+        }
+    }
+    else if ([obj isKindOfClass:[data class]]) {
+        data = (NSData *)obj;
+    }
+    if (data == nil) return nil;
+    NSString *path = [self filePathForKey:key];
+    [self deleteFileAtPath:path error:nil];
+    if ([data writeToFile:path atomically:YES]) {
+        return path;
+    }
+    return nil;
+}
+
+- (NSData *)objForKey:(NSString *)key {
+    if (key == nil) return nil;
+    NSString *path = [self filePathForKey:key];
+    return [NSData dataWithContentsOfFile:path];
+}
+
+- (NSString *)filePathForKey:(NSString *)key {
+    NSString *tureKey = [self wzmEncodeString:key];
+    return [_cachePath stringByAppendingPathComponent:tureKey];
+}
+
+- (void)cacheData:(NSData *)data forKey:(NSString *)key {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        dispatch_async(dispatch_get_global_queue(0, 0), ^{
+            if (data == nil) return;
+            if (_cacheSize > self.maxCacheSize*1000*1000) {
+                [self clearMemory];
+            }
+            _cacheSize += data.length;
+            [_memoryCache setValue:data forKey:key];
+        });
     });
+}
+
+- (void)clearMemory {
+    _cacheSize = 0.0;
+    [_memoryCache removeAllObjects];
+}
+
+- (void)clearImageCacheCompletion:(void(^)(void))completion {
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        [self clearMemory];
+        if ([self deleteFileAtPath:_cachePath error:nil]) {
+            [self createDirectoryAtPath:_cachePath];
+        }
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (completion) completion();
+        });
+    });
+}
+
+- (NSString *)wzmEncodeString:(NSString *)string {
+    return [string input_base64EncodedString];
+}
+
+- (BOOL)hasAlphaChannel:(UIImage *)image {
+    CGImageAlphaInfo alpha = CGImageGetAlphaInfo(image.CGImage);
+    return (alpha == kCGImageAlphaFirst ||
+            alpha == kCGImageAlphaLast ||
+            alpha == kCGImageAlphaPremultipliedFirst ||
+            alpha == kCGImageAlphaPremultipliedLast);
 }
 
 #pragma mark - 文件管理

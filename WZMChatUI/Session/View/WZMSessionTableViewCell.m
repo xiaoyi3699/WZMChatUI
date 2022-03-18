@@ -115,8 +115,7 @@
             _badgeLabel.hidden = NO;
         }
     }
-    
-    [WZMChatHelper getImageWithUrl:model.avatar placeholder:CHAT_BAD_IMAGE completion:^(UIImage *image) {
+    [[WZMChatHelper helper] getImageWithUrl:model.avatar isUseCatch:YES completion:^(UIImage *image) {
         _avatarImageView.image = image;
     }];
     _notiImageView.image = [WZMInputHelper otherImageNamed:@"wzm_chat_bell_not"];

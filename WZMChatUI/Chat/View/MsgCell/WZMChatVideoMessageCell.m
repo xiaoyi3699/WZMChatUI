@@ -35,8 +35,7 @@
     
     _contentImageView.frame = _contentRect;
     _markImageView.center = _contentImageView.center;
-    
-    [WZMChatHelper getImageWithUrl:model.coverUrl placeholder:CHAT_BAD_IMAGE completion:^(UIImage *image) {
+    [[WZMChatHelper helper] getImageWithUrl:model.coverUrl isUseCatch:YES completion:^(UIImage *image) {
         _contentImageView.image = image;
     }];
 }

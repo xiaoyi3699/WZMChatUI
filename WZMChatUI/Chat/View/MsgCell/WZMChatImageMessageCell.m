@@ -29,9 +29,8 @@
     [super setConfig:model isShowName:isShowName];
     
     _contentImageView.frame = _contentRect;
-    
-    [WZMChatHelper getImageWithUrl:model.thumbnail placeholder:CHAT_BAD_IMAGE completion:^(UIImage *image) {
-        _contentImageView.image = image;
+    [[WZMChatHelper helper] getImageWithUrl:model.thumbnail isUseCatch:YES completion:^(UIImage *image) {
+        _avatarImageView.image = image;
     }];
 }
 

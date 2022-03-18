@@ -10,6 +10,8 @@
 
 @interface WZMChatHelper : NSObject
 
++ (instancetype)helper;
+
 ///聊天气泡
 + (UIImage *)senderBubble;
 + (UIImage *)receiverBubble;
@@ -24,17 +26,27 @@
 + (NSString *)timeFromDate:(NSDate *)date;
 
 #pragma mark - 图片缓存处理
+///最大缓存,单位M,默认50
+@property (nonatomic, assign) NSInteger maxCacheSize;
 ///加载网络图片(同步)
-+ (UIImage *)getImageWithUrl:(NSString *)url;
+- (UIImage *)getImageWithUrl:(NSString *)url isUseCatch:(BOOL)isUseCatch;
 ///加载网络图片(异步)
-+ (void)getImageWithUrl:(NSString *)url placeholder:(UIImage *)placeholder completion:(void(^)(UIImage *image))completion;
-///存图片
-+ (NSString *)storeImage:(UIImage *)image forKey:(NSString *)key;
-///取图片
-+ (UIImage *)imageForKey:(NSString *)key;
+- (UIImage *)getImageWithUrl:(NSString *)url isUseCatch:(BOOL)isUseCatch completion:(void(^)(UIImage *image))completion;
+
+///加载网络数据(同步)
+- (NSData *)getDataWithUrl:(NSString *)url isUseCatch:(BOOL)isUseCatch;
+///加载网络数据(异步)
+- (NSData *)getDataWithUrl:(NSString *)url isUseCatch:(BOOL)isUseCatch completion:(void(^)(NSData *data))completion;
+
+///存储图片到本地,不会存入缓存
+- (NSString *)setObj:(id)obj forKey:(NSString *)key;
+- (NSData *)objForKey:(NSString *)key;
+
+///文件路径
+- (NSString *)filePathForKey:(NSString *)key;
 ///清理内存
-+ (void)clearMemory;
+- (void)clearMemory;
 ///清理所有数据
-+ (void)clearImageCacheCompletion:(void(^)(void))completion;
+- (void)clearImageCacheCompletion:(void(^)(void))completion;
 
 @end

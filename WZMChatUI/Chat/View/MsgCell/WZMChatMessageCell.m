@@ -52,7 +52,7 @@
         //头像
         _avatarImageView.frame = CGRectMake(CHAT_SCREEN_WIDTH-50, 10, 40, 40);
         //可改成网络图片
-        [WZMChatHelper getImageWithUrl:model.avatar placeholder:CHAT_BAD_IMAGE completion:^(UIImage *image) {
+        [[WZMChatHelper helper] getImageWithUrl:model.avatar isUseCatch:YES completion:^(UIImage *image) {
             _avatarImageView.image = image;
         }];
         
@@ -109,7 +109,7 @@
     else {
         _avatarImageView.frame = CGRectMake(10, 10, 40, 40);
         //可改成网络图片
-        [WZMChatHelper getImageWithUrl:model.avatar placeholder:CHAT_BAD_IMAGE completion:^(UIImage *image) {
+        [[WZMChatHelper helper] getImageWithUrl:model.avatar isUseCatch:YES completion:^(UIImage *image) {
             _avatarImageView.image = image;
         }];
         
