@@ -8,6 +8,7 @@
 
 #import "WZMChatSqliteManager.h"
 #import "WZMChatBaseModel.h"
+#import "NSObject+WZMChat.h"
 #import <objc/runtime.h>
 #import <sqlite3.h>
 
@@ -15,6 +16,7 @@
     NSString *_dataBasePath;
     sqlite3 *_sql3;
     BOOL _opened;
+    NSMutableDictionary *_modelAttDic;
 }
 @end
 
@@ -23,7 +25,7 @@
 /**
  数据库操纵单例
  */
-+ (instancetype)defaultManager{
++ (instancetype)shareManager {
     static dispatch_once_t onceToken;
     static WZMChatSqliteManager *manager;
     dispatch_once(&onceToken, ^{
@@ -32,24 +34,54 @@
     return manager;
 }
 
+//创建自定义数据库
+- (instancetype)initWithDBPath:(NSString *)dataBasePath {
+    self = [super init];
+    if (self) {
+        _dataBasePath = dataBasePath;
+        [self setConfig];
+    }
+    return self;
+}
+
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        [self setConfig];
+    }
+    return self;
+}
+
+- (void)setConfig {
+    self.autoManager = YES;
+    _modelAttDic = [[NSMutableDictionary alloc] init];
+}
+
 /**
  根据-模型类-创建表
  */
-- (BOOL)createTableName:(NSString *)tableName modelClass:(Class)modelClass{
+- (BOOL)createTableName:(NSString *)tableName modelClass:(Class)modelClass hasId:(BOOL)hasId {
     if ([self openDataBase]) {
-        if ([self isTableExist:tableName]) {//数据库中该表存在
+        if ([self isTableExist:tableName]) {
+            //数据库中该表存在
             [self closeDataBase];
             return YES;
         }
-        else{//CREATE TABLE if not exists
-            NSString *sql = [NSString stringWithFormat:@"CREATE TABLE %@(id integer primary key autoincrement",tableName];
-            NSArray *propertys = [self allPropertyNameInClass:modelClass];
+        else {
+            //CREATE TABLE if not exists
+            NSString *sql = [NSString stringWithFormat:@"CREATE TABLE %@(",tableName];
+            if (hasId) {
+                sql = [NSString stringWithFormat:@"%@id integer primary key autoincrement",sql];
+            }
+            NSArray *propertys = [WZMChatSqliteManager chat_allPropertyNameInClass:modelClass];
             
             for (NSDictionary *dic in propertys) {
                 sql = [NSString stringWithFormat:@"%@,%@ %@",sql,dic[@"name"],dic[@"type"]];
             }
             sql = [sql stringByAppendingString:@")"];
-            
+            if (hasId == NO) {
+                sql = [sql stringByReplacingOccurrencesOfString:@"(," withString:@"("];
+            }
             int result = sqlite3_exec(_sql3, sql.UTF8String, NULL, NULL, NULL);
             if (result != SQLITE_OK) {
                 //NSAssert(NO, @"数据库-创建-失败");
@@ -62,11 +94,32 @@
     return NO;
 }
 
+//查询表的所有字段
+- (NSArray *)tableInfo:(NSString *)tableName {
+    NSString *sql = [NSString stringWithFormat:@"PRAGMA table_info(%@)",tableName];
+    if ([self openDataBase]) {
+        sqlite3_stmt *stmt = nil;
+        NSMutableArray *array = [[NSMutableArray alloc] initWithCapacity:0];
+        int res = sqlite3_prepare(_sql3, sql.UTF8String, -1, &stmt, NULL);
+        if (res == SQLITE_OK) {
+            while (sqlite3_step(stmt) == SQLITE_ROW) {
+                char *nameData = (char *)sqlite3_column_text(stmt, 1);
+                NSString *columnName = [[NSString alloc] initWithUTF8String:nameData];
+                [array addObject:columnName];
+            }
+        }
+        sqlite3_finalize(stmt);
+        [self closeDataBase];
+        return [array copy];
+    }
+    return nil;
+}
+
 /**
  插入数据-模型
  */
 - (BOOL)insertModel:(id)model tableName:(NSString *)tableName{
-    NSDictionary *dic = [self DictionaryFromModel:model];
+    NSDictionary *dic = [WZMChatSqliteManager chat_dictionaryFromModel:model];
     return [self insertDic:dic tableName:tableName];
 }
 
@@ -83,14 +136,14 @@
         [values appendFormat:@"'%@',",value];
     }
     NSString *sql = [NSString stringWithFormat:@"INSERT INTO %@(%@) values(%@)",tableName,[keys substringToIndex:keys.length-1],[values substringToIndex:values.length-1]];
-    return ![self execute:sql];
+    return [self execute:sql];
 }
 
 /**
  删除
  */
 - (BOOL)deleteModel:(id)model tableName:(NSString *)tableName primkey:(NSString *)primkey{
-    NSDictionary *dic = [self DictionaryFromModel:model];
+    NSDictionary *dic = [WZMChatSqliteManager chat_dictionaryFromModel:model];
     return [self deleteDic:dic tableName:tableName primkey:primkey];
 }
 
@@ -111,14 +164,14 @@
     }
     NSString *sql = [NSString stringWithFormat:@"DELETE FROM %@ WHERE %@",tableName,keySql];
     NSLog(@"%@",sql);
-    return ![self execute:sql];
+    return [self execute:sql];
 }
 
 /**
  更新
  */
 - (BOOL)updateModel:(id)model tableName:(NSString *)tableName primkey:(NSString *)primkey{
-    NSDictionary *dic = [self DictionaryFromModel:model];
+    NSDictionary *dic = [WZMChatSqliteManager chat_dictionaryFromModel:model];
     return [self updateDic:dic tableName:tableName primkey:primkey];
 }
 
@@ -141,19 +194,96 @@
     }
     NSString *sql = [NSString stringWithFormat:@"update %@ set %@ where %@",tableName,[values substringToIndex:values.length - 1], keySql];
     NSLog(@"%@",sql);
-    return ![self execute:sql];
+    return [self execute:sql];
 }
 
-- (long)execute:(NSString *)sql{
-    long insertId = 0;
+- (BOOL)insertColumns:(NSArray *)columnNames tableName:(NSString *)tableName {
+    NSArray *exColumns = [self insertValidColumns:columnNames tableName:tableName];
+    //拼接查询语句
+    NSMutableArray *sqls = [[NSMutableArray alloc] init];
+    for (NSString *column in exColumns) {
+        NSString *sql = [NSString stringWithFormat:@"alter table %@ add %@ text default ''",tableName,column];
+        [sqls addObject:sql];
+    }
+    return [self executes:sqls];
+}
+
+- (NSArray *)insertValidColumns:(NSArray *)columnNames tableName:(NSString *)tableName {
+    NSMutableArray *exColumns = [columnNames mutableCopy];
+    //查询数据库现有字段
+    NSArray *columns = [self tableInfo:tableName];
+    //遍历数据库现有字段
+    for (NSString *column in columns) {
+        //判断新增字段是否存在
+        if ([exColumns containsObject:column]) {
+            [exColumns removeObject:column];
+        }
+    }
+    return [exColumns copy];
+}
+
+- (BOOL)deleteColumns:(NSArray *)columnNames tableName:(NSString *)tableName {
+    NSArray *exColumns = [self deleteValidColumns:columnNames tableName:tableName];
+    //拼接查询语句
+    NSMutableArray *sqls = [[NSMutableArray alloc] init];
+    for (NSString *column in exColumns) {
+        NSString *sql = [NSString stringWithFormat:@"alter table %@ drop column %@",tableName,column];
+        [sqls addObject:sql];
+    }
+    return [self executes:sqls];
+}
+
+- (NSArray *)deleteValidColumns:(NSArray *)columnNames tableName:(NSString *)tableName {
+    NSMutableArray *exColumns = [columnNames mutableCopy];
+    //查询数据库现有字段
+    NSArray *columns = [self tableInfo:tableName];
+    //遍历将要删除的字段
+    for (NSString *columnName in columnNames) {
+        //判断数据库是否存在该字段
+        if ([columns containsObject:columnName] == NO) {
+            [exColumns removeObject:columnName];
+        }
+    }
+    return [exColumns copy];
+}
+
+- (BOOL)execute:(NSString *)sql{
+    BOOL success = NO;
     if ([self openDataBase]) {
         int res = sqlite3_exec(_sql3, sql.UTF8String, NULL, NULL, NULL);
         if (res == SQLITE_OK){
-            insertId = (long)sqlite3_last_insert_rowid(_sql3);
+            success = YES;
+            //最后插入记录的id
+            //long insertId = (long)sqlite3_last_insert_rowid(_sql3);
         }
         [self closeDataBase];
     }
-    return insertId;
+    return success;
+}
+
+- (BOOL)executes:(NSArray *)sqls {
+    if (sqls.count == 0) return NO;
+    BOOL success = NO;
+    if ([self openDataBase]) {
+        for (NSString *sql in sqls) {
+            int res = sqlite3_exec(_sql3, sql.UTF8String, NULL, NULL, NULL);
+            if (res == SQLITE_OK) {
+                //最后插入记录的id
+                //long insertId = (long)sqlite3_last_insert_rowid(_sql3);
+                if (success == NO) {
+                    success = YES;
+                }
+            }
+        }
+        [self closeDataBase];
+    }
+    return success;
+}
+
+- (NSString *)getErrorMessage {
+    const char *error = sqlite3_errmsg(_sql3);
+    NSString *msg = [[NSString alloc] initWithCString:error encoding:NSASCIIStringEncoding];
+    return msg;
 }
 
 /**
@@ -188,15 +318,47 @@
     return nil;
 }
 
-/*
- 删除数据库
- */
-- (BOOL)deleteDataBase:(NSError **)error {
-    NSString *filePath = [self dataBasePath];
-    if ([[NSFileManager defaultManager] fileExistsAtPath:filePath]) {
-        return [[NSFileManager defaultManager] removeItemAtPath:filePath error:error];
+- (NSMutableArray *)selectModels:(Class)class tableName:(NSString *)tableName where:(NSString *)where orderBy:(NSString *)orderBy limit:(NSInteger)limit {
+    NSString *sql = [NSString stringWithFormat:@"SELECT * FROM %@",tableName];
+    if (where.length) {
+        //如：py = 'w' 或 py LIKE 'w%'
+        sql = [NSString stringWithFormat:@"%@ WHERE %@",sql,where];
     }
-    return YES;
+    if (orderBy.length) {
+        //如：ORDER BY score DESC
+        sql = [NSString stringWithFormat:@"%@ %@",sql,orderBy];
+    }
+    if (limit > 0) {
+        //如：5
+        sql = [NSString stringWithFormat:@"%@ LIMIT %@",sql,@(limit)];
+    }
+    //查询
+    NSDictionary *attDic = [WZMChatSqliteManager chat_allPropertyNameInClass2:class];
+    NSArray *list = [self selectWithSql:sql];
+    NSMutableArray *rsts = [[NSMutableArray alloc] init];
+    for (NSDictionary *dic in list) {
+        id c = [class new];
+        for (NSString *key in dic.allKeys) {
+            NSString *value = [dic valueForKey:key];
+            if (key && value) {
+                NSString *type = [attDic objectForKey:key];
+                if ([type isEqualToString:@"integer"]) {
+                    [c setValue:@([value integerValue]) forKey:key];
+                }
+                else if ([type isEqualToString:@"real"]) {
+                    [c setValue:@([value floatValue]) forKey:key];
+                }
+                else if ([type isEqualToString:@"boolean"]) {
+                    [c setValue:@([value boolValue]) forKey:key];
+                }
+                else if ([type isEqualToString:@"text"]) {
+                    [c setValue:value forKey:key];
+                }
+            }
+        }
+        [rsts addObject:c];
+    }
+    return rsts;
 }
 
 /**
@@ -204,7 +366,7 @@
  */
 - (BOOL)deleteTableName:(NSString *)tableName {
     NSString *sql = [NSString stringWithFormat:@"DELETE FROM %@",tableName];
-    return ![self execute:sql];
+    return [self execute:sql];
 }
 
 #pragma mark - private
@@ -223,6 +385,20 @@
  打开数据库
  */
 - (BOOL)openDataBase{
+    if (self.isAutoManager) {
+        return [self openDB];
+    }
+    return YES;
+}
+
+- (BOOL)manualOpenDataBase {
+    if (self.isAutoManager == NO) {
+        return [self openDB];
+    }
+    return NO;
+}
+
+- (BOOL)openDB {
     if (_opened) return YES;
     _opened = YES;
     const char *filePath = [[self dataBasePath] UTF8String];
@@ -242,7 +418,21 @@
 /*
  关闭数据库
  */
--(BOOL)closeDataBase{
+- (BOOL)closeDataBase{
+    if (self.isAutoManager) {
+        return [self closeDB];
+    }
+    return YES;
+}
+
+- (BOOL)manualCloseDataBase {
+    if (self.isAutoManager == NO) {
+        return [self closeDB];
+    }
+    return NO;
+}
+
+- (BOOL)closeDB {
     if (_opened == NO) return YES;
     _opened = NO;
     return !sqlite3_close(_sql3);
@@ -262,83 +452,7 @@
         }
     }
     sqlite3_finalize(stmt);
-    return exist; 
-}
-
-#pragma merk - runtime
-/*
- 获取类的所有属性名称与类型
- */
-- (NSArray *)allPropertyNameInClass:(Class)cls{
-    if ([cls isSubclassOfClass:[WZMChatBaseModel class]]) {
-        return [cls allPropertyName];
-    }
-    NSMutableArray *arr = [NSMutableArray array];
-    unsigned int count;
-    objc_property_t *pros = class_copyPropertyList(cls, &count);
-    for (int i = 0; i < count; i++) {
-        objc_property_t pro = pros[i];
-//        NSString *attributes = [NSString stringWithFormat:@"%s", property_getAttributes(pro)];
-//        if ([attributes containsString:@",R,"]) {
-//            continue;
-//        }
-        NSString *name =[NSString stringWithFormat:@"%s",property_getName(pro)];
-        NSString *type = [self attrValueWithName:@"T" InProperty:pros[i]];
-        //类型转换
-        if ([type isEqualToString:@"q"]||[type isEqualToString:@"i"]||[type isEqualToString:@"I"]) {
-            type = @"integer";
-        }else if([type isEqualToString:@"f"] || [type isEqualToString:@"d"]){
-            type = @"real";
-        }else if([type isEqualToString:@"B"]){
-            type = @"boolean";
-        }else{
-            type = @"text";
-        }
-        NSDictionary *dic = @{@"name":name,@"type":type};
-        [arr addObject:dic];
-    }
-    free(pros);
-    return arr;
-}
-
-/*
- 获取属性的特征值
- */
-- (NSString*)attrValueWithName:(NSString*)name InProperty:(objc_property_t)pro{
-    unsigned int count = 0;
-    objc_property_attribute_t *attrs = property_copyAttributeList(pro, &count);
-    for (int i = 0; i < count; i++) {
-        objc_property_attribute_t attr = attrs[i];
-        if (strcmp(attr.name, name.UTF8String) == 0) {
-            return [NSString stringWithUTF8String:attr.value];
-        }
-    }
-    free(attrs);
-    return nil;
-}
-
-/*
- 对象转换为字典
- */
-- (NSDictionary *)DictionaryFromModel:(id)model{
-    if ([model isKindOfClass:[WZMChatBaseModel class]]) {
-        return [model transfromDictionary];
-    }
-    NSMutableDictionary *dic = [NSMutableDictionary dictionary];
-    Class modelClass = object_getClass(model);
-    unsigned int count = 0;
-    objc_property_t *pros = class_copyPropertyList(modelClass, &count);
-    
-    for (int i = 0; i < count; i++) {
-        objc_property_t pro = pros[i];
-        NSString *name = [NSString stringWithFormat:@"%s", property_getName(pro)];
-        id value = [model valueForKey:name];
-        if (value != nil) {
-            [dic setValue:value forKey:name];
-        }
-    }
-    free(pros);
-    return dic;
+    return exist;
 }
 
 @end

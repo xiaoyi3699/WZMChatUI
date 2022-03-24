@@ -64,6 +64,7 @@
         
         _notiImageView = [[UIImageView alloc] initWithFrame:CGRectMake(CHAT_SCREEN_WIDTH-32, _avatarImageView.chat_maxY-20, 17, 17)];
         _notiImageView.hidden = YES;
+        _notiImageView.image = [WZMInputHelper otherImageNamed:@"wzm_chat_bell_not"];
         [self.contentView addSubview:_notiImageView];
     }
     return self;
@@ -118,7 +119,6 @@
     [[WZMChatHelper helper] getImageWithUrl:model.avatar isUseCatch:YES completion:^(UIImage *image) {
         _avatarImageView.image = image;
     }];
-    _notiImageView.image = [WZMInputHelper otherImageNamed:@"wzm_chat_bell_not"];
     _nameLabel.text = model.name;
     _messageLabel.text = lastMsg;
     _timeLabel.text = [WZMChatHelper timeFromTimeStamp:[NSString stringWithFormat:@"%@",@(lastTimestamp)]];

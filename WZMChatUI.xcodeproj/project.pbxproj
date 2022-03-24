@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6485431727EC711800BC8CF6 /* NSObject+WZMChat.m in Sources */ = {isa = PBXBuildFile; fileRef = 6485431627EC711800BC8CF6 /* NSObject+WZMChat.m */; };
 		64EA8AB9256CB006007EC7C3 /* WZMLaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64EA8AB8256CB006007EC7C3 /* WZMLaunchScreen.storyboard */; };
 		7505DDEE22E69F710012A2E9 /* WZMInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7505DDBE22E69F710012A2E9 /* WZMInputView.m */; };
 		7505DDEF22E69F710012A2E9 /* WZMInputBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = 7505DDC122E69F710012A2E9 /* WZMInputBtn.m */; };
@@ -60,6 +61,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6485431527EC711800BC8CF6 /* NSObject+WZMChat.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+WZMChat.h"; sourceTree = "<group>"; };
+		6485431627EC711800BC8CF6 /* NSObject+WZMChat.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+WZMChat.m"; sourceTree = "<group>"; };
 		64EA8AB8256CB006007EC7C3 /* WZMLaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WZMLaunchScreen.storyboard; sourceTree = "<group>"; };
 		7505DDBE22E69F710012A2E9 /* WZMInputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WZMInputView.m; sourceTree = "<group>"; };
 		7505DDC122E69F710012A2E9 /* WZMInputBtn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WZMInputBtn.m; sourceTree = "<group>"; };
@@ -511,6 +514,8 @@
 			children = (
 				754A1FDE22E2BF24005A0585 /* UIView+WZMChat.h */,
 				754A1FE722E2BF24005A0585 /* UIView+WZMChat.m */,
+				6485431527EC711800BC8CF6 /* NSObject+WZMChat.h */,
+				6485431627EC711800BC8CF6 /* NSObject+WZMChat.m */,
 				754A1FE522E2BF24005A0585 /* NSDateFormatter+WZMChat.h */,
 				754A1FE022E2BF24005A0585 /* NSDateFormatter+WZMChat.m */,
 			);
@@ -661,6 +666,7 @@
 				754A200322E2BF24005A0585 /* WZMChatDBManager.m in Sources */,
 				754A201422E2BF24005A0585 /* WZMChatMessageCell.m in Sources */,
 				7505DDF022E69F710012A2E9 /* WZMRecordAnimation.m in Sources */,
+				6485431727EC711800BC8CF6 /* NSObject+WZMChat.m in Sources */,
 				754A1F9A22E2BEB6005A0585 /* WZMUserViewController.m in Sources */,
 				754A1F9C22E2BEB6005A0585 /* WZMSessionViewController.m in Sources */,
 				754A1F8522E2BE54005A0585 /* main.m in Sources */,
