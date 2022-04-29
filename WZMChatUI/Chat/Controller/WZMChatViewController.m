@@ -26,7 +26,7 @@
 ///私聊消息是否显示昵称, 不需要手动设置, 会根据私聊或者群聊用户自动判断, 此处只做记录
 @property (nonatomic, assign, getter=isShowName) BOOL showName;
 ///自定义表情键盘
-@property (nonatomic, strong) WZMInputView *inputView;
+@property (nonatomic, strong) WZMInputView *myInputView;
 ///手势处理相关
 @property (nonatomic, weak) id<UIGestureRecognizerDelegate> recognizerDelegate;
 @property (nonatomic, assign, getter=isDeferredSystemGestures) BOOL deferredSystemGestures;
@@ -92,7 +92,7 @@
 
 - (void)createViews {
     [self.view addSubview:self.tableView];
-    [self.view addSubview:self.inputView];
+    [self.view addSubview:self.myInputView];
     [self.tableView addSubview:self.loadingView];
 }
 
@@ -358,7 +358,7 @@
 
 - (void)tableViewScrollToBottom:(BOOL)animated duration:(CGFloat)duration {
     if (animated) {
-        CGFloat keyboardH = self.inputView.keyboardH;
+        CGFloat keyboardH = self.myInputView.keyboardH;
         CGFloat contentH = self.tableView.contentSize.height;
         CGFloat tableViewH = self.tableView.bounds.size.height;
         
@@ -387,7 +387,7 @@
 
 #pragma mark - UITableViewDelegate,UITableViewDataSource
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
-    [self.inputView chatResignFirstResponder];
+    [self.myInputView chatResignFirstResponder];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -514,7 +514,7 @@
     if (_tableView == nil) {
         CGRect rect = self.view.bounds;
         rect.origin.y = self.tableViewY;
-        rect.size.height -= (self.tableViewY+self.inputView.toolViewH);
+        rect.size.height -= (self.tableViewY+self.myInputView.toolViewH);
         
         _tableView = [[UITableView alloc] initWithFrame:rect];
         _tableView.delegate = self;
@@ -538,13 +538,13 @@
     return _tableView;
 }
 
-- (WZMInputView *)inputView {
-    if (_inputView == nil) {
-        _inputView = [[WZMInputView alloc] init];
-        _inputView.delegate = self;
-        _inputView.text = [[WZMChatDBManager DBManager] draftWithModel:self.userModel];
+- (WZMInputView *)myInputView {
+    if (_myInputView == nil) {
+        _myInputView = [[WZMInputView alloc] init];
+        _myInputView.delegate = self;
+        _myInputView.text = [[WZMChatDBManager DBManager] draftWithModel:self.userModel];
     }
-    return _inputView;
+    return _myInputView;
 }
 
 - (NSMutableArray *)messageModels {
@@ -582,7 +582,7 @@
     if (self.navigationController.viewControllers.count <= 1) return NO;
     if ([gestureRecognizer isKindOfClass:[UIPanGestureRecognizer class]]) {
         CGPoint point = [touch locationInView:gestureRecognizer.view];
-        if (point.y > CHAT_SCREEN_HEIGHT-self.inputView.toolViewH) {
+        if (point.y > CHAT_SCREEN_HEIGHT-self.myInputView.toolViewH) {
             return NO;
         }
         if (point.x <= 100) {//设置手势触发区
