@@ -133,7 +133,7 @@
             [self.tableView reloadData];
             [[WZMChatDBManager DBManager] deleteSessionModel:session.sid];
             //删除聊天记录
-            if (session.isSilence) {
+            if (session.isCluster) {
                 [[WZMChatDBManager DBManager] deleteMessageWithGid:session.sid];
             }
             else {
